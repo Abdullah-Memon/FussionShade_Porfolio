@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Fussion Shade — start your automation and software project today. Get a free consultation with our team." />
+  <meta name="theme-color" content="#3ED46A" />
+  <title>Contact Us — Fussion Shade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style/main.css" />
+  <style>
+    /* ── Contact page specific ── */
+    .contact-split {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--s12);
+      align-items: start;
+    }
+
+    .contact-info { display: flex; flex-direction: column; gap: var(--s5); }
+
+    .contact-info-card {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s4);
+      padding: var(--s5);
+      border-radius: var(--r-lg);
+      background: var(--surface);
+      box-shadow: var(--clay-shadow);
+      transition: transform var(--t-base), box-shadow var(--t-base);
+    }
+    .contact-info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--clay-shadow-hover);
+    }
+
+    .contact-info-icon {
+      flex-shrink: 0;
+      width: 48px; height: 48px;
+      border-radius: var(--r-md);
+      background: var(--primary-50);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+    }
+    .contact-info-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    .contact-info-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .contact-info-value {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .contact-info-value a { color: var(--text); text-decoration: none; }
+    .contact-info-value a:hover { color: var(--primary); }
+
+    .contact-socials {
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+      flex-wrap: wrap;
+    }
+    .contact-social-link {
+      width: 44px; height: 44px;
+      border-radius: var(--r-md);
+      background: var(--surface);
+      box-shadow: var(--clay-shadow-sm);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: transform var(--t-base), box-shadow var(--t-base), color var(--t-base);
+    }
+    .contact-social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--clay-shadow-hover);
+      color: var(--primary);
+    }
+    .contact-social-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    /* Availability badge */
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: var(--r-full);
+      background: rgba(62,212,106,0.12);
+      border: 1.5px solid rgba(62,212,106,0.3);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: var(--s5);
+    }
+    [data-theme="dark"] .availability-badge { color: var(--primary-light); }
+    .availability-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: pulse-dot 1.8s infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.3); }
+    }
+
+    /* Contact form */
+    .contact-form-wrap {
+      padding: var(--s8);
+      border-radius: var(--r-xl);
+      background: var(--surface);
+      box-shadow: var(--clay-shadow);
+    }
+
+    .form-title { margin-bottom: var(--s6); }
+    .form-title h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: var(--s2); }
+    .form-title p { color: var(--text-muted); font-size: 0.92rem; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s4);
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: var(--s5); }
+    .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--text-2); }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: var(--r-md);
+      border: 1.5px solid var(--border-card);
+      background: var(--bg-alt);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      outline: none;
+      transition: border-color var(--t-base), box-shadow var(--t-base);
+      box-sizing: border-box;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-50);
+    }
+    .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+    .form-select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 40px; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--s8);
+    }
+    .form-success.show { display: block; }
+    .form-success-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--primary-50);
+      border: 3px solid var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto var(--s5);
+      color: var(--primary);
+    }
+    .form-success-icon svg { width: 36px; height: 36px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+    /* FAQ section */
+    .faq-section { max-width: 760px; margin-inline: auto; }
+
+    @media (max-width: 900px) {
+      .contact-split { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: var(--s6); }
+    }
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contact-form-wrap { padding: var(--s5); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7.5c0 1.8.8 3.4 2 4.5C6.8 13.1 6 14.7 6 16.5 6 19.5 8.5 22 12 22s6-2.5 6-5.5c0-1.8-.8-3.4-2-4.5 1.2-1.1 2-2.7 2-4.5C18 4.5 15.5 2 12 2z"/></svg></div>
+      <span>Fussion<span class="text-primary">Shade</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html"    class="nav-link">Home</a>
+      <a href="about.html"    class="nav-link">About</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="contact.html"  class="nav-link active">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark/light mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="contact.html" class="btn btn-primary btn-sm" style="border-radius:var(--r-full)">Get in Touch</a>
+      <button class="nav-toggle" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="index.html"    class="nav-link">Home</a>
+  <a href="about.html"    class="nav-link">About</a>
+  <a href="services.html" class="nav-link">Services</a>
+  <a href="projects.html" class="nav-link">Projects</a>
+  <a href="contact.html"  class="nav-link active">Contact</a>
+  <a href="contact.html"  class="btn btn-primary">Get in Touch →</a>
+</div>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-badge">Let's Work Together</div>
+    <h1 class="display-lg" style="max-width:620px;margin-inline:auto;margin-bottom:var(--s5)">
+      Start Your <span class="gradient-text">Transformation</span>
+    </h1>
+    <p class="body-lg text-muted" style="max-width:500px;margin-inline:auto">
+      Tell us about your project. We'll respond within one business day with a personalised proposal and next steps.
+    </p>
+  </div>
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="contact-split">
+
+      <!-- Left: Contact Info -->
+      <aside class="contact-info reveal-left">
+
+        <div class="availability-badge">
+          <span class="availability-dot"></span>
+          Currently accepting new projects
+        </div>
+
+        <h2 style="font-size:1.4rem;font-weight:700;margin-bottom:var(--s2)">Get in Touch</h2>
+        <p style="color:var(--text-muted);margin-bottom:var(--s6);font-size:0.92rem;line-height:1.7">Whether you're ready to kick off a project or just exploring possibilities, we're here to help you find the best path forward.</p>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value">
+              <a href="mailto:hello@fussionshade.com">hello@fussionshade.com</a><br/>
+              <a href="mailto:projects@fussionshade.com">projects@fussionshade.com</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.68 3.4a2 2 0 0 1 1.99-2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8 9.91a15.92 15.92 0 0 0 5.9 5.9l.93-.93a2 2 0 0 1 2.11-.45c.91.339 1.852.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Phone / WhatsApp</div>
+            <div class="contact-info-value">
+              <a href="tel:+12345678901">+1 (234) 567-8901</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Response Hours</div>
+            <div class="contact-info-value">Mon – Fri, 9:00 AM – 6:00 PM EST<br/><span style="color:var(--primary);font-size:0.82rem">Usually within 2–4 hours</span></div>
+          </div>
+        </div>
+
+        <div class="contact-info-card">
+          <div class="contact-info-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-info-label">Office</div>
+            <div class="contact-info-value">123 Innovation Drive<br/>Tech District, NY 10001</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="contact-info-label" style="margin-bottom:var(--s3)">Follow Us</div>
+          <div class="contact-socials">
+            <a href="#" class="contact-social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="#" class="contact-social-link" aria-label="Twitter / X">
+              <svg viewBox="0 0 24 24"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="#" class="contact-social-link" aria-label="GitHub">
+              <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+            <a href="#" class="contact-social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-wrap reveal-right">
+
+        <div class="form-title">
+          <h2>Send Us a Message</h2>
+          <p>Fill in the details below and we'll craft a free, personalised proposal for your project.</p>
+        </div>
+
+        <form id="contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input class="form-input" type="text" id="fullName" name="fullName" placeholder="Alex Johnson" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="alex@company.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company / Organisation</label>
+            <input class="form-input" type="text" id="company" name="company" placeholder="Acme Corp" autocomplete="organization" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Needed *</label>
+              <select class="form-select" id="service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="web">Web Application</option>
+                <option value="mobile">Mobile App</option>
+                <option value="ai">AI / ML Integration</option>
+                <option value="chatbot">Custom Chatbot</option>
+                <option value="automation">Business Automation</option>
+                <option value="consulting">Technical Consulting</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Estimated Budget</label>
+              <select class="form-select" id="budget" name="budget">
+                <option value="" disabled selected>Select a range</option>
+                <option value="5k">$5k – $10k</option>
+                <option value="10k">$10k – $25k</option>
+                <option value="25k">$25k – $50k</option>
+                <option value="50k">$50k – $100k</option>
+                <option value="100k">$100k+</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details *</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your project goals, key features you need, timelines, and any other relevant details…" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding-block:14px;font-size:1rem">
+            <span class="btn-text">Send Message</span>
+            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+        <div class="form-success" aria-live="polite">
+          <div class="form-success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-size:1.3rem;margin-bottom:var(--s2)">Message Sent!</h3>
+          <p style="color:var(--text-muted)">Thanks for reaching out. We'll review your project details and get back to you within one business day with a personalised proposal.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- WHY FREE CONSULTATION -->
+<section style="padding-block:var(--s16);background:var(--bg-alt)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge">Free Consultation</div>
+      <h2 class="section-title" style="font-size:2rem">What to Expect in Your<br/>Free Strategy Call</h2>
+      <p class="section-sub">No strings attached. Just a focused 30 mins to explore how we can help your business.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5);margin-top:var(--s10)">
+      <div class="clay reveal" style="padding:var(--s6);text-align:center">
+        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Needs Discovery</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted)">We explore your goals, current pain points, and what success looks like for you.</p>
+      </div>
+      <div class="clay reveal delay-1" style="padding:var(--s6);text-align:center">
+        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polygon points="3 3 21 3 21 15 10 15 3 22 3 3"/></svg></div>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Expert Recommendations</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted)">Our team shares honest recommendations on tech stack, approach, and timeline.</p>
+      </div>
+      <div class="clay reveal delay-2" style="padding:var(--s6);text-align:center">
+        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Scope &amp; Estimate</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted)">You'll get a ballpark scope and cost estimate by the end of the call — no surprises.</p>
+      </div>
+      <div class="clay reveal delay-3" style="padding:var(--s6);text-align:center">
+        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Clear Next Steps</h4>
+        <p style="font-size:0.85rem;color:var(--text-muted)">Walk away with a clear action plan, whether you choose to work with us or not.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge">FAQ</div>
+      <h2 class="section-title" style="font-size:2rem">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-section reveal">
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How long does a typical project take?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Project timelines vary depending on complexity. A focused web application typically takes 4–8 weeks. Mobile apps run 8–14 weeks. Enterprise automations and AI integrations are often phased over 3–6 months for proper testing and rollout. We always provide a detailed timeline before we start.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What is your development process?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We follow an agile sprint process: Discovery → Architecture & Design → Development (2-week sprints with demo at each sprint end) → QA & Testing → Deployment → Post-launch support. You receive weekly updates and have access to a shared project board throughout.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Do you provide ongoing maintenance after launch?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! All projects include 30 days of free post-launch support. After that, we offer retainer maintenance packages starting at $500/month covering bug fixes, security updates, minor feature additions, and monitoring. Most clients choose these to ensure their systems stay current and performant.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What industries do you work with?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>We've delivered projects across retail, financial services, healthcare, logistics, e-commerce, professional services, and SaaS. Our automation and AI expertise translates powerfully across industries — if you have repetitive processes, we can automate them regardless of your sector.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          How do you handle intellectual property and confidentiality?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>All code, assets, and deliverables become your full property upon final payment. We sign NDAs before discovery calls for sensitive projects. Our team operates under strict confidentiality policies and we never share client information or use your data to train models without explicit written permission.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          What information should I prepare before reaching out?
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <p>The more context the better, but even a rough idea is fine. Helpful things to think about: What problem are you trying to solve? Who are the end users? Are there existing systems to integrate with? What's your timeline and approximate budget? We'll help you refine requirements during the discovery call.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4.5 6 7.5c0 1.8.8 3.4 2 4.5C6.8 13.1 6 14.7 6 16.5 6 19.5 8.5 22 12 22s6-2.5 6-5.5c0-1.8-.8-3.4-2-4.5 1.2-1.1 2-2.7 2-4.5C18 4.5 15.5 2 12 2z"/></svg></div>
+          <span>Fussion<span class="text-primary">Shade</span></span>
+        </a>
+        <p>Empowering businesses through intelligent automation and custom digital solutions.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg></a>
+          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="footer-social" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html">About Us</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div></div>
+      <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="services.html">Web Development</a><a href="services.html">Mobile Apps</a><a href="services.html">AI Integration</a><a href="services.html">Custom Chatbots</a><a href="services.html">Automation</a></div></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:hello@fussionshade.com">hello@fussionshade.com</a><a href="tel:+12345678901">+1 (234) 567-8901</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span>Fussion Shade</span>. All rights reserved.</p>
+      <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

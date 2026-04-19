@@ -93,11 +93,11 @@ const Nav = (() => {
       });
     }
 
-    // Active nav link
-    const path = window.location.pathname.split('/').pop() || 'index.html';
+    // Active nav link — works with clean URLs (/about, /services, etc.)
+    const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('.nav-link').forEach(link => {
-      const href = (link.getAttribute('href') || '').split('/').pop();
-      if (href === path || (path === '' && href === 'index.html')) {
+      const href = (link.getAttribute('href') || '').replace(/\/$/, '') || '/';
+      if (href === currentPath) {
         link.classList.add('active');
       }
     });

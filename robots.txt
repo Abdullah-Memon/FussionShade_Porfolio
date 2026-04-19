@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block access to server config files
+Disallow: /.htaccess
+Disallow: /.env
+
+Sitemap: https://www.fussionshade.com/sitemap.xml

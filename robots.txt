@@ -1,13 +1,74 @@
+# ================================================================
+#  Fussion Shade — robots.txt
+#  Allow all crawlers including AI/LLM bots to read content.
+# ================================================================
+
+# Default: allow all search engines
 User-agent: *
 Allow: /
-
-# Block access to server config files
 Disallow: /.htaccess
 Disallow: /.env
-
-# Block error pages from being indexed
 Disallow: /400
 Disallow: /404
 Disallow: /500
 
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing / Microsoft
+User-agent: Bingbot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+
+# AI / LLM crawlers — explicitly allowed for AEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
 Sitemap: https://www.fussionshade.com/sitemap.xml
+

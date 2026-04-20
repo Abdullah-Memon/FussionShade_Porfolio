@@ -1,6 +1,6 @@
 # ================================================================
 #  Fussion Shade — Apache Configuration
-#  Clean URLs, security headers, asset caching
+#  Clean URLs, security headers, asset caching, DDoS mitigation
 # ================================================================
 
 Options -Indexes
@@ -8,8 +8,6 @@ DirectoryIndex index.html
 
 # ----------------------------------------------------------------
 #  URL REWRITING — Clean URLs via folder structure
-#  Each page lives at pagename/index.html so /about, /services,
-#  /projects, /contact work natively on any server.
 # ----------------------------------------------------------------
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -19,7 +17,7 @@ DirectoryIndex index.html
   RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
   RewriteRule ^ / [R=301,L]
 
-  # 2. Redirect /page.html → /page (strip .html if someone types it, permanent)
+  # 2. Redirect /page.html → /page (strip .html)
   RewriteCond %{THE_REQUEST} \s/+([^?\s/]+)\.html[\s?] [NC]
   RewriteRule ^ /%1 [R=301,L]
 </IfModule>
@@ -33,6 +31,57 @@ DirectoryIndex index.html
   Header set X-XSS-Protection "1; mode=block"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+  # Cache-Control for HTML — always revalidate
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  # Long cache for versioned assets
+  <FilesMatch "\.(css|js|png|jpg|jpeg|webp|svg|woff2|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
+
+# ----------------------------------------------------------------
+#  DDoS / ABUSE MITIGATION
+# ----------------------------------------------------------------
+
+# ── Block empty User-Agent (bots that don't identify themselves) ──
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTP_USER_AGENT} ^-?$ [OR]
+  RewriteCond %{HTTP_USER_AGENT} ^[\s]*$
+  RewriteRule ^ - [F,L]
+</IfModule>
+
+# ── Block known malicious scanners & exploit tools ──
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTP_USER_AGENT} (masscan|zgrab|nmap|nikto|sqlmap|acunetix|havij|openvas|nessus|dirbuster|nuclei|wapiti|metasploit) [NC]
+  RewriteRule ^ - [F,L]
+</IfModule>
+
+# ── Rate limiting via mod_evasive (if available) ──
+<IfModule mod_evasive24.c>
+  DOSHashTableSize    3097
+  DOSPageCount        10
+  DOSSiteCount        50
+  DOSPageInterval     1
+  DOSSiteInterval     1
+  DOSBlockingPeriod   300
+  DOSLogDir           /var/log/mod_evasive
+</IfModule>
+
+# ── Limit request body size (prevents large payload attacks) ──
+LimitRequestBody 10485760
+
+# ── Block common exploit/probe URIs ──
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_URI} (wp-admin|wp-login|xmlrpc|\.env|\.git|\.svn|etc/passwd|proc/self) [NC]
+  RewriteRule ^ - [F,L]
+</IfModule>
+
+# ── Slow down repeated hits on error pages (HTTP flood) ──
+<IfModule mod_reqtimeout.c>
+  RequestReadTimeout header=20-40,minrate=500 body=20,minrate=500
 </IfModule>
 
 # ----------------------------------------------------------------
@@ -40,13 +89,16 @@ DirectoryIndex index.html
 # ----------------------------------------------------------------
 <IfModule mod_expires.c>
   ExpiresActive On
-  ExpiresByType text/css                "access plus 1 month"
-  ExpiresByType application/javascript  "access plus 1 month"
-  ExpiresByType image/png               "access plus 1 year"
-  ExpiresByType image/jpeg              "access plus 1 year"
-  ExpiresByType image/webp              "access plus 1 year"
-  ExpiresByType image/svg+xml           "access plus 1 month"
-  ExpiresByType font/woff2              "access plus 1 year"
+  ExpiresByType text/html                "access plus 0 seconds"
+  ExpiresByType text/css                 "access plus 1 year"
+  ExpiresByType application/javascript   "access plus 1 year"
+  ExpiresByType image/png                "access plus 1 year"
+  ExpiresByType image/jpeg               "access plus 1 year"
+  ExpiresByType image/webp               "access plus 1 year"
+  ExpiresByType image/svg+xml            "access plus 1 year"
+  ExpiresByType font/woff2               "access plus 1 year"
+  ExpiresByType application/xml          "access plus 1 day"
+  ExpiresByType text/xml                 "access plus 1 day"
 </IfModule>
 
 # ----------------------------------------------------------------
@@ -54,7 +106,7 @@ DirectoryIndex index.html
 # ----------------------------------------------------------------
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css application/javascript
-  AddOutputFilterByType DEFLATE image/svg+xml font/woff2
+  AddOutputFilterByType DEFLATE image/svg+xml font/woff2 application/xml text/xml
 </IfModule>
 
 # ----------------------------------------------------------------
@@ -68,3 +120,4 @@ ErrorDocument 500 /500
 ErrorDocument 502 /500
 ErrorDocument 503 /500
 ErrorDocument 504 /500
+

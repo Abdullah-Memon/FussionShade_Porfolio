@@ -569,22 +569,13 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-.nav-logo-icon {
+.nav-logo-img {
   width: 36px;
   height: 36px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--clay-btn);
+  border-radius: 8px;
+  object-fit: contain;
   flex-shrink: 0;
-}
-
-.nav-logo-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
+  display: block;
 }
 
 /* Nav Links */

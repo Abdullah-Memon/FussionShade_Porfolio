@@ -161,14 +161,30 @@
     </div>
   </div>
 </nav>
-<div class="nav-mobile">
-  <a href="/"    class="nav-link">Home</a>
-  <a href="/about"    class="nav-link">About</a>
-  <a href="/services" class="nav-link">Services</a>
-  <a href="/projects" class="nav-link active">Projects</a>
-  <a href="/contact"  class="nav-link">Contact</a>
-  <a href="/contact"  class="btn btn-primary">Get in Touch →</a>
+<div class="nav-mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <div class="nav-sidebar-header">
+    <span class="nav-sidebar-brand">Fussion Shade</span>
+    <button class="nav-sidebar-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="nav-sidebar-links">
+    <a href="/"         class="nav-link">Home</a>
+    <a href="/about"    class="nav-link">About</a>
+    <a href="/services" class="nav-link">Services</a>
+    <a href="/projects" class="nav-link active">Projects</a>
+    <a href="/contact"  class="nav-link">Contact</a>
+  </nav>
+  <div class="nav-sidebar-footer">
+    <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span>Toggle Theme</span>
+    </button>
+    <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
+  </div>
 </div>
+<div class="nav-overlay" aria-hidden="true"></div>
 
 
 <!-- PAGE HERO -->
@@ -190,11 +206,11 @@
   <div class="container">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);text-align:center">
       <div class="clay-sm" style="padding:var(--s5)">
-        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>120</div>
+        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>20</div>
         <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Projects Delivered</div>
       </div>
       <div class="clay-sm" style="padding:var(--s5)">
-        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>50</div>
+        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>5</div>
         <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Happy Clients</div>
       </div>
       <div class="clay-sm" style="padding:var(--s5)">
@@ -224,40 +240,36 @@
 
     <div class="projects-grid">
 
-      <!-- Project 1: AutoFlow CRM (Featured) -->
+      <!-- Project 1: Student Centric Education (FEATURED) -->
       <div class="project-card-wrap featured reveal" data-category="web">
         <article class="clay project-card">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0D2218 0%,#1B5C38 50%,#3ED46A 100%)">
               <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
               </div>
-              <div class="project-result">↑ <span>78%</span> operational efficiency</div>
+              <div class="project-result"><span>100%</span> reporting automated</div>
             </div>
           </div>
           <div class="project-body">
             <div class="case-badge">
               <span class="project-tag">Web App</span>
-              <span class="project-tag">Automation</span>
-              <span class="project-tag">CRM</span>
-              <span class="result-pill green">↑ 78% Efficiency</span>
+              <span class="project-tag">EdTech</span>
+              <span class="project-tag">LMS</span>
+              <span class="result-pill green">Eliminated SaaS Licensing Fees</span>
             </div>
-            <h3>AutoFlow CRM — RetailFlow Inc.</h3>
-            <p>A comprehensive CRM platform with intelligent automation for a 32-location retail chain. The system auto-processes orders, sends follow-up communications, manages inventory alerts, and generates reports — eliminating 4+ hours of daily manual work per team member.</p>
-            <blockquote class="project-quote">
-              "What used to take our team 4 hours daily now runs automatically in under 10 minutes. The ROI was evident within our very first month."
-              <cite>— Sarah Mitchell, CEO</cite>
-            </blockquote>
+            <h3>Student Centric Education — Quaid-e-Awam University</h3>
+            <p>Quaid-e-Awam University of Engineering was paying a substantial recurring fee to a third-party SaaS platform for basic LMS functionality. We built them a fully custom, OBE-principle based Learning Management System that the university now owns outright. The platform runs on daily basis across the entire student population, handling course delivery, OBE-aligned assessments, automated grading, attendance tracking, progress analytics, and complete administrative reporting. What previously required manual effort from faculty and staff is now fully automated. Built under the academic supervision of <a href="https://www.linkedin.com/in/drpkumar/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">Dr. Pardeep Kumar</a>, the system has eliminated their dependency on paid SaaS tools entirely — saving the institution recurring costs every single month while giving them complete control over their educational data and workflows.</p>
           </div>
           <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">78%</div><div class="project-stat-label">Less manual work</div></div>
-            <div class="project-stat"><div class="project-stat-val">4hrs</div><div class="project-stat-label">Saved daily/user</div></div>
-            <div class="project-stat"><div class="project-stat-val">32</div><div class="project-stat-label">Locations served</div></div>
-            <div class="project-stat"><div class="project-stat-val">3mo</div><div class="project-stat-label">Build time</div></div>
+            <div class="project-stat"><div class="project-stat-val">4k+</div><div class="project-stat-label">Daily active students</div></div>
+            <div class="project-stat"><div class="project-stat-val">100%</div><div class="project-stat-label">Reports automated</div></div>
+            <div class="project-stat"><div class="project-stat-val">Zero</div><div class="project-stat-label">Monthly SaaS cost</div></div>
+            <div class="project-stat"><div class="project-stat-val">MERN</div><div class="project-stat-label">Tech stack</div></div>
           </div>
           <div class="project-footer">
             <div class="project-tech">
-              <span>React</span><span>·</span><span>Node.js</span><span>·</span><span>PostgreSQL</span><span>·</span><span>OpenAI</span><span>·</span><span>AWS</span>
+              <span>MongoDB</span><span>·</span><span>Express.js</span><span>·</span><span>React</span><span>·</span><span>Node.js</span>
             </div>
             <a href="/contact" class="project-link">
               Build something similar
@@ -267,191 +279,194 @@
         </article>
       </div>
 
-      <!-- Project 2: ProBot AI -->
-      <div class="project-card-wrap reveal delay-1" data-category="ai">
+      <!-- Project 2: Currency Rate Marketplace -->
+      <div class="project-card-wrap reveal delay-1" data-category="web">
         <article class="clay project-card">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0A1D3E,#154080,#3B82F6)">
               <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
               </div>
-              <div class="project-result">↓ <span>65%</span> response time</div>
+              <div class="project-result"><span>Real-time</span> live rate engine</div>
             </div>
           </div>
           <div class="project-body">
             <div class="case-badge">
-              <span class="project-tag">AI Chatbot</span>
+              <span class="project-tag">Web App</span>
               <span class="project-tag">FinTech</span>
-              <span class="result-pill blue">85% Auto-resolved</span>
+              <span class="result-pill blue">Real-time Processing</span>
             </div>
-            <h3>ProBot AI — FinServe Pro</h3>
-            <p>Enterprise AI assistant for a financial services firm, trained on 6 years of support documentation. Handles account queries, compliance questions, and transaction disputes 24/7 in 12 languages.</p>
+            <h3>FX Marketplace — Currency Rate Platform</h3>
+            <p>A FinTech platform enabling real-time currency exchange between two currencies using live market rates. Users create and respond to exchange offers in real time, seeing exactly what they get before committing. The platform handles concurrent live data streams, offer matching, and transaction processing at speed. A full CI/CD pipeline automates every stage of testing and deployment, giving the team the confidence to ship updates rapidly without downtime.</p>
           </div>
           <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">85%</div><div class="project-stat-label">Queries resolved</div></div>
-            <div class="project-stat"><div class="project-stat-val">65%</div><div class="project-stat-label">Faster response</div></div>
-            <div class="project-stat"><div class="project-stat-val">12</div><div class="project-stat-label">Languages</div></div>
+            <div class="project-stat"><div class="project-stat-val">Live</div><div class="project-stat-label">Real-time rate feed</div></div>
+            <div class="project-stat"><div class="project-stat-val">99.9%</div><div class="project-stat-label">Uptime</div></div>
+            <div class="project-stat"><div class="project-stat-val">CI/CD</div><div class="project-stat-label">Fully automated</div></div>
           </div>
           <div class="project-footer">
             <div class="project-tech">
-              <span>Python</span><span>·</span><span>LangChain</span><span>·</span><span>FastAPI</span><span>·</span><span>Vue.js</span>
+              <span>Next.js</span><span>·</span><span>Redux</span><span>·</span><span>PostgreSQL</span><span>·</span><span>Java</span><span>·</span><span>CI/CD</span>
             </div>
             <a href="/contact" class="project-link">
-              Discuss chatbot
+              Discuss your FinTech idea
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
         </article>
       </div>
 
-      <!-- Project 3: MediTrack -->
-      <div class="project-card-wrap reveal" data-category="mobile">
+      <!-- Project 3: Perfume Marketer AI -->
+      <div class="project-card-wrap reveal" data-category="ai">
         <article class="clay project-card">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background:linear-gradient(135deg,#2C0A3E,#6B21A8,#A855F7)">
               <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               </div>
-              <div class="project-result">↑ <span>52%</span> scheduling speed</div>
+              <div class="project-result">Sales <span>boosted</span> worldwide</div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="case-badge">
+              <span class="project-tag">AI Chatbot</span>
+              <span class="project-tag">E-Commerce</span>
+              <span class="result-pill purple">Boosted Revenue</span>
+            </div>
+            <h3>Perfume Marketer — AI Sales Assistant</h3>
+            <p>The client, a perfume store owner, needed more than a basic customer care chatbot. We built an intelligent recommendation engine that suggests personalised perfume blends by analysing the customer's occasion, culture, ethnicity, mood, and preferences. The system identifies demand patterns across demographics, which directly guided the client to develop new fragrance product lines serving previously untapped global markets. The result: higher order values, stronger customer loyalty, and sales growth across new international segments.</p>
+            <blockquote class="project-quote">
+              The AI doesn't just answer questions, it sells. Customers come back because the recommendations feel personal.
+              <cite>Store Owner, Perfume Marketer</cite>
+            </blockquote>
+          </div>
+          <div class="project-stats">
+            <div class="project-stat"><div class="project-stat-val">+40%</div><div class="project-stat-label">Sales increase</div></div>
+            <div class="project-stat"><div class="project-stat-val">New</div><div class="project-stat-label">Product lines created</div></div>
+            <div class="project-stat"><div class="project-stat-val">24/7</div><div class="project-stat-label">AI availability</div></div>
+          </div>
+          <div class="project-footer">
+            <div class="project-tech">
+              <span>Python</span><span>·</span><span>OpenAI</span><span>·</span><span>React</span><span>·</span><span>FastAPI</span>
+            </div>
+            <a href="/contact" class="project-link">
+              Build your AI assistant
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Project 4: ShiftSync (dummy) -->
+      <div class="project-card-wrap reveal delay-1" data-category="automation">
+        <article class="clay project-card">
+          <div class="project-thumb">
+            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#292001,#78450A,#F59E0B)">
+              <div class="project-thumb-icon">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              </div>
+              <div class="project-result"><span>85%</span> scheduling automated</div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="case-badge">
+              <span class="project-tag">Automation</span>
+              <span class="project-tag">HR Tech</span>
+              <span class="result-pill orange">85% Automated</span>
+            </div>
+            <h3>ShiftSync — Staff Scheduling Platform</h3>
+            <p>A smart workforce management platform for a hospitality group with multiple locations. The system automatically generates shift schedules based on availability, skill sets, and labour cost targets. Shift swaps, leave requests, and overtime alerts are all handled in the app, cutting management admin time by over 3 hours per week per location.</p>
+          </div>
+          <div class="project-stats">
+            <div class="project-stat"><div class="project-stat-val">85%</div><div class="project-stat-label">Scheduling automated</div></div>
+            <div class="project-stat"><div class="project-stat-val">3h+</div><div class="project-stat-label">Admin saved/week</div></div>
+            <div class="project-stat"><div class="project-stat-val">6</div><div class="project-stat-label">Locations managed</div></div>
+          </div>
+          <div class="project-footer">
+            <div class="project-tech">
+              <span>React</span><span>·</span><span>Node.js</span><span>·</span><span>PostgreSQL</span>
+            </div>
+            <a href="/contact" class="project-link">
+              Automate your operations
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Project 5: SwiftDeliver (dummy, featured) -->
+      <div class="project-card-wrap featured reveal delay-2" data-category="mobile">
+        <article class="clay project-card">
+          <div class="project-thumb">
+            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#052E2E,#0E7490,#22D3EE)">
+              <div class="project-thumb-icon">
+                <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              </div>
+              <div class="project-result">↑ <span>60%</span> faster delivery confirmation</div>
             </div>
           </div>
           <div class="project-body">
             <div class="case-badge">
               <span class="project-tag">Mobile App</span>
-              <span class="project-tag">HealthTech</span>
-              <span class="result-pill purple">4.9★ App Store</span>
+              <span class="project-tag">Logistics</span>
+              <span class="result-pill blue">60% Faster Ops</span>
             </div>
-            <h3>MediTrack — MediCare Plus</h3>
-            <p>Cross-platform healthcare app for 8 clinic locations. Patients book, manage, and receive AI-powered health reminders while clinics gain real-time capacity management.</p>
-          </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">52%</div><div class="project-stat-label">Faster scheduling</div></div>
-            <div class="project-stat"><div class="project-stat-val">4.9</div><div class="project-stat-label">App Store rating</div></div>
-            <div class="project-stat"><div class="project-stat-val">12k</div><div class="project-stat-label">Active users</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>React Native</span><span>·</span><span>Firebase</span><span>·</span><span>Node.js</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Build mobile app
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Project 4: EcomSync -->
-      <div class="project-card-wrap reveal delay-1" data-category="automation">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#064E3B,#059669,#34D399)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              </div>
-              <div class="project-result">↑ <span>90%</span> tasks automated</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">Automation</span>
-              <span class="project-tag">E-Commerce</span>
-              <span class="result-pill green">90% Automated</span>
-            </div>
-            <h3>EcomSync — GlobalMart</h3>
-            <p>Inventory and order management automation platform for a 500k+ SKU e-commerce operation. Automates restocking, supplier orders, pricing adjustments, and multi-warehouse routing.</p>
-          </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">90%</div><div class="project-stat-label">Tasks automated</div></div>
-            <div class="project-stat"><div class="project-stat-val">$1.2M</div><div class="project-stat-label">Annual savings</div></div>
-            <div class="project-stat"><div class="project-stat-val">500k</div><div class="project-stat-label">SKUs managed</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>Next.js</span><span>·</span><span>Django</span><span>·</span><span>Redis</span><span>·</span><span>AWS</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Automate your ops
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Project 5: FleetPulse (Featured) -->
-      <div class="project-card-wrap featured reveal delay-2" data-category="ai">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#1C1917,#44403C,#F59E0B)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-              </div>
-              <div class="project-result">Saved <span>$2.4M</span> annually</div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">AI / ML</span>
-              <span class="project-tag">IoT</span>
-              <span class="project-tag">Dashboard</span>
-              <span class="result-pill orange">$2.4M Saved/year</span>
-            </div>
-            <h3>FleetPulse IQ — NexaCorp Logistics</h3>
-            <p>AI-powered fleet management intelligence platform monitoring 850 vehicles in real time. Predictive maintenance ML models reduced breakdowns by 71%. Route optimisation AI cuts fuel spend by 23%. Live dashboards give operations teams instant visibility into fleet health, driver performance, and delivery ETAs.</p>
+            <h3>SwiftDeliver — Logistics Tracking App</h3>
+            <p>A cross-platform mobile application built for a regional logistics company to give both drivers and dispatchers real-time visibility into deliveries. Drivers receive optimised route guidance and can complete proof-of-delivery digitally. Dispatchers see a live map of all active drivers and exception alerts the instant a delivery is delayed or failed. Customer notifications are triggered automatically at each milestone, reducing inbound calls to dispatch by 44%.</p>
             <blockquote class="project-quote">
-              "FleetPulse transformed how we manage our entire fleet. The predictive maintenance alone paid for the whole project in under 3 months."
-              <cite>— Marcus Webb, COO, NexaCorp Logistics</cite>
+              Our customers used to call us all day asking where their package was. Now the app tells them automatically. Our dispatch team can actually focus on real problems.
+              <cite>Operations Manager, SwiftDeliver</cite>
             </blockquote>
           </div>
           <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">71%</div><div class="project-stat-label">Fewer breakdowns</div></div>
-            <div class="project-stat"><div class="project-stat-val">23%</div><div class="project-stat-label">Fuel savings</div></div>
-            <div class="project-stat"><div class="project-stat-val">850</div><div class="project-stat-label">Vehicles managed</div></div>
-            <div class="project-stat"><div class="project-stat-val">$2.4M</div><div class="project-stat-label">Annual savings</div></div>
+            <div class="project-stat"><div class="project-stat-val">60%</div><div class="project-stat-label">Faster confirmation</div></div>
+            <div class="project-stat"><div class="project-stat-val">44%</div><div class="project-stat-label">Fewer inbound calls</div></div>
+            <div class="project-stat"><div class="project-stat-val">Real-time</div><div class="project-stat-label">GPS tracking</div></div>
+            <div class="project-stat"><div class="project-stat-val">iOS+Android</div><div class="project-stat-label">Both platforms</div></div>
           </div>
           <div class="project-footer">
             <div class="project-tech">
-              <span>React</span><span>·</span><span>Python</span><span>·</span><span>TensorFlow</span><span>·</span><span>PostgreSQL</span><span>·</span><span>MQTT</span>
+              <span>React Native</span><span>·</span><span>Node.js</span><span>·</span><span>MongoDB</span><span>·</span><span>Firebase</span>
             </div>
             <a href="/contact" class="project-link">
-              Build something similar
+              Build your mobile app
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
         </article>
       </div>
 
-      <!-- Project 6: ChatNexus -->
+      <!-- Project 6: DataLens (dummy) -->
       <div class="project-card-wrap reveal delay-3" data-category="ai">
         <article class="clay project-card">
           <div class="project-thumb">
             <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0C0A1E,#3730A3,#818CF8)">
               <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
               </div>
-              <div class="project-result"><span>85%</span> queries automated</div>
+              <div class="project-result">Decisions <span>3x faster</span></div>
             </div>
           </div>
           <div class="project-body">
             <div class="case-badge">
-              <span class="project-tag">AI Chatbot</span>
-              <span class="project-tag">SaaS</span>
-              <span class="result-pill purple">50+ Enterprise Clients</span>
+              <span class="project-tag">AI / ML</span>
+              <span class="project-tag">Analytics</span>
+              <span class="result-pill purple">3x Faster Decisions</span>
             </div>
-            <h3>ChatNexus Platform — DataSync</h3>
-            <p>White-label AI chatbot platform now serving 50+ enterprise clients. Powers customer support, internal HR bots, and sales qualification across industries.</p>
+            <h3>DataLens — Business Intelligence Dashboard</h3>
+            <p>An AI-powered analytics dashboard for a retail group that consolidates sales, inventory, and customer data from multiple sources into a single view. Predictive models surface demand forecasts and stock risk alerts before problems occur. Executives stopped waiting days for reports and started making same-day decisions backed by live data.</p>
           </div>
           <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">50+</div><div class="project-stat-label">Enterprise clients</div></div>
-            <div class="project-stat"><div class="project-stat-val">85%</div><div class="project-stat-label">Auto-resolved</div></div>
-            <div class="project-stat"><div class="project-stat-val">2M+</div><div class="project-stat-label">Messages/month</div></div>
+            <div class="project-stat"><div class="project-stat-val">3x</div><div class="project-stat-label">Faster decisions</div></div>
+            <div class="project-stat"><div class="project-stat-val">8+</div><div class="project-stat-label">Data sources unified</div></div>
+            <div class="project-stat"><div class="project-stat-val">Live</div><div class="project-stat-label">AI forecasting</div></div>
           </div>
           <div class="project-footer">
             <div class="project-tech">
-              <span>Node.js</span><span>·</span><span>OpenAI</span><span>·</span><span>MongoDB</span><span>·</span><span>React</span>
+              <span>Python</span><span>·</span><span>TensorFlow</span><span>·</span><span>React</span><span>·</span><span>PostgreSQL</span>
             </div>
             <a href="/contact" class="project-link">
-              Build chatbot platform
+              Build your dashboard
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
@@ -470,7 +485,7 @@
     <div class="cta-banner-inner reveal">
       <div class="section-badge" style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">Start Your Project</div>
       <h2>Your Success Story<br/>Starts Today</h2>
-      <p>Join 50+ businesses who've transformed their operations with Fussion Shade. Let's create the next case study — yours.</p>
+      <p>Join our growing client base and let us build technology that moves your revenue forward. Let's create the next case study together.</p>
       <div class="flex flex-center gap-4" style="flex-wrap:wrap">
         <a href="/contact" class="btn btn-primary btn-lg">
           Start My Project
@@ -501,7 +516,7 @@
       </div>
       <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/contact">Contact</a></div></div>
       <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="/services">Web Development</a><a href="/services">Mobile Apps</a><a href="/services">AI Integration</a><a href="/services">Custom Chatbots</a><a href="/services">Automation</a></div></div>
-      <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:hello@fussionshade.com">hello@fussionshade.com</a><a href="tel:+1234567890">+1 (234) 567-890</a></div></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:fussionshade@gmail.com">fussionshade@gmail.com</a><a href="tel:+923073134427">+92 307 313 4427</a></div></div>
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 <span>Fussion Shade</span>. All rights reserved.</p>

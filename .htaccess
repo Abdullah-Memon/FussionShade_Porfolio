@@ -58,7 +58,13 @@ DirectoryIndex index.html
 </IfModule>
 
 # ----------------------------------------------------------------
-#  CUSTOM ERROR PAGES (optional — create these files when ready)
+#  CUSTOM ERROR PAGES
 # ----------------------------------------------------------------
-# ErrorDocument 404 /404.html
-# ErrorDocument 500 /500.html
+ErrorDocument 400 /400
+ErrorDocument 401 /400
+ErrorDocument 403 /400
+ErrorDocument 404 /404
+ErrorDocument 500 /500
+ErrorDocument 502 /500
+ErrorDocument 503 /500
+ErrorDocument 504 /500

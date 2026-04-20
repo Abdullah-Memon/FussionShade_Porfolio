@@ -535,6 +535,10 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   transition: all var(--t-base);
+  /* Prevent mobile browser address-bar scroll jank */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 .nav.scrolled {
@@ -674,40 +678,131 @@ h1, h2, h3, h4, h5, h6 {
 .nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile Menu */
+/* ── Mobile full-screen sidebar ── */
 .nav-mobile {
-  display: none;
   position: fixed;
-  top: var(--nav-h);
-  left: 0;
-  right: 0;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
-  padding: var(--s4) var(--s6);
-  z-index: 999;
-  flex-direction: column;
-  gap: var(--s2);
-  transform: translateY(-10px);
-  opacity: 0;
-  transition: all var(--t-base);
-}
-
-.nav-mobile.open {
+  z-index: 1999;
   display: flex;
-  transform: translateY(0);
-  opacity: 1;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              visibility 0.35s;
+  visibility: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: -8px 0 48px rgba(0,0,0,0.18);
+}
+.nav-mobile.open {
+  transform: translateX(0);
+  visibility: visible;
 }
 
+/* Overlay backdrop */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  z-index: 1998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s;
+  pointer-events: none;
+}
+.nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Sidebar top bar */
+.nav-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--s6);
+  min-height: var(--nav-h);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.nav-sidebar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.nav-sidebar-close {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-alt);
+  color: var(--text-2);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  transition: color var(--t-fast), background var(--t-fast);
+}
+.nav-sidebar-close:hover {
+  color: var(--primary);
+  background: var(--primary-50);
+}
+.nav-sidebar-close svg { width: 22px; height: 22px; }
+
+/* Sidebar nav links area */
+.nav-sidebar-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--s6);
+  gap: var(--s1);
+}
 .nav-mobile .nav-link {
-  padding: var(--s3) var(--s4);
+  padding: var(--s3) var(--s5);
   border-radius: var(--r-md);
   font-size: 1.05rem;
+  font-weight: 500;
+  display: block;
 }
 
+/* Sidebar bottom area: theme toggle + CTA */
+.nav-sidebar-footer {
+  padding: var(--s6);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  flex-shrink: 0;
+}
+.nav-sidebar-theme {
+  display: flex;
+  align-items: center;
+  gap: var(--s3);
+  width: 100%;
+  padding: var(--s3) var(--s5);
+  background: var(--surface-alt);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color var(--t-fast), background var(--t-fast);
+  text-align: left;
+}
+.nav-sidebar-theme:hover {
+  color: var(--primary);
+  background: var(--primary-50);
+}
+.nav-sidebar-theme svg { width: 18px; height: 18px; flex-shrink: 0; }
 .nav-mobile .btn-primary {
   width: 100%;
-  margin-top: var(--s2);
   justify-content: center;
 }
 
@@ -2616,6 +2711,12 @@ textarea.form-input {
 
   .nav-links { display: none; }
   .nav-toggle { display: flex; }
+  /* Hide desktop-only buttons from the header on mobile */
+  .nav-actions .theme-toggle,
+  .nav-actions > a.btn { display: none; }
+
+  /* Consultation cards: 2-col on mobile */
+  .consult-cards { grid-template-columns: repeat(2, 1fr) !important; }
 
   .hero { min-height: auto; padding-top: var(--nav-h); }
   .hero-inner { padding-block: var(--s12); }
@@ -2654,4 +2755,6 @@ textarea.form-input {
   .grid-4 { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: 1fr; }
   .tech-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Consultation cards: 1-col on very small screens */
+  .consult-cards { grid-template-columns: 1fr !important; }
 }

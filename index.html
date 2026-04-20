@@ -51,14 +51,30 @@
 </nav>
 
 <!-- Mobile nav -->
-<div class="nav-mobile" role="dialog" aria-label="Mobile navigation">
-  <a href="/"    class="nav-link active">Home</a>
-  <a href="/about"    class="nav-link">About</a>
-  <a href="/services" class="nav-link">Services</a>
-  <a href="/projects" class="nav-link">Projects</a>
-  <a href="/contact"  class="nav-link">Contact</a>
-  <a href="/contact"  class="btn btn-primary">Get in Touch →</a>
+<div class="nav-mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <div class="nav-sidebar-header">
+    <span class="nav-sidebar-brand">Fussion Shade</span>
+    <button class="nav-sidebar-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="nav-sidebar-links">
+    <a href="/"         class="nav-link active">Home</a>
+    <a href="/about"    class="nav-link">About</a>
+    <a href="/services" class="nav-link">Services</a>
+    <a href="/projects" class="nav-link">Projects</a>
+    <a href="/contact"  class="nav-link">Contact</a>
+  </nav>
+  <div class="nav-sidebar-footer">
+    <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span>Toggle Theme</span>
+    </button>
+    <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
+  </div>
 </div>
+<div class="nav-overlay" aria-hidden="true"></div>
 
 
 <!-- ============================================================
@@ -102,7 +118,7 @@
             <div class="hero-trust-avatar">PS</div>
           </div>
           <p class="hero-trust-text">
-            Trusted by <strong>50+&nbsp;businesses</strong> worldwide
+            Trusted by <strong>growing businesses</strong> worldwide
           </p>
         </div>
       </div>
@@ -206,7 +222,7 @@
         <div class="metric-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <div class="metric-value" data-counter>50</div>
+        <div class="metric-value" data-counter>5</div>
         <div class="metric-label">Happy Clients</div>
         <div class="metric-sublabel">Worldwide</div>
       </div>
@@ -224,7 +240,7 @@
         <div class="metric-icon">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <div class="metric-value" data-counter>120</div>
+        <div class="metric-value" data-counter>20</div>
         <div class="metric-label">Projects Delivered</div>
         <div class="metric-sublabel">On time &amp; on budget</div>
       </div>
@@ -254,7 +270,7 @@
         Tailored Solutions for<br/><span class="gradient-text">Every Business Need</span>
       </h2>
       <p class="body-lg text-muted mt-4">
-        From idea to deployment — we craft intelligent digital products that save time, reduce costs, and drive measurable growth.
+        <p>From idea to deployment, we craft intelligent digital products that save time, reduce costs, and drive measurable growth.</p>
       </p>
     </div>
 
@@ -265,7 +281,7 @@
           <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
         </div>
         <h3>Websites &amp; Web Apps</h3>
-        <p>High-performance web solutions built for conversion, scale, and flawless UX — from marketing sites to complex SaaS platforms.</p>
+        <p>High-performance web solutions built for conversion, scale, and flawless UX. From marketing sites to complex SaaS platforms.</p>
         <div class="service-features">
           <span class="service-feature">Custom UI/UX design</span>
           <span class="service-feature">Full-stack development</span>
@@ -316,7 +332,7 @@
           <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
         <h3>Custom AI Chatbots</h3>
-        <p>Intelligent, context-aware chatbots that handle support, sales, and onboarding — trained on your business data.</p>
+        <p>Intelligent, context-aware chatbots that handle support, sales, and onboarding. Trained on your business data.</p>
         <div class="service-features">
           <span class="service-feature">Natural language processing</span>
           <span class="service-feature">Multi-channel deployment</span>
@@ -333,7 +349,7 @@
           <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
         </div>
         <h3>Process Automation</h3>
-        <p>Eliminate repetitive tasks with smart automation pipelines — from data entry to complex multi-system workflows.</p>
+        <p>Eliminate repetitive tasks with smart automation pipelines. From data entry to complex multi-system workflows.</p>
         <div class="service-features">
           <span class="service-feature">Workflow automation</span>
           <span class="service-feature">RPA solutions</span>
@@ -409,7 +425,7 @@
           Fussion Shade is a software agency founded on one belief: technology should work for your business, not the other way around. We specialise in turning complex business challenges into elegant, automated digital solutions.
         </p>
         <p class="body-md text-muted" style="margin-bottom:var(--s6)">
-          Our team of 10+ industry-hardened developers brings deep expertise across the full technology stack — from ideation and architecture to deployment and scale.
+          Our team of 10+ industry-hardened developers brings deep expertise across the full technology stack, from ideation and architecture to deployment and scale.
         </p>
 
         <div class="values-grid">
@@ -465,7 +481,7 @@
         Projects That <span class="gradient-text">Made an Impact</span>
       </h2>
       <p class="body-lg text-muted mt-4">
-        Real solutions, real results — here's a snapshot of what we've built for our clients.
+      Real solutions, real results. Here's a snapshot of what we've built for our clients.
       </p>
     </div>
 
@@ -514,7 +530,7 @@
             <span class="project-tag">FinTech</span>
           </div>
           <h3>ProBot AI Assistant</h3>
-          <p>Enterprise-grade AI chatbot for a financial services firm — trained on internal knowledge to resolve queries autonomously around the clock.</p>
+          <p>Enterprise-grade AI chatbot for a financial services firm, trained on internal knowledge to resolve queries autonomously around the clock.</p>
         </div>
         <div class="project-footer">
           <div class="project-tech">
@@ -596,7 +612,7 @@
       <div class="process-step clay-sm reveal delay-2">
         <div class="process-step-num">03</div>
         <h4>Build &amp; Iterate</h4>
-        <p>Agile sprints with regular demos — you see progress weekly and can provide feedback in real time.</p>
+        <p>Agile sprints with regular demos. You see progress weekly and can provide feedback in real time.</p>
       </div>
 
       <div class="process-step clay-sm reveal delay-3">
@@ -761,7 +777,7 @@
         Ready to Transform?
       </div>
       <h2>Let's Build Something<br/>Remarkable Together</h2>
-      <p>Book a free 30-minute strategy call. No sales pressure — just honest advice on how automation can benefit your business.</p>
+        <p>Book a free 30-minute strategy call. No sales pressure, just honest advice on how automation can benefit your business.</p>
       <div class="flex flex-center gap-4" style="flex-wrap:wrap">
         <a href="/contact" class="btn btn-primary btn-lg">
           Get a Free Consultation
@@ -830,10 +846,8 @@
       <div class="footer-col">
         <h4>Contact</h4>
         <div class="footer-links">
-          <a href="mailto:hello@fussionshade.com">hello@fussionshade.com</a>
-          <a href="tel:+1234567890">+1 (234) 567-890</a>
-          <a href="#">123 Tech Avenue, Silicon Valley</a>
-          <a href="#">Mon–Fri, 9am–6pm EST</a>
+          <a href="mailto:fussionshade@gmail.com">fussionshade@gmail.com</a>
+          <a href="tel:+923073134427">+92 307 313 4427</a>
         </div>
       </div>
 

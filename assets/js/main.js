@@ -30,8 +30,10 @@ const ThemeManager = (() => {
 
   function init() {
     apply(getPreference());
-    const btn = document.querySelector('.theme-toggle');
-    if (btn) btn.addEventListener('click', toggle);
+    // Bind all theme-toggle buttons (desktop nav + mobile sidebar)
+    document.querySelectorAll('.theme-toggle').forEach(btn => {
+      btn.addEventListener('click', toggle);
+    });
   }
 
   return { init, toggle };
@@ -47,49 +49,55 @@ const Nav = (() => {
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.querySelector('.nav-mobile');
 
-    // Scroll effect
+    const overlay = document.querySelector('.nav-overlay');
+
+    // Scroll effect — add .scrolled for background on scroll
     function onScroll() {
       if (!nav) return;
-      if (window.scrollY > 20) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+      nav.classList.toggle('scrolled', window.scrollY > 20);
     }
-
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Mobile toggle
+    // Mobile sidebar open / close
+    function openMenu() {
+      if (!toggle || !mobileMenu) return;
+      toggle.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      mobileMenu.classList.add('open');
+      if (overlay) overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      if (!toggle || !mobileMenu) return;
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.remove('open');
+      if (overlay) overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     if (toggle && mobileMenu) {
       toggle.addEventListener('click', () => {
-        const open = toggle.classList.toggle('open');
-        if (open) {
-          mobileMenu.classList.add('open');
-          mobileMenu.style.display = 'flex';
-          requestAnimationFrame(() => {
-            mobileMenu.style.opacity = '1';
-            mobileMenu.style.transform = 'translateY(0)';
-          });
-        } else {
-          mobileMenu.classList.remove('open');
-          mobileMenu.style.opacity = '0';
-          mobileMenu.style.transform = 'translateY(-10px)';
-          setTimeout(() => {
-            if (!toggle.classList.contains('open')) {
-              mobileMenu.style.display = 'none';
-            }
-          }, 300);
-        }
+        toggle.classList.contains('open') ? closeMenu() : openMenu();
       });
 
-      // Close mobile menu on link click
+      // Close button inside sidebar
+      const closeBtn = mobileMenu.querySelector('.nav-sidebar-close');
+      if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+      // Clicking the overlay backdrop closes menu
+      if (overlay) overlay.addEventListener('click', closeMenu);
+
+      // Close when a nav link inside the sidebar is clicked
       mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          toggle.classList.remove('open');
-          mobileMenu.classList.remove('open');
-          mobileMenu.style.display = 'none';
-        });
+        link.addEventListener('click', closeMenu);
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && toggle.classList.contains('open')) closeMenu();
       });
     }
 
@@ -377,6 +385,19 @@ const ContactForm = (() => {
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Validate reCAPTCHA if present on this page
+      const recaptchaEl = document.getElementById('recaptcha-container');
+      if (recaptchaEl && typeof grecaptcha !== 'undefined') {
+        const token = grecaptcha.getResponse();
+        if (!token) {
+          const err = document.getElementById('recaptcha-error');
+          if (err) err.style.display = 'block';
+          return;
+        }
+        const err = document.getElementById('recaptcha-error');
+        if (err) err.style.display = 'none';
+      }
 
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;

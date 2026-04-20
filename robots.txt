@@ -5,4 +5,9 @@ Allow: /
 Disallow: /.htaccess
 Disallow: /.env
 
+# Block error pages from being indexed
+Disallow: /400
+Disallow: /404
+Disallow: /500
+
 Sitemap: https://www.fussionshade.com/sitemap.xml

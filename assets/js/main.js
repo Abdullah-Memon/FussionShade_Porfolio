@@ -455,6 +455,191 @@ function initSmoothScroll() {
 
 
 /* ----------------------------------------------------------------
+   SPLASH SCREEN
+   Shown once per browser session via sessionStorage.
+   ---------------------------------------------------------------- */
+const SplashScreen = (() => {
+  const SESSION_KEY = 'fs-splash-v1';
+
+  function build() {
+    // Resolve logo path from the page's own <link rel="icon"> so
+    // every sub-page (about/, services/, …) gets the right relative path.
+    const logoSrc =
+      document.querySelector('link[rel="icon"]')?.getAttribute('href') ||
+      '../assets/img/logo.png';
+
+    const el = document.createElement('div');
+    el.id = 'fs-splash';
+    el.setAttribute('role', 'status');
+    el.setAttribute('aria-label', 'Loading Fussion Shade');
+    el.innerHTML = `
+      <div class="fs-splash-content">
+        <div class="fs-splash-logo-wrap">
+          <div class="fs-splash-ring"></div>
+          <div class="fs-splash-ring"></div>
+          <div class="fs-splash-ring"></div>
+          <img src="${logoSrc}" alt="" class="fs-splash-logo" width="72" height="72">
+        </div>
+        <div class="fs-splash-name">Fussion<span>Shade</span></div>
+        <div class="fs-splash-sub">Custom Software House &amp; Digital Agency</div>
+        <div class="fs-splash-dots"><span></span><span></span><span></span></div>
+      </div>`;
+    document.body.prepend(el);
+    return el;
+  }
+
+  function dismiss(el) {
+    el.classList.add('fs-splash-out');
+    setTimeout(() => el.remove(), 700);
+  }
+
+  function init() {
+    if (sessionStorage.getItem(SESSION_KEY)) return; // Already shown this session
+    sessionStorage.setItem(SESSION_KEY, '1');
+    const el = build();
+    // Hold for 2 s then fade out over 0.65 s
+    setTimeout(() => dismiss(el), 2000);
+  }
+
+  return { init };
+})();
+
+
+/* ----------------------------------------------------------------
+   PAGE TRANSITIONS
+   Intercepts internal link clicks → animates body out →
+   navigates. On the next page the CSS body animation fades it in.
+   Also drives a top progress bar for visual feedback.
+   ---------------------------------------------------------------- */
+const PageTransitions = (() => {
+  let overlayEl  = null;
+  let barFillEl  = null;
+  let progressEl = null; // thin top bar
+
+  /* ── Build the branded overlay once ── */
+  function buildOverlay() {
+    const logoSrc =
+      document.querySelector('link[rel="icon"]')?.getAttribute('href') ||
+      '../assets/img/logo.png';
+
+    const el = document.createElement('div');
+    el.id = 'fs-transit-overlay';
+    el.setAttribute('aria-hidden', 'true');
+    el.innerHTML = `
+      <img src="${logoSrc}" alt="" class="fs-transit-logo" width="64" height="64">
+      <div class="fs-transit-brand">Fussion<span>Shade</span></div>
+      <div class="fs-transit-tagline">Custom Software House &amp; Digital Agency</div>
+      <div class="fs-transit-bar-track">
+        <div class="fs-transit-bar-fill"></div>
+      </div>`;
+    document.body.appendChild(el);
+    overlayEl = el;
+    barFillEl = el.querySelector('.fs-transit-bar-fill');
+  }
+
+  /* ── Thin top bar ── */
+  function topBar() {
+    if (!progressEl) {
+      progressEl = document.createElement('div');
+      progressEl.id = 'fs-progress';
+      document.body.appendChild(progressEl);
+    }
+    return progressEl;
+  }
+
+  /* ── Show overlay + kick off progress bar ── */
+  function showOverlay() {
+    if (!overlayEl) buildOverlay();
+
+    // Show overlay
+    overlayEl.classList.add('fs-transit-show');
+
+    // Animate fill: reset → 80 %
+    if (barFillEl) {
+      barFillEl.style.transition = 'none';
+      barFillEl.style.width = '0%';
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => {
+          barFillEl.style.transition = '';
+          barFillEl.style.width = '80%';
+        })
+      );
+    }
+
+    // Top bar
+    const b = topBar();
+    b.className = '';
+    b.style.cssText = 'width:0%;opacity:1;transition:none';
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        b.style.cssText = '';
+        b.classList.add('fs-running');
+      })
+    );
+  }
+
+  /* ── Hide overlay after new page loads ── */
+  function hideOverlay() {
+    if (barFillEl) barFillEl.style.width = '100%';
+
+    const b = topBar();
+    b.className = 'fs-done';
+    setTimeout(() => { b.className = ''; b.style.width = '0%'; }, 650);
+
+    if (overlayEl) overlayEl.classList.remove('fs-transit-show');
+  }
+
+  /* ── Helpers ── */
+  function isInternal(href) {
+    if (!href) return false;
+    if (
+      href.startsWith('#') ||
+      href.startsWith('http://') ||
+      href.startsWith('https://') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('javascript:')
+    ) return false;
+    return true;
+  }
+
+  function init() {
+    // Dismiss overlay when new page fully loads
+    window.addEventListener('load', hideOverlay);
+
+    // bfcache (back/forward button)
+    window.addEventListener('pageshow', e => {
+      if (e.persisted) hideOverlay();
+    });
+
+    // Intercept internal link clicks
+    document.addEventListener('click', e => {
+      const link = e.target.closest('a[href]');
+      if (!link) return;
+      if (link.hasAttribute('target') || link.hasAttribute('download')) return;
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+
+      const href = link.getAttribute('href');
+      if (!isInternal(href)) return;
+
+      const [path] = href.split('#');
+      if (path === '' || path === window.location.pathname) return;
+
+      e.preventDefault();
+      document.body.classList.add('page-exiting'); // blocks pointer events only
+      showOverlay();
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 340);
+    });
+  }
+
+  return { init };
+})();
+
+
+/* ----------------------------------------------------------------
    FLOATING CTA visibility
    ---------------------------------------------------------------- */
 function initFloatingCta() {
@@ -491,4 +676,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ContactForm.init();
   initSmoothScroll();
   initFloatingCta();
+  SplashScreen.init();
+  PageTransitions.init();
 });

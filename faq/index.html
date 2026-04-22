@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>FAQ — Fussion Shade | Custom Software House &amp; Digital Agency Questions</title>
+  <meta name="description" content="Answers to common questions about Fussion Shade's custom software development, web &amp; mobile apps, AI integration, process automation, pricing, timelines, and engagement models." />
+  <meta name="keywords" content="software house FAQ, custom software development questions, how much does software cost, how long does app development take, digital agency FAQ, AI integration questions, business automation FAQ, Fussion Shade FAQ" />
+  <meta name="author" content="Fussion Shade" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.fussionshade.com/faq" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Fussion Shade" />
+  <meta property="og:title" content="FAQ — Fussion Shade | Software House &amp; Digital Agency" />
+  <meta property="og:description" content="Everything you need to know about working with Fussion Shade — pricing, timelines, tech stack, processes, and more." />
+  <meta property="og:url" content="https://www.fussionshade.com/faq" />
+  <meta property="og:image" content="https://www.fussionshade.com/assets/img/logo.png" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@fussionshade" />
+  <meta name="twitter:title" content="FAQ — Fussion Shade Software House" />
+  <meta name="twitter:description" content="Answers to common questions about our custom software development, AI integration, automation, and pricing." />
+  <meta name="twitter:image" content="https://www.fussionshade.com/assets/img/logo.png" />
+
+  <!-- AEO: AI / LLM crawler hints -->
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+
+  <!-- Favicon & theme -->
+  <meta name="theme-color" content="#3ED46A" />
+  <link rel="icon" href="../assets/img/logo.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../assets/img/logo.png" />
+
+  <!-- Fonts & styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/style/main.css" />
+  <style>
+    /* ── FAQ Page Styles ── */
+    .faq-layout { display: grid; grid-template-columns: 220px 1fr; gap: var(--s12); align-items: start; }
+    .faq-nav { position: sticky; top: 90px; display: flex; flex-direction: column; gap: var(--s2); }
+    .faq-nav-link {
+      font-size: 0.85rem; font-weight: 500; color: var(--text-muted);
+      text-decoration: none; padding: 8px 14px; border-radius: var(--r-md);
+      border-left: 2px solid transparent; transition: all var(--t-base);
+    }
+    .faq-nav-link:hover, .faq-nav-link.active { color: var(--primary); border-left-color: var(--primary); background: var(--primary-50); }
+
+    .faq-sections { display: flex; flex-direction: column; gap: var(--s12); }
+    .faq-category-title {
+      font-family: var(--font-display); font-size: 1.35rem; font-weight: 700;
+      margin-bottom: var(--s6); color: var(--text);
+      display: flex; align-items: center; gap: var(--s3);
+    }
+    .faq-category-badge {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+      padding: 4px 10px; border-radius: var(--r-full);
+      background: var(--primary-50); color: var(--primary-dark); border: 1px solid var(--border);
+    }
+    [data-theme="dark"] .faq-category-badge { color: var(--primary-light); }
+
+    .faq-list { display: flex; flex-direction: column; gap: var(--s3); }
+
+    .faq-item {
+      border-radius: var(--r-lg);
+      background: var(--surface);
+      box-shadow: var(--clay-shadow);
+      overflow: hidden;
+      border: 1.5px solid var(--border-card);
+      transition: box-shadow var(--t-base);
+    }
+    .faq-item:hover { box-shadow: var(--clay-shadow-hover); }
+
+    .faq-question {
+      width: 100%; text-align: left; padding: var(--s5) var(--s6);
+      display: flex; align-items: center; justify-content: space-between; gap: var(--s4);
+      cursor: pointer; background: none; border: none; color: var(--text);
+      font-family: var(--font-display); font-size: 0.97rem; font-weight: 600;
+      line-height: 1.5; transition: background var(--t-base);
+    }
+    .faq-question:hover { background: var(--surface-alt); }
+    .faq-question[aria-expanded="true"] { color: var(--primary); }
+
+    .faq-chevron {
+      flex-shrink: 0; width: 20px; height: 20px;
+      transition: transform var(--t-base); color: var(--text-muted);
+    }
+    .faq-question[aria-expanded="true"] .faq-chevron { transform: rotate(180deg); color: var(--primary); }
+
+    .faq-answer {
+      overflow: hidden; max-height: 0;
+      transition: max-height 0.35s ease, padding 0.2s ease;
+    }
+    .faq-answer.open { max-height: 600px; }
+    .faq-answer-inner {
+      padding: 0 var(--s6) var(--s5);
+      font-size: 0.92rem; color: var(--text-2); line-height: 1.75;
+    }
+    .faq-answer-inner strong { color: var(--text); }
+    .faq-answer-inner a { color: var(--primary); }
+
+    .faq-search-wrap { max-width: 560px; margin: 0 auto var(--s10); position: relative; }
+    .faq-search-input {
+      width: 100%; padding: var(--s4) var(--s5) var(--s4) 52px;
+      border-radius: var(--r-full); border: 1.5px solid var(--border);
+      background: var(--surface); color: var(--text);
+      font-family: var(--font-body); font-size: 1rem;
+      box-shadow: var(--clay-shadow-sm); outline: none;
+      transition: border-color var(--t-base), box-shadow var(--t-base);
+    }
+    .faq-search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(62,212,106,0.15); }
+    .faq-search-icon {
+      position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+      width: 20px; height: 20px; color: var(--text-muted); pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .faq-layout { grid-template-columns: 1fr; }
+      .faq-nav { display: none; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.fussionshade.com/faq#webpage",
+      "url": "https://www.fussionshade.com/faq",
+      "name": "FAQ — Fussion Shade | Custom Software House & Digital Agency",
+      "description": "Answers to common questions about Fussion Shade's custom software development, web & mobile apps, AI integration, and pricing.",
+      "isPartOf": { "@id": "https://www.fussionshade.com/#website" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fussionshade.com/" },
+          { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://www.fussionshade.com/faq" }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade is a custom software house and digital agency specialising in web app development, mobile applications, AI integration, business automation, and custom chatbot solutions. We serve startups, SMBs, and enterprises worldwide." } },
+        { "@type": "Question", "name": "What is a software house?", "acceptedAnswer": { "@type": "Answer", "text": "A software house is a company that specialises in designing, developing, and maintaining software products. Unlike freelancers, a software house like Fussion Shade provides end-to-end product development, project management, QA testing, and ongoing support all under one roof." } },
+        { "@type": "Question", "name": "What is the difference between a software house and a digital agency?", "acceptedAnswer": { "@type": "Answer", "text": "A software house focuses primarily on software engineering and product development, while a digital agency typically handles marketing, branding, and creative services. Fussion Shade combines both disciplines — delivering technically robust software with outstanding UX and results-focused product thinking." } },
+        { "@type": "Question", "name": "What services does Fussion Shade offer?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade provides: custom web app development, mobile app development (iOS & Android), AI integration and machine learning, custom AI chatbot development, business process automation, RPA solutions, SaaS product development, MVP development, and legacy system modernisation." } },
+        { "@type": "Question", "name": "Which industries does Fussion Shade specialise in?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade has delivered solutions across FinTech, HealthTech, E-commerce, Retail, Logistics, Real Estate, EdTech, SaaS, and Enterprise sectors. Our cross-industry expertise means we bring proven best practices to every new engagement." } },
+        { "@type": "Question", "name": "How much does custom software development cost?", "acceptedAnswer": { "@type": "Answer", "text": "Costs depend on scope, complexity, and chosen technology. At Fussion Shade: small automation scripts or simple web apps start from $2,000; standard web or mobile apps range from $5,000–$25,000; full-scale enterprise platforms or AI-powered products may exceed $50,000. We provide a transparent, detailed quote after your free discovery call." } },
+        { "@type": "Question", "name": "How long does it take to build a custom web app?", "acceptedAnswer": { "@type": "Answer", "text": "A standard web application with authentication, dashboards, and core features typically takes 6–12 weeks. A lean MVP can be delivered in 4–6 weeks. Complex SaaS platforms may take 3–6 months. Fussion Shade provides a precise timeline in your free consultation." } },
+        { "@type": "Question", "name": "How long does mobile app development take?", "acceptedAnswer": { "@type": "Answer", "text": "A standard mobile app (authentication, user profiles, API integration, push notifications) typically takes 6–14 weeks. Cross-platform apps using React Native or Flutter can be faster. Complex apps with offline support, AI features, or hardware integrations may require longer timelines." } },
+        { "@type": "Question", "name": "Does Fussion Shade work with early-stage startups?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We work with businesses at all stages, from pre-revenue startups building their first MVP to scaling companies expanding their platforms. We offer flexible engagement models specifically designed for startup budgets and fast-moving timelines." } },
+        { "@type": "Question", "name": "What technologies does Fussion Shade use?", "acceptedAnswer": { "@type": "Answer", "text": "Our technology stack includes React, Next.js, Vue.js, Node.js, Python, Django, Laravel, React Native, Flutter, PostgreSQL, MongoDB, Redis, AWS, Docker, Kubernetes, LangChain, OpenAI API, and Anthropic Claude. We select the most appropriate stack based on your project requirements." } },
+        { "@type": "Question", "name": "What is business process automation?", "acceptedAnswer": { "@type": "Answer", "text": "Business process automation (BPA) uses software and AI to automatically perform repetitive, rule-based tasks — such as invoice processing, data entry, customer onboarding, report generation, and email responses. This eliminates manual errors, frees your team for high-value work, and significantly reduces operational costs." } },
+        { "@type": "Question", "name": "How can AI integration benefit my business?", "acceptedAnswer": { "@type": "Answer", "text": "AI integration enables smarter decision-making, personalised customer experiences, predictive analytics, intelligent automation, and 24/7 customer support. Businesses working with Fussion Shade typically see 30–50% productivity improvements and significant cost reductions within the first 90 days after launch." } },
+        { "@type": "Question", "name": "What is a custom AI chatbot and how does it work?", "acceptedAnswer": { "@type": "Answer", "text": "A custom AI chatbot is an intelligent conversational assistant trained on your specific business data, knowledge base, products, and policies. Unlike generic chatbots, it understands context, handles complex queries, integrates with your CRM, and continuously improves. Fussion Shade builds chatbots that handle customer support, sales qualification, and onboarding autonomously." } },
+        { "@type": "Question", "name": "What is the development process at Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Our 4-stage process: (1) Discovery — deep-dive into your goals, users, and requirements; (2) Design & Plan — wireframes, architecture blueprints, and detailed roadmap; (3) Build & Iterate — agile 2-week sprints with live demos every step; (4) Launch & Grow — QA testing, smooth deployment, team training, and ongoing post-launch support." } },
+        { "@type": "Question", "name": "Does Fussion Shade provide post-launch support and maintenance?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer ongoing maintenance, uptime monitoring, performance optimisation, security updates, and feature development post-launch. Support packages range from ad-hoc hourly assistance to dedicated monthly retainer arrangements." } },
+        { "@type": "Question", "name": "Can Fussion Shade integrate with my existing systems?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have extensive experience integrating custom software with existing platforms including Salesforce, HubSpot, Stripe, Shopify, SAP, REST/GraphQL APIs, and third-party SaaS tools. We also modernise legacy systems through incremental API-based integration and careful data migration." } },
+        { "@type": "Question", "name": "Does Fussion Shade sign NDAs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We are happy to sign a mutual Non-Disclosure Agreement before any detailed project discussions to fully protect your intellectual property and business ideas." } },
+        { "@type": "Question", "name": "Who owns the source code after project delivery?", "acceptedAnswer": { "@type": "Answer", "text": "You do. Upon final payment, full intellectual property and source code ownership transfers to you. We provide complete code handover, documentation, and repository access as part of every project delivery." } },
+        { "@type": "Question", "name": "Does Fussion Shade build SaaS products?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. SaaS development is one of our core specialisations. We design and build multi-tenant SaaS platforms with subscription billing, role-based access control, analytics, onboarding flows, and scalable cloud infrastructure on AWS or GCP." } },
+        { "@type": "Question", "name": "Does Fussion Shade offer dedicated development teams?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. For larger or ongoing projects, we provide dedicated development teams — typically comprising a lead engineer, developers, a UI/UX designer, and a QA specialist — working exclusively on your product under a monthly retainer model." } },
+        { "@type": "Question", "name": "How does Fussion Shade ensure software quality and security?", "acceptedAnswer": { "@type": "Answer", "text": "We implement rigorous quality assurance at every stage: automated unit and integration testing, peer code reviews, staged deployments, load testing, and security audits following OWASP Top 10 guidelines. All data is encrypted at rest and in transit, with GDPR-compliant architecture as standard." } },
+        { "@type": "Question", "name": "What is MVP development and does Fussion Shade offer it?", "acceptedAnswer": { "@type": "Answer", "text": "An MVP (Minimum Viable Product) is the fastest, most lean version of your software with only the core features needed to validate your concept with real users. Fussion Shade specialises in rapid MVP delivery — typically 4–8 weeks — helping founders validate ideas and attract investors quickly." } },
+        { "@type": "Question", "name": "Can Fussion Shade modernise legacy applications?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We help businesses migrate outdated codebases to modern frameworks, improve performance, add new features, and integrate modern APIs — using incremental refactoring strategies that minimise risk and avoid disrupting existing operations." } },
+        { "@type": "Question", "name": "What are Fussion Shade's engagement models?", "acceptedAnswer": { "@type": "Answer", "text": "We offer three models: (1) Fixed Price — for clearly scoped projects with defined deliverables and budget certainty; (2) Time & Materials — for evolving requirements or ongoing work billed by actual effort; (3) Dedicated Team — a monthly retainer for a dedicated group of engineers exclusively focused on your product." } },
+        { "@type": "Question", "name": "Does Fussion Shade work with clients globally?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Fussion Shade is a remote-first global software house serving clients across the UK, USA, UAE, Canada, Australia, Europe, and beyond. We use Slack, Notion, Jira, and Loom to maintain seamless collaboration across any time zone." } },
+        { "@type": "Question", "name": "What is RPA and does Fussion Shade offer it?", "acceptedAnswer": { "@type": "Answer", "text": "Robotic Process Automation (RPA) uses software robots to automate repetitive human-computer tasks like data entry, form filling, report generation, and document processing. Fussion Shade builds custom RPA solutions that can eliminate hundreds of hours of manual work each month for businesses." } },
+        { "@type": "Question", "name": "Does Fussion Shade develop e-commerce platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build custom e-commerce platforms featuring product catalogues, payment gateway integration (Stripe, PayPal), inventory management, analytics dashboards, and personalisation engines — either fully from scratch or as custom extensions on headless commerce architectures." } },
+        { "@type": "Question", "name": "How do I get started with Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Getting started is simple: visit fussionshade.com/contact, fill in your project brief, and our team will respond within 24 hours. We'll schedule a complimentary 30-minute strategy call to discuss your vision, scope, and the best path forward — no commitment required." } },
+        { "@type": "Question", "name": "What makes Fussion Shade different from other software agencies?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade combines deep technical engineering with product strategy and measurable business outcomes. We don't just write code — we architect scalable solutions, maintain transparent communication, and hold ourselves accountable to your ROI. Our 95% client retention rate reflects the relationships we build, not just the products we deliver." } },
+        { "@type": "Question", "name": "Is Fussion Shade a remote or in-person agency?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade operates as a remote-first digital agency. We work with clients globally, maintaining full project transparency through structured async communication (Slack, Notion, Jira) and regular video calls, making geography irrelevant to great collaboration." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo" aria-label="Fussion Shade home">
+      <img src="../assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
+      <span>Fussion<span class="text-primary">Shade</span></span>
+    </a>
+    <div class="nav-links" role="list">
+      <a href="/"         class="nav-link" role="listitem">Home</a>
+      <a href="/about"    class="nav-link" role="listitem">About</a>
+      <a href="/services" class="nav-link" role="listitem">Services</a>
+      <a href="/projects" class="nav-link" role="listitem">Projects</a>
+      <a href="/contact"  class="nav-link" role="listitem">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" aria-label="Toggle dark/light mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="/contact" class="btn btn-primary btn-sm" style="border-radius:var(--r-full)">Get in Touch</a>
+      <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <div class="nav-sidebar-header">
+    <span class="nav-sidebar-brand">Fussion Shade</span>
+    <button class="nav-sidebar-close" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav class="nav-sidebar-links">
+    <a href="/"         class="nav-link">Home</a>
+    <a href="/about"    class="nav-link">About</a>
+    <a href="/services" class="nav-link">Services</a>
+    <a href="/projects" class="nav-link">Projects</a>
+    <a href="/contact"  class="nav-link">Contact</a>
+  </nav>
+  <div class="nav-sidebar-footer">
+    <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span>Toggle Theme</span>
+    </button>
+    <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
+  </div>
+</div>
+<div class="nav-overlay" aria-hidden="true"></div>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <nav aria-label="Breadcrumb" style="margin-bottom:var(--s4)">
+      <ol style="list-style:none;display:flex;gap:var(--s2);font-size:0.82rem;color:var(--text-muted);flex-wrap:wrap">
+        <li><a href="/" style="color:var(--text-muted);text-decoration:none">Home</a></li>
+        <li aria-hidden="true" style="color:var(--border)">/</li>
+        <li aria-current="page" style="color:var(--text-2)">FAQ</li>
+      </ol>
+    </nav>
+    <div class="page-hero-badge">Knowledge Base</div>
+    <h1 class="display-lg" style="max-width:760px;margin-inline:auto;margin-bottom:var(--s5)">
+      Frequently Asked Questions<br/>
+      <span class="gradient-text">About Our Software House</span>
+    </h1>
+    <p class="body-lg text-muted" style="max-width:600px;margin-inline:auto;margin-bottom:var(--s8)">
+      Everything you need to know about working with Fussion Shade — from pricing and timelines to technology, process, and what makes us different as a custom software house and digital agency.
+    </p>
+
+    <!-- Search -->
+    <div class="faq-search-wrap">
+      <svg class="faq-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="search" class="faq-search-input" id="faq-search" placeholder="Search questions…" aria-label="Search FAQ" autocomplete="off" />
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ CONTENT -->
+<section class="section">
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- Sticky sidebar nav -->
+      <aside class="faq-nav" aria-label="FAQ categories">
+        <a href="#about" class="faq-nav-link active">About Us</a>
+        <a href="#services" class="faq-nav-link">Services</a>
+        <a href="#pricing" class="faq-nav-link">Pricing</a>
+        <a href="#process" class="faq-nav-link">Process</a>
+        <a href="#technology" class="faq-nav-link">Technology</a>
+        <a href="#security" class="faq-nav-link">Security</a>
+        <a href="#working" class="faq-nav-link">Working With Us</a>
+      </aside>
+
+      <!-- FAQ Sections -->
+      <div class="faq-sections">
+
+        <!-- ABOUT -->
+        <div id="about">
+          <h2 class="faq-category-title">
+            About Fussion Shade
+            <span class="faq-category-badge">General</span>
+          </h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is Fussion Shade?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  <strong>Fussion Shade</strong> is a custom software house and digital agency founded in 2022. We design, build, and scale web applications, mobile apps, AI-powered automation systems, and intelligent chatbots for startups and enterprises worldwide. Our mission is simple: turn complex business challenges into elegant, high-performance digital solutions that deliver measurable ROI.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is a software house?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  A <strong>software house</strong> is a company that specialises end-to-end in software design, development, quality assurance, and long-term maintenance. Unlike individual freelancers, a software house provides a complete team — engineers, designers, project managers, and QA specialists — delivering cohesive products under a structured process with accountability. Fussion Shade is a full-service software house serving global clients.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is the difference between a software house and a digital agency?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  A <strong>software house</strong> focuses on engineering and product development, while a <strong>digital agency</strong> traditionally handles marketing, design, and content. Fussion Shade combines both disciplines — we deliver technically robust, scalable software with outstanding UI/UX and product-market thinking. We are a digital agency that codes and a software house that thinks strategically.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What industries does Fussion Shade serve?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  We serve a wide range of industries including <strong>FinTech</strong>, <strong>HealthTech</strong>, <strong>E-commerce &amp; Retail</strong>, <strong>Logistics</strong>, <strong>Real Estate</strong>, <strong>EdTech</strong>, <strong>SaaS</strong>, and <strong>Enterprise</strong> organisations. Our cross-industry experience means we bring proven insights and patterns to every new sector we work in.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Does Fussion Shade work with global clients?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Yes. Fussion Shade is a remote-first global software house serving clients across the <strong>UK, USA, UAE, Canada, Australia, Europe</strong>, and beyond. We operate across time zones using Slack, Notion, Jira, and regular video calls to ensure seamless communication and full project transparency.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SERVICES -->
+        <div id="services">
+          <h2 class="faq-category-title">
+            Services &amp; Capabilities
+            <span class="faq-category-badge">Services</span>
+          </h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What services does Fussion Shade offer?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Our core services include:
+                  <ul style="margin-top:10px;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+                    <li><strong>Custom Web App Development</strong> — SaaS platforms, portals, dashboards, and marketplaces</li>
+                    <li><strong>Mobile App Development</strong> — Native iOS & Android and cross-platform (React Native, Flutter)</li>
+                    <li><strong>AI Integration & Machine Learning</strong> — LLM integration, predictive models, computer vision</li>
+                    <li><strong>Custom AI Chatbots</strong> — RAG-based assistants trained on your business data</li>
+                    <li><strong>Business Process Automation</strong> — Workflow automation, RPA, and system integrations</li>
+                    <li><strong>SaaS Development</strong> — Multi-tenant, scalable software-as-a-service products</li>
+                    <li><strong>MVP Development</strong> — Lean product validation in 4–8 weeks</li>
+                    <li><strong>Legacy Modernisation</strong> — Migrating outdated systems to modern stacks</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is business process automation?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  <strong>Business process automation (BPA)</strong> uses software and AI to automatically perform repetitive, rule-based tasks — such as invoice processing, data entry, customer onboarding, reporting, and email workflows. The result: zero manual errors, faster operations, and your team freed to focus on high-value strategic work. Clients who automate key workflows with Fussion Shade typically report 30–60% reduction in manual task time within the first month.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is a custom AI chatbot?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  A <strong>custom AI chatbot</strong> is an intelligent conversational agent built specifically around your business — trained on your products, FAQs, policies, and knowledge base. Unlike generic chatbots that give canned responses, our AI chatbots use RAG (Retrieval-Augmented Generation) to understand context, handle complex queries, integrate with your CRM, escalate to humans when needed, and operate 24/7. They handle support, sales, and onboarding autonomously.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Does Fussion Shade build SaaS products?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Yes, SaaS development is one of our core competencies. We architect and build <strong>multi-tenant SaaS platforms</strong> with subscription billing (Stripe), role-based access control, comprehensive analytics dashboards, onboarding flows, API ecosystems, and auto-scaling cloud infrastructure on AWS or GCP. We've taken SaaS products from zero to production-ready.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can Fussion Shade modernise a legacy application?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Yes. We help businesses <strong>modernise legacy applications</strong> through incremental refactoring, re-platforming, or full rewrites — migrating outdated codebases to modern frameworks, improving performance, adding new integrations, and resolving technical debt. Our approach minimises business disruption with careful migration planning and parallel-run strategies.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PRICING -->
+        <div id="pricing">
+          <h2 class="faq-category-title">
+            Pricing &amp; Timelines
+            <span class="faq-category-badge">Pricing</span>
+          </h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How much does custom software development cost?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Pricing depends on scope, complexity, and technology requirements. As a guide:
+                  <ul style="margin-top:10px;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+                    <li><strong>Simple automation / scripts:</strong> From $2,000</li>
+                    <li><strong>Standard web or mobile app:</strong> $5,000 – $25,000</li>
+                    <li><strong>Full-scale SaaS or AI platform:</strong> $25,000 – $100,000+</li>
+                    <li><strong>Enterprise systems:</strong> Custom quote based on scope</li>
+                  </ul>
+                  <p style="margin-top:10px;">We provide a transparent, itemised quote after your free discovery call — no hidden fees, ever.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How long does it take to build a custom web app?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Timelines depend on scope. Typical ranges:
+                  <ul style="margin-top:10px;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+                    <li><strong>MVP / lean web app:</strong> 4–6 weeks</li>
+                    <li><strong>Standard web app</strong> (auth, dashboard, API): 6–12 weeks</li>
+                    <li><strong>Complex SaaS platform:</strong> 12–24 weeks</li>
+                  </ul>
+                  <p style="margin-top:10px;">Fussion Shade provides a precise delivery timeline in your free consultation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What engagement models does Fussion Shade offer?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  We offer three flexible models:
+                  <ol style="margin-top:10px;padding-left:20px;display:flex;flex-direction:column;gap:8px;">
+                    <li><strong>Fixed Price</strong> — Best for clearly scoped projects. Agreed deliverables, fixed timeline, full budget certainty.</li>
+                    <li><strong>Time &amp; Materials</strong> — Ideal for evolving requirements. Billed on actual effort with full transparency.</li>
+                    <li><strong>Dedicated Team</strong> — Monthly retainer for a dedicated team of engineers, a designer, and QA, working exclusively on your product.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PROCESS -->
+        <div id="process">
+          <h2 class="faq-category-title">
+            Our Process
+            <span class="faq-category-badge">Process</span>
+          </h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is the development process at Fussion Shade?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Our four-stage process:
+                  <ol style="margin-top:10px;padding-left:20px;display:flex;flex-direction:column;gap:8px;">
+                    <li><strong>Discovery</strong> — We deeply understand your goals, users, competitors, and technical requirements.</li>
+                    <li><strong>Design &amp; Plan</strong> — System architecture, UI/UX wireframes, tech stack selection, and a detailed project roadmap.</li>
+                    <li><strong>Build &amp; Iterate</strong> — Two-week agile sprints with live weekly demos. You have full visibility and can give feedback continuously.</li>
+                    <li><strong>Launch &amp; Grow</strong> — Rigorous QA, smooth deployment, team training, and ongoing post-launch support and optimisation.</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Does Fussion Shade provide post-launch support?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Yes. Post-launch support is a core part of our offering. We provide uptime monitoring, bug fixing, security patches, performance optimisation, and new feature development. Support packages range from <strong>ad-hoc hourly support</strong> to <strong>dedicated monthly retainers</strong> with guaranteed response times.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What is MVP development?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  An <strong>MVP (Minimum Viable Product)</strong> is the fastest, leanest version of your software built to validate your concept with real users and attract early customers or investors. Fussion Shade specialises in rapid MVP delivery — typically <strong>4–8 weeks</strong> from kickoff to launch — focusing on core features, a clean UX, and a scalable foundation to build on.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TECHNOLOGY -->
+        <div id="technology">
+          <h2 class="faq-category-title">
+            Technology
+            <span class="faq-category-badge">Tech</span>
+          </h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What technologies does Fussion Shade use?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  <strong>Frontend:</strong> React, Next.js, Vue.js, TypeScript<br/>
+                  <strong>Backend:</strong> Node.js, Python, Django, Laravel, FastAPI<br/>
+                  <strong>Mobile:</strong> React Native, Flutter, Swift (iOS), Kotlin (Android)<br/>
+                  <strong>Databases:</strong> PostgreSQL, MongoDB, Redis, Supabase<br/>
+                  <strong>Cloud &amp; DevOps:</strong> AWS, GCP, Docker, Kubernetes, CI/CD pipelines<br/>
+                  <strong>AI/ML:</strong> OpenAI API, Anthropic Claude, LangChain, Pinecone, HuggingFace<br/>
+                  <br/>We select the most appropriate stack for your project — prioritising long-term maintainability, performance, and team expertise.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Can Fussion Shade build apps for both iOS and Android?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Yes. We build for <strong>both iOS and Android</strong> natively (Swift and Kotlin) or cross-platform (React Native or Flutter), ensuring full feature parity, high performance, and platform-native UX. We also handle App Store and Google Play submission and optimisation.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECURITY -->
+        <div id="security">
+          <h2 class="faq-category-title">
+            Security &amp; Compliance
+            <span class="faq-category-badge">Security</span>
+          </h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How does Fussion Shade ensure software security?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Security is architected into every layer of our development. We follow <strong>OWASP Top 10</strong> guidelines, implement role-based access control, encrypt all sensitive data at rest and in transit using industry-standard protocols (AES-256, TLS 1.3), conduct security audits before deployment, and build GDPR-compliant systems by default. We do not treat security as an add-on — it's a foundation.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Does Fussion Shade sign NDAs?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Absolutely. We sign a mutual <strong>Non-Disclosure Agreement (NDA)</strong> before any detailed project discussions to fully protect your business idea, intellectual property, and competitive strategy. Confidentiality is a non-negotiable part of how we work.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Who owns the source code?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  <strong>You own everything.</strong> Upon final payment, full intellectual property rights and source code ownership transfer to you. We provide complete code handover, technical documentation, and repository access as part of every project delivery — no lock-in, no conditions.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- WORKING WITH US -->
+        <div id="working">
+          <h2 class="faq-category-title">
+            Working With Us
+            <span class="faq-category-badge">Getting Started</span>
+          </h2>
+          <div class="faq-list">
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                How do I get started with Fussion Shade?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Getting started is simple:
+                  <ol style="margin-top:10px;padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+                    <li>Visit our <a href="/contact">Contact page</a> and fill in your project brief (5 minutes)</li>
+                    <li>Our team responds within <strong>24 hours</strong> to schedule a free 30-minute strategy call</li>
+                    <li>We scope your project and deliver a transparent quote within 2–5 business days</li>
+                    <li>Upon approval, we kick off with Discovery — and building begins</li>
+                  </ol>
+                  <p style="margin-top:10px;">No commitment required for the initial consultation.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                What makes Fussion Shade different from other software agencies?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Three things set us apart: <strong>(1) AI-first thinking</strong> — every solution we build considers intelligence from the ground up; <strong>(2) Measurable ROI focus</strong> — we define success metrics before writing a single line of code; <strong>(3) Full lifecycle ownership</strong> — we don't hand off or disappear after launch. Our 95% client retention rate reflects partnerships built on trust, quality, and consistent delivery.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                Does Fussion Shade offer dedicated development teams?
+                <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="faq-answer" role="region">
+                <div class="faq-answer-inner">
+                  Yes. For larger or long-running projects, we provide <strong>dedicated development teams</strong> — a curated group of a lead engineer, developers, UI/UX designer, and QA specialist — working exclusively on your product under a monthly retainer. This gives you a fully integrated extension of your in-house team without the recruitment overhead.
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Still have questions -->
+        <div class="clay reveal" style="padding:var(--s10) var(--s8);text-align:center;border-radius:var(--r-2xl)">
+          <h3 style="font-size:1.4rem;margin-bottom:var(--s3)">Still have a question?</h3>
+          <p class="text-muted" style="margin-bottom:var(--s6);max-width:460px;margin-inline:auto;">Our team is happy to answer any questions about our software house services, process, or pricing on a free consultation call.</p>
+          <a href="/contact" class="btn btn-primary btn-lg">
+            Book a Free Consultation
+            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <img src="../assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
+          <span>Fussion<span class="text-primary">Shade</span></span>
+        </a>
+        <p>Empowering businesses to thrive through intelligent automation and custom digital solutions.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social" aria-label="Twitter/X"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg></a>
+          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" class="footer-social" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="/about">About Us</a>
+          <a href="/services">Services</a>
+          <a href="/projects">Projects</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <div class="footer-links">
+          <a href="/services">Web Development</a>
+          <a href="/services">Mobile Apps</a>
+          <a href="/services">AI Integration</a>
+          <a href="/services">Custom Chatbots</a>
+          <a href="/services">Automation</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-links">
+          <a href="mailto:fussionshade@gmail.com">fussionshade@gmail.com</a>
+          <a href="tel:+923073134427">+92 307 313 4427</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <span>Fussion Shade</span>. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="floating-cta">
+  <a href="/contact" class="floating-cta-btn" aria-label="Get a free consultation">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span>Free Consultation</span>
+  </a>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.faq-question').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.classList.remove('open');
+      });
+      // Open clicked if it was closed
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.nextElementSibling.classList.add('open');
+      }
+    });
+  });
+
+  // FAQ search filter
+  const searchInput = document.getElementById('faq-search');
+  searchInput.addEventListener('input', () => {
+    const q = searchInput.value.toLowerCase().trim();
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = !q || text.includes(q) ? '' : 'none';
+    });
+  });
+
+  // Sticky nav active state
+  const sections = document.querySelectorAll('.faq-sections > div[id]');
+  const navLinks = document.querySelectorAll('.faq-nav-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.faq-nav-link[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-30% 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

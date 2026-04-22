@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary SEO -->
-  <title>About Us — Fussion Shade | Our Story, Mission &amp; Team</title>
-  <meta name="description" content="Learn about Fussion Shade — our story, mission, core values, and the expert team of developers, designers, and AI engineers building intelligent digital solutions." />
-  <meta name="keywords" content="about Fussion Shade, software agency team, our mission, digital solutions company, AI engineers, web developers" />
+  <title>About Fussion Shade — Custom Software House &amp; Digital Agency | Our Story &amp; Team</title>
+  <meta name="description" content="Learn about Fussion Shade — a custom software house and digital agency founded in 2022. Meet our team of senior engineers, AI specialists, and product designers helping businesses build and scale custom digital solutions worldwide." />
+  <meta name="keywords" content="about Fussion Shade, software house team, digital agency story, custom software agency mission, AI engineers, web developers, software development company about, Fussion Shade story" />
   <meta name="author" content="Fussion Shade" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://www.fussionshade.com/about" />
@@ -15,8 +15,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Fussion Shade" />
-  <meta property="og:title" content="About Us — Fussion Shade | Our Story, Mission &amp; Team" />
-  <meta property="og:description" content="Meet the team behind Fussion Shade — developers, AI engineers, and designers committed to building intelligent digital solutions." />
+  <meta property="og:title" content="About Fussion Shade — Custom Software House &amp; Digital Agency" />
+  <meta property="og:description" content="Meet the expert team behind Fussion Shade — senior engineers, AI specialists, and product designers building intelligent custom software for businesses worldwide." />
   <meta property="og:url" content="https://www.fussionshade.com/about" />
   <meta property="og:image" content="https://www.fussionshade.com/assets/img/logo.png" />
   <meta property="og:locale" content="en_US" />
@@ -24,8 +24,8 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@fussionshade" />
-  <meta name="twitter:title" content="About Us — Fussion Shade" />
-  <meta name="twitter:description" content="Our story, mission, and the talented team behind Fussion Shade's intelligent digital solutions." />
+  <meta name="twitter:title" content="About Fussion Shade — Software House &amp; Digital Agency" />
+  <meta name="twitter:description" content="Our story, mission, and the expert team behind Fussion Shade's custom software house and digital agency services." />
   <meta name="twitter:image" content="https://www.fussionshade.com/assets/img/logo.png" />
 
   <!-- AEO: AI / LLM crawler hints -->
@@ -111,13 +111,37 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "@id": "https://www.fussionshade.com/about#webpage",
-  "url": "https://www.fussionshade.com/about",
-  "name": "About Fussion Shade",
-  "description": "Learn about Fussion Shade — our story, mission, values, and the expert team building intelligent digital solutions.",
-  "isPartOf": { "@id": "https://www.fussionshade.com/#website" },
-  "about": { "@id": "https://www.fussionshade.com/#organization" }
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.fussionshade.com/about#webpage",
+      "url": "https://www.fussionshade.com/about",
+      "name": "About Fussion Shade — Custom Software House & Digital Agency",
+      "description": "Learn about Fussion Shade — a custom software house and digital agency founded in 2022. Meet our team of senior engineers, AI specialists, and designers building intelligent digital solutions worldwide.",
+      "isPartOf": { "@id": "https://www.fussionshade.com/#website" },
+      "about": { "@id": "https://www.fussionshade.com/#organization" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.fussionshade.com/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://www.fussionshade.com/about" }
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.fussionshade.com/#organization",
+      "name": "Fussion Shade",
+      "alternateName": ["FussionShade", "Fussion Shade Software House", "Fussion Shade Digital Agency"],
+      "url": "https://www.fussionshade.com/",
+      "logo": { "@type": "ImageObject", "url": "https://www.fussionshade.com/assets/img/logo.png" },
+      "description": "Fussion Shade is a custom software house and digital agency helping startups and enterprises build web apps, mobile applications, AI automation systems, and intelligent chatbots.",
+      "foundingDate": "2022",
+      "numberOfEmployees": { "@type": "QuantitativeValue", "value": 10 },
+      "areaServed": "Worldwide",
+      "sameAs": ["https://twitter.com/fussionshade","https://linkedin.com/company/fussionshade","https://github.com/fussionshade"]
+    }
+  ]
 }
 </script>
 </head>
@@ -180,13 +204,20 @@
      ============================================================ -->
 <section class="page-hero">
   <div class="container">
-    <div class="page-hero-badge">About Fussion Shade</div>
-    <h1 class="display-lg" style="max-width:700px;margin-inline:auto;margin-bottom:var(--s5)">
-      The Team Behind Your<br/>
-      <span class="gradient-text">Digital Transformation</span>
+    <nav aria-label="Breadcrumb" style="margin-bottom:var(--s4)">
+      <ol style="list-style:none;display:flex;gap:var(--s2);font-size:0.82rem;color:var(--text-muted);flex-wrap:wrap">
+        <li><a href="/" style="color:var(--text-muted);text-decoration:none">Home</a></li>
+        <li aria-hidden="true" style="color:var(--border)">/</li>
+        <li aria-current="page" style="color:var(--text-2)">About</li>
+      </ol>
+    </nav>
+    <div class="page-hero-badge">About Our Software House</div>
+    <h1 class="display-lg" style="max-width:760px;margin-inline:auto;margin-bottom:var(--s5)">
+      The Software House Built<br/>
+      <span class="gradient-text">for Your Growth</span>
     </h1>
-    <p class="body-lg text-muted" style="max-width:560px;margin-inline:auto">
-      We're a team of engineers and strategists united by one goal: making businesses faster, smarter, and more profitable through technology.
+    <p class="body-lg text-muted" style="max-width:600px;margin-inline:auto">
+      Fussion Shade is a custom software house and digital agency — a team of senior engineers, AI specialists, and product designers who turn complex business challenges into intelligent, scalable digital solutions.
     </p>
   </div>
 </section>
@@ -546,7 +577,7 @@
           <a href="#" class="footer-social" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
         </div>
       </div>
-      <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/contact">Contact</a><a href="#">Careers</a></div></div>
+      <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="#">Careers</a></div></div>
       <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="/services">Web Development</a><a href="/services">Mobile Apps</a><a href="/services">AI Integration</a><a href="/services">Custom Chatbots</a><a href="/services">Automation</a></div></div>
       <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:fussionshade@gmail.com">fussionshade@gmail.com</a><a href="tel:+923073134427">+92 307 313 4427</a></div></div>
     </div>

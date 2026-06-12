@@ -2448,7 +2448,10 @@ textarea.form-input {
   position: fixed;
   bottom: var(--s6);
   right: var(--s6);
-  z-index: 900;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  z-index: 100000;
   animation: floatIn 0.5s 1.5s ease both;
 }
 
@@ -3059,4 +3062,37 @@ body.page-exiting {
   .tech-grid { grid-template-columns: repeat(2, 1fr); }
   /* Consultation cards: 1-col on very small screens */
   .consult-cards { grid-template-columns: 1fr !important; }
+}
+
+
+
+
+
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 65px;
+    height: 65px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-float svg {
+    width: 34px;
+    height: 34px;
 }

@@ -4,44 +4,119 @@
 
   <url>
     <loc>https://www.fussionshade.com/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.fussionshade.com/about</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.fussionshade.com/services</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.fussionshade.com/projects</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.fussionshade.com/faq</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.fussionshade.com/contact</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Offer Pages — Website Development -->
+  <url>
+    <loc>https://www.fussionshade.com/offer/pipeline-rebuild</loc>
+    <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://www.fussionshade.com/contact</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://www.fussionshade.com/offer/conversion-optimisation</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Offer Pages — Web App -->
+  <url>
+    <loc>https://www.fussionshade.com/offer/speed-performance</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.fussionshade.com/offer/legacy-rescue</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Offer Pages — AI Integrations -->
+  <url>
+    <loc>https://www.fussionshade.com/offer/ai-analytics</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.fussionshade.com/offer/lead-scoring</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.fussionshade.com/offer/embedded-ai-team</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Offer Pages — Custom Chatbots -->
+  <url>
+    <loc>https://www.fussionshade.com/offer/sales-bot</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.fussionshade.com/offer/support-ai</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Offer Pages — Mobile Development -->
+  <url>
+    <loc>https://www.fussionshade.com/offer/mvp-sprint</loc>
+    <lastmod>2026-06-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

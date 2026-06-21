@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,66 +33,64 @@
   <meta name="bingbot" content="index, follow" />
 
   <!-- Favicon & theme -->
-  <meta name="theme-color" content="#3ED46A" />
+  <meta name="theme-color" content="#050505" />
   <link rel="icon" href="../assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/img/logo.png" />
 
   <!-- Fonts & styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="../assets/style/main.css" />
   <style>
     /* ── Page-specific styles ── */
     .team-stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s5); margin-bottom: var(--s10); }
     .team-stat-card { padding: var(--s6) var(--s5); text-align: center; }
-    .team-stat-val { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: var(--s2); }
-    .team-stat-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
+    .team-stat-val { font-family: var(--font-display); font-size: 2.4rem; font-weight: 600; color: var(--primary); line-height: 1; margin-bottom: var(--s2); }
+    .team-stat-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 400; }
     .discipline-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s6); }
     .discipline-card { padding: var(--s7) var(--s6); }
     .discipline-icon {
       width: 52px; height: 52px; border-radius: var(--r-md);
-      background: linear-gradient(145deg, var(--primary-50), var(--primary-100));
-      border: 1.5px solid var(--border);
+      background: linear-gradient(145deg, var(--glass-bg), var(--glass-bg-hover));
+      border: 1.5px solid var(--glass-border);
       display: flex; align-items: center; justify-content: center;
-      margin-bottom: var(--s4); box-shadow: var(--clay-shadow-sm);
+      margin-bottom: var(--s4); box-shadow: var(--glass-shadow-sm);
     }
     .discipline-icon svg { width: 24px; height: 24px; stroke: var(--primary); fill: none; stroke-width: 1.8; }
-    .discipline-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: var(--s2); }
+    .discipline-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: var(--s2); }
     .discipline-card p  { font-size: 0.88rem; color: var(--text-2); line-height: 1.7; margin-bottom: var(--s4); }
     .discipline-tags { display: flex; flex-wrap: wrap; gap: var(--s2); }
     .discipline-tag {
-      font-size: 0.75rem; font-weight: 500; padding: 4px 10px;
+      font-size: 0.75rem; font-weight: 400; padding: 4px 10px;
       border-radius: var(--r-full); background: var(--surface-alt);
-      border: 1px solid var(--border); color: var(--text-2);
+      border: 1px solid var(--glass-border); color: var(--text-2);
     }
     .culture-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); margin-top: var(--s8); }
     .culture-item { padding: var(--s5); display: flex; gap: var(--s4); align-items: flex-start; }
     .culture-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--primary); flex-shrink: 0; margin-top: 5px; }
-    .culture-item h5 { font-size: 0.92rem; font-weight: 700; margin-bottom: 4px; }
+    .culture-item h5 { font-size: 0.92rem; font-weight: 600; margin-bottom: 4px; }
     .culture-item p  { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
 
     .mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s8); align-items: start; }
     .mission-card { padding: var(--s8) var(--s6); }
     .mission-icon {
       width: 56px; height: 56px; border-radius: var(--r-md);
-      background: linear-gradient(145deg, var(--primary-50), var(--primary-100));
-      border: 1.5px solid var(--border);
+      background: linear-gradient(145deg, var(--glass-bg), var(--glass-bg-hover));
+      border: 1.5px solid var(--glass-border);
       display: flex; align-items: center; justify-content: center;
       margin-bottom: var(--s5);
-      box-shadow: var(--clay-shadow-sm);
+      box-shadow: var(--glass-shadow-sm);
     }
     .mission-icon svg { width: 26px; height: 26px; stroke: var(--primary); fill: none; stroke-width: 1.8; }
-    .mission-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: var(--s3); }
+    .mission-card h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: var(--s3); }
     .mission-card p  { font-size: 0.92rem; color: var(--text-2); line-height: 1.7; }
 
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s5); }
     .why-item { padding: var(--s6) var(--s5); }
     .why-number {
-      font-family: var(--font-display); font-size: 2.5rem; font-weight: 700;
+      font-family: var(--font-display); font-size: 2.5rem; font-weight: 600;
       color: var(--primary); opacity: 0.25; line-height: 1; margin-bottom: var(--s2);
     }
-    .why-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: var(--s2); }
+    .why-item h4 { font-size: 1rem; font-weight: 600; margin-bottom: var(--s2); }
     .why-item p  { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
 
     @media (max-width: 1024px) {
@@ -151,7 +149,7 @@
      NAVIGATION
      ============================================================ -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
+  <div class="nav-pill">
     <a href="/" class="nav-logo">
       <img src="../assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
       <span>Fussion<span class="text-primary">Shade</span></span>
@@ -165,10 +163,10 @@
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" aria-label="Toggle dark/light mode">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="/contact" class="btn btn-primary btn-sm" style="border-radius:var(--r-full)">Get in Touch</a>
+      <a href="/contact" class="btn btn-primary btn-sm">Get in Touch</a>
       <button class="nav-toggle" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -189,8 +187,8 @@
   </nav>
   <div class="nav-sidebar-footer">
     <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <span>Toggle Theme</span>
     </button>
     <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
@@ -207,7 +205,7 @@
     <nav aria-label="Breadcrumb" style="margin-bottom:var(--s4)">
       <ol style="list-style:none;display:flex;gap:var(--s2);font-size:0.82rem;color:var(--text-muted);flex-wrap:wrap">
         <li><a href="/" style="color:var(--text-muted);text-decoration:none">Home</a></li>
-        <li aria-hidden="true" style="color:var(--border)">/</li>
+        <li aria-hidden="true" style="color:var(--glass-border)">/</li>
         <li aria-current="page" style="color:var(--text-2)">About</li>
       </ol>
     </nav>
@@ -245,14 +243,16 @@
             </div>
           </div>
         </div>
-        <div class="about-badge clay-sm">
-          <div class="about-badge-val">2025</div>
-          <div class="about-badge-label">Founded</div>
+        <div class="about-badge bezel-sm">
+          <div class="bezel-sm-core">
+            <div class="about-badge-val">2025</div>
+            <div class="about-badge-label">Founded</div>
+          </div>
         </div>
       </div>
 
       <div class="about-content reveal-right">
-        <div class="section-badge">Our Story</div>
+        <div class="section-eyebrow">Our Story</div>
         <h2 class="display-md">
           Born from a Frustration<br/>
           with <span class="gradient-text">Wasted Potential</span>
@@ -279,23 +279,27 @@
 <section class="section" style="background:var(--bg-alt)">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">Purpose &amp; Direction</div>
+      <div class="section-eyebrow">Purpose &amp; Direction</div>
       <h2 class="display-md">Mission &amp; <span class="gradient-text">Vision</span></h2>
     </div>
     <div class="mission-grid">
-      <div class="clay mission-card reveal">
-        <div class="mission-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <div class="bezel mission-card reveal">
+        <div class="bezel-core">
+          <div class="mission-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To help businesses grow faster and earn more by cutting out the expensive, time-wasting tasks that drain resources every single day. Every hour we save your team translates directly into lower operating costs, higher output, and revenue you keep. We build software that works for your bottom line, not just your IT department.</p>
         </div>
-        <h3>Our Mission</h3>
-        <p>To help businesses grow faster and earn more by cutting out the expensive, time-wasting tasks that drain resources every single day. Every hour we save your team translates directly into lower operating costs, higher output, and revenue you keep. We build software that works for your bottom line, not just your IT department.</p>
       </div>
-      <div class="clay mission-card reveal delay-1">
-        <div class="mission-icon">
-          <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <div class="bezel mission-card reveal delay-1">
+        <div class="bezel-core">
+          <div class="mission-icon">
+            <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Our Vision</h3>
+          <p>A world where every business, from a five-person startup to a thousand-person enterprise, has access to intelligent technology that drives real, measurable revenue growth. We want to be the partner businesses credit when they look back at their most profitable turning point. Technology should be a revenue multiplier, not just a cost centre.</p>
         </div>
-        <h3>Our Vision</h3>
-        <p>A world where every business, from a five-person startup to a thousand-person enterprise, has access to intelligent technology that drives real, measurable revenue growth. We want to be the partner businesses credit when they look back at their most profitable turning point. Technology should be a revenue multiplier, not just a cost centre.</p>
       </div>
     </div>
   </div>
@@ -308,58 +312,70 @@
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">What Drives Us</div>
+      <div class="section-eyebrow">What Drives Us</div>
       <h2 class="display-md">Our Core <span class="gradient-text">Values</span></h2>
     </div>
 
     <div class="grid-3">
 
-      <div class="clay service-card reveal">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="bezel service-card reveal">
+        <div class="bezel-core">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Integrity First</h3>
+          <p>We say what we mean and do what we say. Transparent communication, honest timelines, and no hidden surprises, ever. Your trust is our most valued asset.</p>
         </div>
-        <h3>Integrity First</h3>
-        <p>We say what we mean and do what we say. Transparent communication, honest timelines, and no hidden surprises, ever. Your trust is our most valued asset.</p>
       </div>
 
-      <div class="clay service-card reveal delay-1">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="bezel service-card reveal delay-1">
+        <div class="bezel-core">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3>Excellence Always</h3>
+          <p>Good enough never is. We hold ourselves to the highest standards in code quality, design, communication, and support. Every delivery reflects our name.</p>
         </div>
-        <h3>Excellence Always</h3>
-        <p>Good enough never is. We hold ourselves to the highest standards in code quality, design, communication, and support. Every delivery reflects our name.</p>
       </div>
 
-      <div class="clay service-card reveal delay-2">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <div class="bezel service-card reveal delay-2">
+        <div class="bezel-core">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Client Partnership</h3>
+          <p>We don't work for our clients, we work with them. Deep collaboration, weekly syncs, and a genuine investment in your success distinguish every project we take on.</p>
         </div>
-        <h3>Client Partnership</h3>
-        <p>We don't work for our clients, we work with them. Deep collaboration, weekly syncs, and a genuine investment in your success distinguish every project we take on.</p>
       </div>
 
-      <div class="clay service-card reveal delay-1">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+      <div class="bezel service-card reveal delay-1">
+        <div class="bezel-core">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h3>Constant Innovation</h3>
+          <p>The technology landscape never stands still, and neither do we. Our team continuously trains on emerging tools including AI, edge computing, and new frameworks, so your solutions stay cutting-edge.</p>
         </div>
-        <h3>Constant Innovation</h3>
-        <p>The technology landscape never stands still, and neither do we. Our team continuously trains on emerging tools including AI, edge computing, and new frameworks, so your solutions stay cutting-edge.</p>
       </div>
 
-      <div class="clay service-card reveal delay-2">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>
+      <div class="bezel service-card reveal delay-2">
+        <div class="bezel-core">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="12" x2="2" y2="12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><line x1="6" y1="16" x2="6.01" y2="16"/><line x1="10" y1="16" x2="10.01" y2="16"/></svg>
+          </div>
+          <h3>Results Obsessed</h3>
+          <p>Beautiful code means nothing if it doesn't drive results. We measure success by your outcomes: productivity gains, cost reduction, user adoption, and revenue growth.</p>
         </div>
-        <h3>Results Obsessed</h3>
-        <p>Beautiful code means nothing if it doesn't drive results. We measure success by your outcomes: productivity gains, cost reduction, user adoption, and revenue growth.</p>
       </div>
 
-      <div class="clay service-card reveal delay-3">
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <div class="bezel service-card reveal delay-3">
+        <div class="bezel-core">
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Global Mindset</h3>
+          <p>Our team spans multiple time zones and has delivered for clients across 4 continents. We bring global perspective and cultural awareness to every engagement.</p>
         </div>
-        <h3>Global Mindset</h3>
-        <p>Our team spans multiple time zones and has delivered for clients across 4 continents. We bring global perspective and cultural awareness to every engagement.</p>
       </div>
 
     </div>
@@ -373,7 +389,7 @@
 <section class="section" style="background:var(--bg-alt)">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">Our People</div>
+      <div class="section-eyebrow">Our People</div>
       <h2 class="display-md">A Team Built for<br/><span class="gradient-text">Real Results</span></h2>
       <p class="body-lg text-muted mt-4" style="max-width:580px;margin-inline:auto">
         We're a compact, senior-heavy team of engineers, designers, and strategists. No account managers in the middle, just specialists who care about your outcome as much as you do.
@@ -382,85 +398,101 @@
 
     <!-- Stats row -->
     <div class="team-stats-row">
-      <div class="clay team-stat-card reveal">
-        <div class="team-stat-val">10+</div>
-        <div class="team-stat-label">Team members across 4 disciplines</div>
+      <div class="bezel team-stat-card reveal">
+        <div class="bezel-core">
+          <div class="team-stat-val">10+</div>
+          <div class="team-stat-label">Team members across 4 disciplines</div>
+        </div>
       </div>
-      <div class="clay team-stat-card reveal delay-1">
-        <div class="team-stat-val">6+</div>
-        <div class="team-stat-label">Years of average experience per engineer</div>
+      <div class="bezel team-stat-card reveal delay-1">
+        <div class="bezel-core">
+          <div class="team-stat-val">6+</div>
+          <div class="team-stat-label">Years of average experience per engineer</div>
+        </div>
       </div>
-      <div class="clay team-stat-card reveal delay-2">
-        <div class="team-stat-val">4</div>
-        <div class="team-stat-label">Continents our team spans</div>
+      <div class="bezel team-stat-card reveal delay-2">
+        <div class="bezel-core">
+          <div class="team-stat-val">4</div>
+          <div class="team-stat-label">Continents our team spans</div>
+        </div>
       </div>
-      <div class="clay team-stat-card reveal delay-3">
-        <div class="team-stat-val">20+</div>
-        <div class="team-stat-label">Projects delivered collectively</div>
+      <div class="bezel team-stat-card reveal delay-3">
+        <div class="bezel-core">
+          <div class="team-stat-val">20+</div>
+          <div class="team-stat-label">Projects delivered collectively</div>
+        </div>
       </div>
     </div>
 
     <!-- Discipline cards -->
     <div class="discipline-grid">
 
-      <div class="clay discipline-card reveal">
-        <div class="discipline-icon">
-          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <h3>Software Engineering</h3>
-        <p>Our engineering core handles everything from full-stack web applications to backend systems and cloud infrastructure. Every engineer owns the full delivery lifecycle: architecture, code, testing, and deployment.</p>
-        <div class="discipline-tags">
-          <span class="discipline-tag">React &amp; Next.js</span>
-          <span class="discipline-tag">Node.js</span>
-          <span class="discipline-tag">Python</span>
-          <span class="discipline-tag">PostgreSQL</span>
-          <span class="discipline-tag">AWS / GCP</span>
-          <span class="discipline-tag">Docker &amp; Kubernetes</span>
-        </div>
-      </div>
-
-      <div class="clay discipline-card reveal delay-1">
-        <div class="discipline-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-        </div>
-        <h3>Mobile Development</h3>
-        <p>We build high-performance native and cross-platform mobile applications that users love. From consumer-facing apps to internal enterprise tools, our mobile team delivers polished, production-ready products.</p>
-        <div class="discipline-tags">
-          <span class="discipline-tag">React Native</span>
-          <span class="discipline-tag">Flutter</span>
-          <span class="discipline-tag">Swift (iOS)</span>
-          <span class="discipline-tag">Kotlin (Android)</span>
-          <span class="discipline-tag">App Store Deployment</span>
+      <div class="bezel discipline-card reveal">
+        <div class="bezel-core">
+          <div class="discipline-icon">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Software Engineering</h3>
+          <p>Our engineering core handles everything from full-stack web applications to backend systems and cloud infrastructure. Every engineer owns the full delivery lifecycle: architecture, code, testing, and deployment.</p>
+          <div class="discipline-tags">
+            <span class="discipline-tag">React &amp; Next.js</span>
+            <span class="discipline-tag">Node.js</span>
+            <span class="discipline-tag">Python</span>
+            <span class="discipline-tag">PostgreSQL</span>
+            <span class="discipline-tag">AWS / GCP</span>
+            <span class="discipline-tag">Docker &amp; Kubernetes</span>
+          </div>
         </div>
       </div>
 
-      <div class="clay discipline-card reveal delay-1">
-        <div class="discipline-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
-        </div>
-        <h3>AI &amp; Intelligent Automation</h3>
-        <p>Our AI specialists design and implement intelligent systems, from custom LLM-powered chatbots to machine learning pipelines and end-to-end business process automation. We make AI practical and measurable.</p>
-        <div class="discipline-tags">
-          <span class="discipline-tag">LangChain &amp; OpenAI</span>
-          <span class="discipline-tag">TensorFlow</span>
-          <span class="discipline-tag">RAG Pipelines</span>
-          <span class="discipline-tag">RPA &amp; Workflows</span>
-          <span class="discipline-tag">Zapier / Make</span>
+      <div class="bezel discipline-card reveal delay-1">
+        <div class="bezel-core">
+          <div class="discipline-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Mobile Development</h3>
+          <p>We build high-performance native and cross-platform mobile applications that users love. From consumer-facing apps to internal enterprise tools, our mobile team delivers polished, production-ready products.</p>
+          <div class="discipline-tags">
+            <span class="discipline-tag">React Native</span>
+            <span class="discipline-tag">Flutter</span>
+            <span class="discipline-tag">Swift (iOS)</span>
+            <span class="discipline-tag">Kotlin (Android)</span>
+            <span class="discipline-tag">App Store Deployment</span>
+          </div>
         </div>
       </div>
 
-      <div class="clay discipline-card reveal delay-2">
-        <div class="discipline-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+      <div class="bezel discipline-card reveal delay-1">
+        <div class="bezel-core">
+          <div class="discipline-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h3>AI &amp; Intelligent Automation</h3>
+          <p>Our AI specialists design and implement intelligent systems, from custom LLM-powered chatbots to machine learning pipelines and end-to-end business process automation. We make AI practical and measurable.</p>
+          <div class="discipline-tags">
+            <span class="discipline-tag">LangChain &amp; OpenAI</span>
+            <span class="discipline-tag">TensorFlow</span>
+            <span class="discipline-tag">RAG Pipelines</span>
+            <span class="discipline-tag">RPA &amp; Workflows</span>
+            <span class="discipline-tag">Zapier / Make</span>
+          </div>
         </div>
-        <h3>Design &amp; Product Strategy</h3>
-        <p>Great software starts with clear thinking. Our design and strategy team translates complex requirements into intuitive interfaces and coherent product roadmaps, ensuring what we build is both beautiful and purposeful.</p>
-        <div class="discipline-tags">
-          <span class="discipline-tag">UX Research</span>
-          <span class="discipline-tag">UI / Design Systems</span>
-          <span class="discipline-tag">Figma</span>
-          <span class="discipline-tag">Product Roadmapping</span>
-          <span class="discipline-tag">Prototyping</span>
+      </div>
+
+      <div class="bezel discipline-card reveal delay-2">
+        <div class="bezel-core">
+          <div class="discipline-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <h3>Design &amp; Product Strategy</h3>
+          <p>Great software starts with clear thinking. Our design and strategy team translates complex requirements into intuitive interfaces and coherent product roadmaps, ensuring what we build is both beautiful and purposeful.</p>
+          <div class="discipline-tags">
+            <span class="discipline-tag">UX Research</span>
+            <span class="discipline-tag">UI / Design Systems</span>
+            <span class="discipline-tag">Figma</span>
+            <span class="discipline-tag">Product Roadmapping</span>
+            <span class="discipline-tag">Prototyping</span>
+          </div>
         </div>
       </div>
 
@@ -468,25 +500,31 @@
 
     <!-- Culture strip -->
     <div class="culture-strip">
-      <div class="clay culture-item reveal">
-        <div class="culture-dot"></div>
-        <div>
-          <h5>Senior-led, always</h5>
-          <p>Every project is led by a senior specialist. No juniors on your critical path without oversight.</p>
+      <div class="bezel culture-item reveal">
+        <div class="bezel-core">
+          <div class="culture-dot"></div>
+          <div>
+            <h5>Senior-led, always</h5>
+            <p>Every project is led by a senior specialist. No juniors on your critical path without oversight.</p>
+          </div>
         </div>
       </div>
-      <div class="clay culture-item reveal delay-1">
-        <div class="culture-dot"></div>
-        <div>
-          <h5>Timezone-aware delivery</h5>
-          <p>Our distributed team ensures overlap with your working hours no matter where you are in the world.</p>
+      <div class="bezel culture-item reveal delay-1">
+        <div class="bezel-core">
+          <div class="culture-dot"></div>
+          <div>
+            <h5>Timezone-aware delivery</h5>
+            <p>Our distributed team ensures overlap with your working hours no matter where you are in the world.</p>
+          </div>
         </div>
       </div>
-      <div class="clay culture-item reveal delay-2">
-        <div class="culture-dot"></div>
-        <div>
-          <h5>Continuous learning culture</h5>
-          <p>The team dedicates time each week to staying current, so your stack never falls behind the curve.</p>
+      <div class="bezel culture-item reveal delay-2">
+        <div class="bezel-core">
+          <div class="culture-dot"></div>
+          <div>
+            <h5>Continuous learning culture</h5>
+            <p>The team dedicates time each week to staying current, so your stack never falls behind the curve.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -501,39 +539,51 @@
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">Why Fussion Shade</div>
+      <div class="section-eyebrow">Why Fussion Shade</div>
       <h2 class="display-md">What Makes Us<br/><span class="gradient-text">Different</span></h2>
     </div>
     <div class="why-grid">
-      <div class="clay why-item reveal">
-        <div class="why-number">01</div>
-        <h4>Business-First Engineering</h4>
-        <p>Every line of code is written with your business goals in mind. We don't just solve technical problems, we solve business problems with technology.</p>
+      <div class="bezel why-item reveal">
+        <div class="bezel-core">
+          <div class="why-number">01</div>
+          <h4>Business-First Engineering</h4>
+          <p>Every line of code is written with your business goals in mind. We don't just solve technical problems, we solve business problems with technology.</p>
+        </div>
       </div>
-      <div class="clay why-item reveal delay-1">
-        <div class="why-number">02</div>
-        <h4>Deep Domain Expertise</h4>
-        <p>Our developers aren't generalists. Each team member has years of specialised experience in their respective stack and industry domain.</p>
+      <div class="bezel why-item reveal delay-1">
+        <div class="bezel-core">
+          <div class="why-number">02</div>
+          <h4>Deep Domain Expertise</h4>
+          <p>Our developers aren't generalists. Each team member has years of specialised experience in their respective stack and industry domain.</p>
+        </div>
       </div>
-      <div class="clay why-item reveal delay-2">
-        <div class="why-number">03</div>
-        <h4>Radical Transparency</h4>
-        <p>Weekly progress reports, open GitHub access, live staging environments. You always know exactly where your project stands, with no surprises.</p>
+      <div class="bezel why-item reveal delay-2">
+        <div class="bezel-core">
+          <div class="why-number">03</div>
+          <h4>Radical Transparency</h4>
+          <p>Weekly progress reports, open GitHub access, live staging environments. You always know exactly where your project stands, with no surprises.</p>
+        </div>
       </div>
-      <div class="clay why-item reveal delay-1">
-        <div class="why-number">04</div>
-        <h4>Post-Launch Partnership</h4>
-        <p>Our relationship doesn't end at delivery. We offer tailored maintenance plans, performance monitoring, and iterative improvements as your business grows.</p>
+      <div class="bezel why-item reveal delay-1">
+        <div class="bezel-core">
+          <div class="why-number">04</div>
+          <h4>Post-Launch Partnership</h4>
+          <p>Our relationship doesn't end at delivery. We offer tailored maintenance plans, performance monitoring, and iterative improvements as your business grows.</p>
+        </div>
       </div>
-      <div class="clay why-item reveal delay-2">
-        <div class="why-number">05</div>
-        <h4>Agile Without the Buzzwords</h4>
-        <p>We run lean, focused sprints with minimal overhead. Real agility means fast pivots, frequent deliveries, and zero time wasted on bureaucracy.</p>
+      <div class="bezel why-item reveal delay-2">
+        <div class="bezel-core">
+          <div class="why-number">05</div>
+          <h4>Agile Without the Buzzwords</h4>
+          <p>We run lean, focused sprints with minimal overhead. Real agility means fast pivots, frequent deliveries, and zero time wasted on bureaucracy.</p>
+        </div>
       </div>
-      <div class="clay why-item reveal delay-3">
-        <div class="why-number">06</div>
-        <h4>Fixed-Price Options</h4>
-        <p>For well-defined projects, we offer fixed-price engagements with a clear scope, timeline, and deliverables. No billing surprises.</p>
+      <div class="bezel why-item reveal delay-3">
+        <div class="bezel-core">
+          <div class="why-number">06</div>
+          <h4>Fixed-Price Options</h4>
+          <p>For well-defined projects, we offer fixed-price engagements with a clear scope, timeline, and deliverables. No billing surprises.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -546,13 +596,12 @@
 <section class="cta-banner">
   <div class="container">
     <div class="cta-banner-inner reveal">
-      <div class="section-badge" style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">Ready to Work Together?</div>
+      <div class="section-eyebrow" style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">Ready to Work Together?</div>
       <h2>Let's Build Your Next<br/>Big Thing Together</h2>
       <p>Get a free strategy consultation with one of our senior engineers and discover exactly how we can help your business.</p>
       <div class="flex flex-center gap-4" style="flex-wrap:wrap">
         <a href="/contact" class="btn btn-primary btn-lg">
-          Book a Free Call
-          <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Start a Project <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
         </a>
         <a href="/services" class="btn btn-outline btn-lg">Our Services</a>
       </div>
@@ -572,9 +621,15 @@
         </a>
         <p>Empowering businesses through intelligent automation and custom digital solutions.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg></a>
-          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="footer-social" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="https://www.instagram.com/fussionshade.agency/" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/faq">FAQ</a><a href="/contact">Contact</a><a href="#">Careers</a></div></div>
@@ -589,13 +644,13 @@
 </footer>
 
 <div class="floating-cta">
-  <a href="https://wa.me/923073134427?text=Hello%20Abdullah,%20I%20would%20like%20to%20discuss%20a%20project."
+  <a href="https://wa.me/923073134427?text=Hello%20Fussionshade%20Team,%20I%20would%20like%20to%20discuss%20a%20project."
       class="floating-cta-btn" target="_blank" aria-label="Chat on WhatsApp">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
         <path
           d="M20.52 3.48A11.82 11.82 0 0 0 12.02 0C5.39 0 0 5.39 0 12.02c0 2.12.55 4.19 1.6 6.03L0 24l6.12-1.58a11.97 11.97 0 0 0 5.9 1.5h.01c6.63 0 12.02-5.39 12.02-12.02 0-3.21-1.25-6.23-3.53-8.42zM12.03 21.9a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.63.94.97-3.54-.24-.37a9.88 9.88 0 0 1-1.53-5.32c0-5.48 4.46-9.94 9.94-9.94 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.48-4.46 9.94-9.92 9.94zm5.45-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.08-.13-.27-.2-.57-.35z" />
       </svg>
-      <span>Chat on whats app</span>
+      <span>Chat on WhatsApp</span>
     </a>
 </div>
 

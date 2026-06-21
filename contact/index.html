@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,14 +33,12 @@
   <meta name="bingbot" content="index, follow" />
 
   <!-- Favicon & theme -->
-  <meta name="theme-color" content="#3ED46A" />
+  <meta name="theme-color" content="#050505" />
   <link rel="icon" href="../assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/img/logo.png" />
 
   <!-- Fonts & styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="../assets/style/main.css" />
   <style>
     /* ── Contact page specific ── */
@@ -60,23 +58,23 @@
       padding: var(--s5);
       border-radius: var(--r-lg);
       background: var(--surface);
-      box-shadow: var(--clay-shadow);
+      box-shadow: var(--shadow-md);
       transition: transform var(--t-base), box-shadow var(--t-base);
     }
     .contact-info-card:hover {
       transform: translateY(-3px);
-      box-shadow: var(--clay-shadow-hover);
+      box-shadow: var(--shadow-lg);
     }
 
     .contact-info-icon {
       flex-shrink: 0;
       width: 48px; height: 48px;
       border-radius: var(--r-md);
-      background: var(--primary-50);
+      background: var(--primary-subtle);
       display: flex; align-items: center; justify-content: center;
       color: var(--primary);
     }
-    .contact-info-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; }
+    .contact-info-icon svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 
     .contact-info-label {
       font-size: 0.75rem;
@@ -105,7 +103,7 @@
       width: 44px; height: 44px;
       border-radius: var(--r-md);
       background: var(--surface);
-      box-shadow: var(--clay-shadow-sm);
+      box-shadow: var(--shadow-sm);
       display: flex; align-items: center; justify-content: center;
       color: var(--text-muted);
       text-decoration: none;
@@ -113,10 +111,10 @@
     }
     .contact-social-link:hover {
       transform: translateY(-2px);
-      box-shadow: var(--clay-shadow-hover);
+      box-shadow: var(--shadow-lg);
       color: var(--primary);
     }
-    .contact-social-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; }
+    .contact-social-link svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 
     /* Availability badge */
     .availability-badge {
@@ -149,7 +147,7 @@
       padding: var(--s8);
       border-radius: var(--r-xl);
       background: var(--surface);
-      box-shadow: var(--clay-shadow);
+      box-shadow: var(--shadow-md);
     }
 
     .form-title { margin-bottom: var(--s6); }
@@ -169,7 +167,7 @@
       width: 100%;
       padding: 12px 16px;
       border-radius: var(--r-md);
-      border: 1.5px solid var(--border-card);
+      border: 1.5px solid var(--glass-border);
       background: var(--bg-alt);
       color: var(--text);
       font-family: var(--font-body);
@@ -180,10 +178,10 @@
     }
     .form-input:focus, .form-select:focus, .form-textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px var(--primary-50);
+      box-shadow: 0 0 0 3px var(--primary-subtle);
     }
     .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
-    .form-select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 40px; }
+    .form-select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='1.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 40px; }
 
     .form-success {
       display: none;
@@ -194,7 +192,7 @@
     .form-success-icon {
       width: 72px; height: 72px;
       border-radius: 50%;
-      background: var(--primary-50);
+      background: var(--primary-subtle);
       border: 3px solid var(--primary);
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto var(--s5);
@@ -238,7 +236,7 @@
 
 <!-- NAV -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
+  <div class="nav-pill">
     <a href="/" class="nav-logo">
       <img src="../assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
       <span>Fussion<span class="text-primary">Shade</span></span>
@@ -252,10 +250,10 @@
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" aria-label="Toggle dark/light mode">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="/contact" class="btn btn-primary btn-sm" style="border-radius:var(--r-full)">Get in Touch</a>
+      <a href="/contact" class="btn btn-primary btn-sm">Get in Touch</a>
       <button class="nav-toggle" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -264,7 +262,7 @@
   <div class="nav-sidebar-header">
     <span class="nav-sidebar-brand">Fussion Shade</span>
     <button class="nav-sidebar-close" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
   <nav class="nav-sidebar-links">
@@ -276,8 +274,8 @@
   </nav>
   <div class="nav-sidebar-footer">
     <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <span>Toggle Theme</span>
     </button>
     <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
@@ -392,13 +390,30 @@
               <label for="service">Service Needed *</label>
               <select class="form-select" id="service" name="service" required>
                 <option value="" disabled selected>Select a service</option>
-                <option value="web">Web Application</option>
-                <option value="mobile">Mobile App</option>
-                <option value="ai">AI / ML Integration</option>
-                <option value="chatbot">Custom Chatbot</option>
-                <option value="automation">Business Automation</option>
-                <option value="consulting">Technical Consulting</option>
-                <option value="other">Other</option>
+                <optgroup label="Website Development">
+                  <option value="pipeline-rebuild">Revenue Pipeline Rebuild</option>
+                  <option value="conversion-optimisation">Conversion Rate Optimisation</option>
+                </optgroup>
+                <optgroup label="Web App">
+                  <option value="speed-performance">Speed &amp; Performance Guarantee</option>
+                  <option value="legacy-rescue">Legacy System Rescue</option>
+                </optgroup>
+                <optgroup label="AI Integrations">
+                  <option value="ai-analytics">AI-Powered Analytics Engine</option>
+                  <option value="lead-scoring">Predictive Lead Scoring</option>
+                  <option value="embedded-ai-team">Embedded AI Development Team</option>
+                </optgroup>
+                <optgroup label="Custom Chatbots">
+                  <option value="sales-bot">24/7 Sales Bot</option>
+                  <option value="support-ai">Customer Support AI</option>
+                </optgroup>
+                <optgroup label="Mobile Development">
+                  <option value="mvp-sprint">14-Day MVP Sprint</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option value="custom">Custom Service</option>
+                  <option value="consulting">Technical Consulting</option>
+                </optgroup>
               </select>
             </div>
             <div class="form-group">
@@ -424,7 +439,8 @@
 
           <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding-block:14px;font-size:1rem">
             <span class="btn-text">Send Message</span>
-            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
           </button>
         </form>
 
@@ -436,7 +452,16 @@
           <p style="color:var(--text-muted)">Thanks for reaching out. We'll review your project details and get back to you within one business day with a personalised proposal.</p>
         </div>
 
-      </div>
+        </form>
+
+        <!-- WhatsApp Alternative -->
+        <div class="contact-alt-channels" style="margin-top:var(--s6);padding-top:var(--s6);border-top:1px solid var(--border)">
+          <p style="font-size:0.85rem;text-align:center;color:var(--text-muted);margin-bottom:var(--s4)">Or reach us instantly on WhatsApp</p>
+          <a href="https://wa.me/923073134427?text=Hello%20Abdullah,%20I%20would%20like%20to%20discuss%20a%20project." class="btn btn-primary" target="_blank" style="width:100%;justify-content:center;gap:10px;background:#25D366;border-color:#25D366;padding-block:14px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M20.52 3.48A11.82 11.82 0 0 0 12.02 0C5.39 0 0 5.39 0 12.02c0 2.12.55 4.19 1.6 6.03L0 24l6.12-1.58a11.97 11.97 0 0 0 5.9 1.5h.01c6.63 0 12.02-5.39 12.02-12.02 0-3.21-1.25-6.23-3.53-8.42zM12.03 21.9a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.63.94.97-3.54-.24-.37a9.88 9.88 0 0 1-1.53-5.32c0-5.48 4.46-9.94 9.94-9.94 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.48-4.46 9.94-9.92 9.94zm5.45-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.08-.13-.27-.2-.57-.35z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
 
     </div>
   </div>
@@ -447,30 +472,38 @@
 <section style="padding-block:var(--s16);background:var(--bg-alt)">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">Free Consultation</div>
+      <div class="section-eyebrow">Free Consultation</div>
       <h2 class="section-title" style="font-size:2rem">What to Expect in Your<br/>Free Strategy Call</h2>
       <p class="section-sub">No strings attached. Just a focused 30 mins to explore how we can help your business.</p>
     </div>
     <div class="consult-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5);margin-top:var(--s10)">
-      <div class="clay reveal" style="padding:var(--s6);text-align:center">
-        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Needs Discovery</h4>
-        <p style="font-size:0.85rem;color:var(--text-muted)">We explore your goals, current pain points, and what success looks like for you.</p>
+      <div class="bezel reveal" style="padding:var(--s6);text-align:center">
+        <div class="bezel-core">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-subtle);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Needs Discovery</h4>
+          <p style="font-size:0.85rem;color:var(--text-muted)">We explore your goals, current pain points, and what success looks like for you.</p>
+        </div>
       </div>
-      <div class="clay reveal delay-1" style="padding:var(--s6);text-align:center">
-        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polygon points="3 3 21 3 21 15 10 15 3 22 3 3"/></svg></div>
-        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Expert Recommendations</h4>
-        <p style="font-size:0.85rem;color:var(--text-muted)">Our team shares honest recommendations on tech stack, approach, and timeline.</p>
+      <div class="bezel reveal delay-1" style="padding:var(--s6);text-align:center">
+        <div class="bezel-core">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-subtle);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><polygon points="3 3 21 3 21 15 10 15 3 22 3 3"/></svg></div>
+          <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Expert Recommendations</h4>
+          <p style="font-size:0.85rem;color:var(--text-muted)">Our team shares honest recommendations on tech stack, approach, and timeline.</p>
+        </div>
       </div>
-      <div class="clay reveal delay-2" style="padding:var(--s6);text-align:center">
-        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
-        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Scope &amp; Estimate</h4>
-        <p style="font-size:0.85rem;color:var(--text-muted)">You'll get a ballpark scope and cost estimate by the end of the call, with no surprises.</p>
+      <div class="bezel reveal delay-2" style="padding:var(--s6);text-align:center">
+        <div class="bezel-core">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-subtle);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+          <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Scope &amp; Estimate</h4>
+          <p style="font-size:0.85rem;color:var(--text-muted)">You'll get a ballpark scope and cost estimate by the end of the call, with no surprises.</p>
+        </div>
       </div>
-      <div class="clay reveal delay-3" style="padding:var(--s6);text-align:center">
-        <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-50);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-        <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Clear Next Steps</h4>
-        <p style="font-size:0.85rem;color:var(--text-muted)">Walk away with a clear action plan, whether you choose to work with us or not.</p>
+      <div class="bezel reveal delay-3" style="padding:var(--s6);text-align:center">
+        <div class="bezel-core">
+          <div style="width:52px;height:52px;border-radius:var(--r-md);background:var(--primary-subtle);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4);"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+          <h4 style="font-size:1rem;font-weight:700;margin-bottom:var(--s2)">Clear Next Steps</h4>
+          <p style="font-size:0.85rem;color:var(--text-muted)">Walk away with a clear action plan, whether you choose to work with us or not.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -481,7 +514,7 @@
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">FAQ</div>
+      <div class="section-eyebrow">FAQ</div>
       <h2 class="section-title" style="font-size:2rem">Frequently Asked Questions</h2>
     </div>
 
@@ -490,7 +523,7 @@
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           How long does a typical project take?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-answer">
           <p>Project timelines vary depending on complexity. A focused web application typically takes 4–8 weeks. Mobile apps run 8–14 weeks. Enterprise automations and AI integrations are often phased over 3–6 months for proper testing and rollout. We always provide a detailed timeline before we start.</p>
@@ -500,7 +533,7 @@
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           What is your development process?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-answer">
           <p>We follow an agile sprint process: Discovery → Architecture & Design → Development (2-week sprints with demo at each sprint end) → QA & Testing → Deployment → Post-launch support. You receive weekly updates and have access to a shared project board throughout.</p>
@@ -510,7 +543,7 @@
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           Do you provide ongoing maintenance after launch?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-answer">
           <p>Yes! All projects include 30 days of free post-launch support. After that, we offer retainer maintenance packages starting at $500/month covering bug fixes, security updates, minor feature additions, and monitoring. Most clients choose these to ensure their systems stay current and performant.</p>
@@ -520,7 +553,7 @@
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           What industries do you work with?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-answer">
           <p>We've delivered projects across retail, financial services, healthcare, logistics, e-commerce, professional services, and SaaS. Our automation and AI expertise translates powerfully across industries. If you have repetitive processes, we can automate them regardless of your sector.</p>
@@ -530,7 +563,7 @@
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           How do you handle intellectual property and confidentiality?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-answer">
           <p>All code, assets, and deliverables become your full property upon final payment. We sign NDAs before discovery calls for sensitive projects. Our team operates under strict confidentiality policies and we never share client information or use your data to train models without explicit written permission.</p>
@@ -540,7 +573,7 @@
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
           What information should I prepare before reaching out?
-          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-answer">
           <p>The more context the better, but even a rough idea is fine. Helpful things to think about: What problem are you trying to solve? Who are the end users? Are there existing systems to integrate with? What's your timeline and approximate budget? We'll help you refine requirements during the discovery call.</p>
@@ -562,10 +595,16 @@
           <span>Fussion<span class="text-primary">Shade</span></span>
         </a>
         <p>Empowering businesses through intelligent automation and custom digital solutions.</p>
-        <div class="footer-socials" style="display:none">
-          <a href="#" class="footer-social" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg></a>
-          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="footer-social" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/fussionshade.agency/" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div></div>

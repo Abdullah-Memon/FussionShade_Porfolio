@@ -1,6 +1,6 @@
 /* ================================================================
    FUSSION SHADE — MAIN JAVASCRIPT
-   Theme Toggle | Scroll Animations | Counters | Slider | Nav
+   Ethereal Glass Interactions | Scroll Choreography | Fluid Motion
    ================================================================ */
 
 'use strict';
@@ -21,16 +21,18 @@ const ThemeManager = (() => {
   function apply(theme) {
     root.setAttribute('data-theme', theme);
     localStorage.setItem(KEY, theme);
+    // Update theme-color meta for mobile browsers
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = theme === 'dark' ? '#050505' : '#F7F8FA';
   }
 
   function toggle() {
-    const current = root.getAttribute('data-theme') || 'light';
+    const current = root.getAttribute('data-theme') || 'dark';
     apply(current === 'dark' ? 'light' : 'dark');
   }
 
   function init() {
     apply(getPreference());
-    // Bind all theme-toggle buttons (desktop nav + mobile sidebar)
     document.querySelectorAll('.theme-toggle').forEach(btn => {
       btn.addEventListener('click', toggle);
     });
@@ -41,25 +43,24 @@ const ThemeManager = (() => {
 
 
 /* ----------------------------------------------------------------
-   NAVIGATION
+   NAVIGATION — Floating Pill + Scroll Effect
    ---------------------------------------------------------------- */
 const Nav = (() => {
   function init() {
     const nav = document.querySelector('.nav');
     const toggle = document.querySelector('.nav-toggle');
     const mobileMenu = document.querySelector('.nav-mobile');
-
     const overlay = document.querySelector('.nav-overlay');
 
-    // Scroll effect — add .scrolled for background on scroll
+    // Scroll effect — tighten the pill on scroll
     function onScroll() {
       if (!nav) return;
-      nav.classList.toggle('scrolled', window.scrollY > 20);
+      nav.classList.toggle('scrolled', window.scrollY > 40);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
-    // Mobile sidebar open / close
+    // Mobile menu
     function openMenu() {
       if (!toggle || !mobileMenu) return;
       toggle.classList.add('open');
@@ -83,25 +84,20 @@ const Nav = (() => {
         toggle.classList.contains('open') ? closeMenu() : openMenu();
       });
 
-      // Close button inside sidebar
       const closeBtn = mobileMenu.querySelector('.nav-sidebar-close');
       if (closeBtn) closeBtn.addEventListener('click', closeMenu);
-
-      // Clicking the overlay backdrop closes menu
       if (overlay) overlay.addEventListener('click', closeMenu);
 
-      // Close when a nav link inside the sidebar is clicked
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', closeMenu);
       });
 
-      // Close on Escape key
       document.addEventListener('keydown', e => {
         if (e.key === 'Escape' && toggle.classList.contains('open')) closeMenu();
       });
     }
 
-    // Active nav link — works with clean URLs (/about, /services, etc.)
+    // Active nav link
     const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
     document.querySelectorAll('.nav-link').forEach(link => {
       const href = (link.getAttribute('href') || '').replace(/\/$/, '') || '/';
@@ -116,11 +112,11 @@ const Nav = (() => {
 
 
 /* ----------------------------------------------------------------
-   SCROLL REVEAL ANIMATIONS
+   SCROLL REVEAL — IntersectionObserver with Stagger
    ---------------------------------------------------------------- */
 const ScrollReveal = (() => {
   function init() {
-    const items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-blur');
     if (!items.length) return;
 
     const observer = new IntersectionObserver((entries) => {
@@ -131,8 +127,8 @@ const ScrollReveal = (() => {
         }
       });
     }, {
-      threshold: 0.12,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -60px 0px'
     });
 
     items.forEach(el => observer.observe(el));
@@ -149,17 +145,17 @@ const Counters = (() => {
   function animate(el) {
     const target = parseFloat(el.dataset.target || el.textContent);
     const suffix = el.dataset.suffix || '';
-    const duration = 2000;
+    const duration = 2200;
     const startTime = performance.now();
 
-    function easeOutCubic(t) {
-      return 1 - Math.pow(1 - t, 3);
+    function easeOutExpo(t) {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
     }
 
     function update(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      const eased = easeOutCubic(progress);
+      const eased = easeOutExpo(progress);
 
       const current = Math.round(eased * target * 10) / 10;
       el.textContent = (Number.isInteger(target) ? Math.round(current) : current.toFixed(1)) + suffix;
@@ -248,7 +244,7 @@ const Testimonials = (() => {
 
     function goTo(index) {
       current = Math.max(0, Math.min(index, maxIndex));
-      const gap = 24; // var(--s6) = 1.5rem
+      const gap = 24;
       const cardW = getCardWidth();
       slider.style.transform = `translateX(-${current * (cardW + gap)}px)`;
       updateDots();
@@ -272,7 +268,7 @@ const Testimonials = (() => {
     slider.addEventListener('mouseenter', stopAuto);
     slider.addEventListener('mouseleave', startAuto);
 
-    // Touch / swipe support
+    // Touch / swipe
     let touchStartX = 0;
     slider.addEventListener('touchstart', e => {
       touchStartX = e.changedTouches[0].screenX;
@@ -315,14 +311,12 @@ const FAQ = (() => {
       btn.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
 
-        // Close all
         document.querySelectorAll('.faq-item.open').forEach(open => {
           open.classList.remove('open');
           const a = open.querySelector('.faq-answer');
           if (a) a.style.maxHeight = '0';
         });
 
-        // Open clicked if it was closed
         if (!isOpen) {
           item.classList.add('open');
           answer.style.maxHeight = answer.scrollHeight + 'px';
@@ -340,8 +334,8 @@ const FAQ = (() => {
    ---------------------------------------------------------------- */
 const ProjectFilter = (() => {
   function init() {
-    const btns     = document.querySelectorAll('.filter-btn');
-    const cards    = document.querySelectorAll('.project-card-wrap');
+    const btns  = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card-wrap');
     if (!btns.length || !cards.length) return;
 
     btns.forEach(btn => {
@@ -360,7 +354,7 @@ const ProjectFilter = (() => {
               card.style.opacity = '0';
               card.style.transform = 'translateY(16px)';
               requestAnimationFrame(() => {
-                card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                card.style.transition = 'opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)';
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
               });
@@ -386,7 +380,6 @@ const ContactForm = (() => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Validate reCAPTCHA if present on this page
       const recaptchaEl = document.getElementById('recaptcha-container');
       if (recaptchaEl && typeof grecaptcha !== 'undefined') {
         const token = grecaptcha.getResponse();
@@ -402,7 +395,6 @@ const ContactForm = (() => {
       const btn = form.querySelector('button[type="submit"]');
       const originalText = btn.innerHTML;
 
-      // Loading state
       btn.disabled = true;
       btn.innerHTML = `
         <svg style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;animation:spin 1s linear infinite" viewBox="0 0 24 24">
@@ -411,7 +403,6 @@ const ContactForm = (() => {
         </svg>
         Sending…`;
 
-      // Simulate async send (replace with actual fetch/API call)
       await new Promise(r => setTimeout(r, 1500));
 
       form.style.display = 'none';
@@ -420,7 +411,6 @@ const ContactForm = (() => {
         success.classList.add('show');
       }
 
-      // Reset after 5s for demo
       setTimeout(() => {
         form.style.display = 'block';
         if (success) success.classList.remove('show');
@@ -456,14 +446,11 @@ function initSmoothScroll() {
 
 /* ----------------------------------------------------------------
    SPLASH SCREEN
-   Shown once per browser session via sessionStorage.
    ---------------------------------------------------------------- */
 const SplashScreen = (() => {
-  const SESSION_KEY = 'fs-splash-v1';
+  const SESSION_KEY = 'fs-splash-v2';
 
   function build() {
-    // Resolve logo path from the page's own <link rel="icon"> so
-    // every sub-page (about/, services/, …) gets the right relative path.
     const logoSrc =
       document.querySelector('link[rel="icon"]')?.getAttribute('href') ||
       '../assets/img/logo.png';
@@ -494,10 +481,9 @@ const SplashScreen = (() => {
   }
 
   function init() {
-    if (sessionStorage.getItem(SESSION_KEY)) return; // Already shown this session
+    if (sessionStorage.getItem(SESSION_KEY)) return;
     sessionStorage.setItem(SESSION_KEY, '1');
     const el = build();
-    // Hold for 2 s then fade out over 0.65 s
     setTimeout(() => dismiss(el), 2000);
   }
 
@@ -507,16 +493,12 @@ const SplashScreen = (() => {
 
 /* ----------------------------------------------------------------
    PAGE TRANSITIONS
-   Intercepts internal link clicks → animates body out →
-   navigates. On the next page the CSS body animation fades it in.
-   Also drives a top progress bar for visual feedback.
    ---------------------------------------------------------------- */
 const PageTransitions = (() => {
   let overlayEl  = null;
   let barFillEl  = null;
-  let progressEl = null; // thin top bar
+  let progressEl = null;
 
-  /* ── Build the branded overlay once ── */
   function buildOverlay() {
     const logoSrc =
       document.querySelector('link[rel="icon"]')?.getAttribute('href') ||
@@ -537,7 +519,6 @@ const PageTransitions = (() => {
     barFillEl = el.querySelector('.fs-transit-bar-fill');
   }
 
-  /* ── Thin top bar ── */
   function topBar() {
     if (!progressEl) {
       progressEl = document.createElement('div');
@@ -547,14 +528,10 @@ const PageTransitions = (() => {
     return progressEl;
   }
 
-  /* ── Show overlay + kick off progress bar ── */
   function showOverlay() {
     if (!overlayEl) buildOverlay();
-
-    // Show overlay
     overlayEl.classList.add('fs-transit-show');
 
-    // Animate fill: reset → 80 %
     if (barFillEl) {
       barFillEl.style.transition = 'none';
       barFillEl.style.width = '0%';
@@ -566,7 +543,6 @@ const PageTransitions = (() => {
       );
     }
 
-    // Top bar
     const b = topBar();
     b.className = '';
     b.style.cssText = 'width:0%;opacity:1;transition:none';
@@ -578,7 +554,6 @@ const PageTransitions = (() => {
     );
   }
 
-  /* ── Hide overlay after new page loads ── */
   function hideOverlay() {
     if (barFillEl) barFillEl.style.width = '100%';
 
@@ -589,7 +564,6 @@ const PageTransitions = (() => {
     if (overlayEl) overlayEl.classList.remove('fs-transit-show');
   }
 
-  /* ── Helpers ── */
   function isInternal(href) {
     if (!href) return false;
     if (
@@ -604,15 +578,11 @@ const PageTransitions = (() => {
   }
 
   function init() {
-    // Dismiss overlay when new page fully loads
     window.addEventListener('load', hideOverlay);
-
-    // bfcache (back/forward button)
     window.addEventListener('pageshow', e => {
       if (e.persisted) hideOverlay();
     });
 
-    // Intercept internal link clicks
     document.addEventListener('click', e => {
       const link = e.target.closest('a[href]');
       if (!link) return;
@@ -626,7 +596,7 @@ const PageTransitions = (() => {
       if (path === '' || path === window.location.pathname) return;
 
       e.preventDefault();
-      document.body.classList.add('page-exiting'); // blocks pointer events only
+      document.body.classList.add('page-exiting');
       showOverlay();
 
       setTimeout(() => {
@@ -657,8 +627,491 @@ function initFloatingCta() {
   }
 
   cta.style.opacity = '0';
-  cta.style.transition = 'opacity 0.3s ease';
+  cta.style.transition = 'opacity 0.4s cubic-bezier(0.16,1,0.3,1)';
   window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+
+/* ----------------------------------------------------------------
+   MAGNETIC BUTTON HOVER — Subtle pointer-follow effect
+   Uses requestAnimationFrame + CSS transforms (no layout thrash)
+   ---------------------------------------------------------------- */
+function initMagneticButtons() {
+  const buttons = document.querySelectorAll('.btn-primary, .btn-outline');
+  if (!buttons.length) return;
+
+  // Skip magnetic on touch devices
+  if ('ontouchstart' in window) return;
+
+  buttons.forEach(btn => {
+    let animating = false;
+
+    btn.addEventListener('mousemove', e => {
+      if (animating) return;
+      animating = true;
+
+      requestAnimationFrame(() => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        // Subtle magnetic pull — max 3px displacement
+        const maxDisplace = 3;
+        const displaceX = (x / rect.width) * maxDisplace;
+        const displaceY = (y / rect.height) * maxDisplace;
+
+        btn.style.transform = `translate(${displaceX}px, ${displaceY}px)`;
+        animating = false;
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+}
+
+
+/* ----------------------------------------------------------------
+   PARALLAX MICRO — Subtle float on scroll for hero elements
+   ---------------------------------------------------------------- */
+function initMicroParallax() {
+  const floats = document.querySelectorAll('.hero-float-1, .hero-float-2');
+  if (!floats.length) return;
+
+  let ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      floats.forEach((el, i) => {
+        const speed = i === 0 ? 0.08 : 0.05;
+        const y = scrollY * speed;
+        el.style.transform = `translateY(${-y}px)`;
+      });
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+
+/* ----------------------------------------------------------------
+   3D CARD TILT — Interactive mouse-follow perspective
+   ---------------------------------------------------------------- */
+function init3DCardTilt() {
+  const cards = document.querySelectorAll('.card-3d, .bezel.service-card, .bezel.project-card, .offer-card');
+  if (!cards.length) return;
+  if ('ontouchstart' in window) return;
+
+  cards.forEach(card => {
+    let ticking = false;
+
+    card.addEventListener('mousemove', e => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -6;
+        const rotateY = ((x - centerX) / centerX) * 6;
+
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+
+        // Move the magnetic glow
+        const glow = card.querySelector('.magnetic-glow');
+        if (glow) {
+          glow.style.setProperty('--mx', `${x}px`);
+          glow.style.setProperty('--my', `${y}px`);
+        }
+
+        ticking = false;
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+
+/* ----------------------------------------------------------------
+   FLOATING PARTICLES — Ambient background effect
+   ---------------------------------------------------------------- */
+function initParticles() {
+  const fields = document.querySelectorAll('.particle-field');
+  if (!fields.length) return;
+
+  fields.forEach(field => {
+    const count = parseInt(field.dataset.particleCount) || 20;
+
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (6 + Math.random() * 8) + 's';
+      p.style.animationDelay = (Math.random() * 8) + 's';
+      p.style.width = (1 + Math.random() * 2) + 'px';
+      p.style.height = p.style.width;
+      p.style.opacity = 0.2 + Math.random() * 0.5;
+      field.appendChild(p);
+    }
+  });
+}
+
+
+/* ----------------------------------------------------------------
+   MAGNETIC GLOW — Cursor-following glow on cards
+   ---------------------------------------------------------------- */
+function initMagneticGlow() {
+  const cards = document.querySelectorAll('.magnetic-glow');
+  if (!cards.length) return;
+  if ('ontouchstart' in window) return;
+
+  cards.forEach(card => {
+    const glow = document.createElement('div');
+    glow.style.cssText = `
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(62,212,106,0.1) 0%, transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
+    `;
+    card.style.position = 'relative';
+    card.appendChild(glow);
+
+    let ticking = false;
+
+    card.addEventListener('mousemove', e => {
+      if (ticking) return;
+      ticking = true;
+
+      requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        glow.style.left = x + 'px';
+        glow.style.top = y + 'px';
+        glow.style.opacity = '1';
+        ticking = false;
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+    });
+  });
+}
+
+
+/* ----------------------------------------------------------------
+   PARALLAX DEPTH LAYERS — Multi-speed scroll movement
+   ---------------------------------------------------------------- */
+function initParallaxDepth() {
+  const layers = document.querySelectorAll('[data-parallax-speed]');
+  if (!layers.length) return;
+
+  let ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      const scrollY = window.scrollY;
+      layers.forEach(el => {
+        const speed = parseFloat(el.dataset.parallaxSpeed) || 0.05;
+        const offset = scrollY * speed;
+        el.style.transform = `translateY(${-offset}px)`;
+      });
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+
+/* ----------------------------------------------------------------
+   SCROLL PROGRESS INDICATOR — Glowing top bar
+   ---------------------------------------------------------------- */
+function initScrollProgress() {
+  const indicator = document.createElement('div');
+  indicator.id = 'scroll-progress';
+  indicator.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--primary-light));
+    z-index: 9999;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px rgba(62,212,106,0.5);
+    width: 0%;
+  `;
+  document.body.appendChild(indicator);
+
+  let ticking = false;
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      indicator.style.width = progress + '%';
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
+
+/* ----------------------------------------------------------------
+   SMOOTH COUNTER ANIMATION — Enhanced with suffix support
+   ---------------------------------------------------------------- */
+function initEnhancedCounters() {
+  const counters = document.querySelectorAll('[data-counter]');
+  if (!counters.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const text = el.textContent;
+        const match = text.match(/(\d+\.?\d*)/);
+        if (!match) return;
+
+        const target = parseFloat(match[1]);
+        const prefix = text.split(match[1])[0];
+        const suffix = text.split(match[1])[1];
+        const duration = 2000;
+        const startTime = performance.now();
+
+        function easeOutExpo(t) {
+          return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        }
+
+        function update(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = easeOutExpo(progress);
+          const current = eased * target;
+
+          if (Number.isInteger(target)) {
+            el.textContent = prefix + Math.round(current) + suffix;
+          } else {
+            el.textContent = prefix + current.toFixed(1) + suffix;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            el.textContent = prefix + target + suffix;
+          }
+        }
+
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => observer.observe(el));
+}
+
+
+/* ----------------------------------------------------------------
+   TEXT SCRAMBLE EFFECT — On scroll reveal
+   ---------------------------------------------------------------- */
+function initTextScramble() {
+  const elements = document.querySelectorAll('[data-scramble]');
+  if (!elements.length) return;
+
+  const chars = '!<>-_\\/[]{}—=+*^?#________';
+
+  function scramble(el) {
+    const original = el.dataset.scramble || el.textContent;
+    let iteration = 0;
+    const maxIterations = original.length * 3;
+
+    function update() {
+      el.textContent = original
+        .split('')
+        .map((char, index) => {
+          if (index < iteration / 3) return original[index];
+          return chars[Math.floor(Math.random() * chars.length)];
+        })
+        .join('');
+
+      if (iteration < maxIterations) {
+        iteration++;
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = original;
+      }
+    }
+
+    update();
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        scramble(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  elements.forEach(el => observer.observe(el));
+}
+
+
+/* ----------------------------------------------------------------
+   OFFER SEARCH — Debounced Search + Category Filter
+   ---------------------------------------------------------------- */
+const OfferSearch = (() => {
+  const DEBOUNCE_MS = 500;
+  let debounceTimer;
+
+  function init() {
+    const searchInput = document.getElementById('offerSearch');
+    const searchBtn = document.getElementById('offerSearchBtn');
+    const resetBtn = document.getElementById('offerResetBtn');
+    const pills = document.querySelectorAll('.cat-pill');
+    const offers = document.querySelectorAll('.offer-card[data-offer-title]');
+    const sections = document.querySelectorAll('.offer-category-section');
+    const noResults = document.getElementById('noResults');
+
+    if (!searchInput || !offers.length) return;
+
+    // Debounced real-time search
+    searchInput.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => filterOffers(), DEBOUNCE_MS);
+    });
+
+    // Manual search button
+    if (searchBtn) {
+      searchBtn.addEventListener('click', () => {
+        clearTimeout(debounceTimer);
+        filterOffers();
+      });
+    }
+
+    // Reset button
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        const allPill = document.querySelector('.cat-pill[data-category="all"]');
+        if (allPill) {
+          pills.forEach(p => p.classList.remove('active'));
+          allPill.classList.add('active');
+        }
+        filterOffers();
+      });
+    }
+
+    // Category pills
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        filterOffers();
+      });
+    });
+
+    function filterOffers() {
+      const query = searchInput.value.toLowerCase().trim();
+      const activePill = document.querySelector('.cat-pill.active');
+      const activeCategory = activePill ? activePill.dataset.category : 'all';
+      let visibleCount = 0;
+
+      // Filter individual offer cards
+      offers.forEach(card => {
+        const title = (card.dataset.offerTitle || '').toLowerCase();
+        const keywords = (card.dataset.offerKeywords || '').toLowerCase();
+        const cardCategory = card.closest('.offer-category-section')?.dataset.categorySection || '';
+
+        const matchesSearch = !query || title.includes(query) || keywords.includes(query);
+        const matchesCategory = activeCategory === 'all' || cardCategory === activeCategory;
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = '';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Show/hide category sections based on whether they have visible cards
+      sections.forEach(section => {
+        const sectionCategory = section.dataset.categorySection;
+        const sectionOffers = section.querySelectorAll('.offer-card[data-offer-title]');
+        const hasVisible = Array.from(sectionOffers).some(card => card.style.display !== 'none');
+
+        if (activeCategory === 'all' || activeCategory === sectionCategory) {
+          section.style.display = hasVisible ? '' : 'none';
+        } else {
+          section.style.display = 'none';
+        }
+      });
+
+      // Show no results message
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+  }
+
+  return { init };
+})();
+
+
+/* ----------------------------------------------------------------
+   CONTACT PAGE — URL Parameter Pre-fill
+   ---------------------------------------------------------------- */
+function prefillContactForm() {
+  const params = new URLSearchParams(window.location.search);
+  const service = params.get('service');
+  if (service) {
+    const serviceSelect = document.getElementById('service');
+    if (serviceSelect) {
+      // Check if the option exists
+      const options = Array.from(serviceSelect.options);
+      const match = options.find(opt => opt.value === service);
+      if (match) {
+        serviceSelect.value = service;
+        // Trigger change event for any listeners
+        serviceSelect.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+    // Also pre-fill message if offer title is present
+    const messageField = document.getElementById('message');
+    if (messageField && !messageField.value) {
+      const offerName = service.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      messageField.value = `I'm interested in the "${offerName}" offer. I'd like to discuss how this can help my business.`;
+    }
+  }
 }
 
 
@@ -676,6 +1129,16 @@ document.addEventListener('DOMContentLoaded', () => {
   ContactForm.init();
   initSmoothScroll();
   initFloatingCta();
+  initMagneticButtons();
+  initMicroParallax();
+  init3DCardTilt();
+  initParticles();
+  initMagneticGlow();
+  initParallaxDepth();
+  initScrollProgress();
+  initEnhancedCounters();
+  initTextScramble();
   SplashScreen.init();
   PageTransitions.init();
+  prefillContactForm();
 });

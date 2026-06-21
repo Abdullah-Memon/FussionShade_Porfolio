@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,14 +33,12 @@
   <meta name="bingbot" content="index, follow" />
 
   <!-- Favicon & theme -->
-  <meta name="theme-color" content="#3ED46A" />
+  <meta name="theme-color" content="#050505" />
   <link rel="icon" href="../assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/img/logo.png" />
 
   <!-- Fonts & styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="../assets/style/main.css" />
   <style>
     /* ── Page-specific styles ── */
@@ -60,8 +58,8 @@
       overflow: hidden;
       aspect-ratio: 4/3;
       position: relative;
-      box-shadow: var(--clay-shadow-sm);
-      border: 1.5px solid var(--border-card);
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--glass-border-card);
     }
 
     .service-visual-bg {
@@ -121,8 +119,8 @@
       align-items: center;
       gap: var(--s2);
       padding: var(--s2) var(--s4);
-      background: var(--primary-50);
-      border: 1px solid var(--border);
+      background: var(--primary-subtle);
+      border: 1px solid var(--glass-border);
       border-radius: var(--r-full);
       font-size: 0.82rem;
       font-weight: 600;
@@ -131,9 +129,58 @@
     }
     [data-theme="dark"] .service-pricing { color: var(--primary-light); }
 
+    /* ── Category Sections ── */
+    .offer-category-section {
+      padding: var(--s10) 0;
+      border-top: 1px solid var(--border);
+    }
+    .offer-category-section:first-of-type { border-top: none; }
+    .offer-category-header {
+      display: flex;
+      align-items: center;
+      gap: var(--s5);
+      margin-bottom: var(--s8);
+    }
+    .category-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--r-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .category-icon svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+    .category-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .category-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--s6);
+    }
+    .no-results {
+      text-align: center;
+      padding: var(--s12) 0;
+      display: none;
+    }
+    .no-results h3 { font-size: 1.2rem; margin-bottom: var(--s3); color: var(--text); }
+    .no-results p { color: var(--text-muted); }
+
     @media (max-width: 1024px) {
       .service-detail-card { grid-template-columns: 1fr; }
       .service-detail-card.reverse { direction: ltr; }
+    }
+    @media (max-width: 768px) {
+      .offer-grid { grid-template-columns: 1fr; }
+      .offer-category-header { flex-direction: column; text-align: center; gap: var(--s3); }
     }
   </style>
 <script type="application/ld+json">
@@ -155,7 +202,7 @@
 
 <!-- NAV -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
+  <div class="nav-pill">
     <a href="/" class="nav-logo">
       <img src="../assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
       <span>Fussion<span class="text-primary">Shade</span></span>
@@ -169,10 +216,10 @@
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" aria-label="Toggle dark/light mode">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="/contact" class="btn btn-primary btn-sm" style="border-radius:var(--r-full)">Get in Touch</a>
+      <a href="/contact" class="btn btn-primary btn-sm">Get in Touch</a>
       <button class="nav-toggle" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -193,8 +240,8 @@
   </nav>
   <div class="nav-sidebar-footer">
     <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <span>Toggle Theme</span>
     </button>
     <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
@@ -214,10 +261,7 @@
     <p class="body-lg text-muted" style="max-width:600px;margin-inline:auto;margin-bottom:var(--s8)">
       As a full-service software house and digital agency, we design, build, and scale custom web apps, mobile applications, AI-powered systems, and automation solutions — from lean MVPs to enterprise platforms.
     </p>
-    <a href="/contact" class="btn btn-primary btn-lg">
-      Get a Free Consultation
-      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
+
   </div>
 </section>
 
@@ -227,7 +271,8 @@
   <div class="container">
     <div class="grid-3">
 
-      <div class="clay service-card reveal">
+      <div class="bezel service-card reveal">
+        <div class="bezel-core">
         <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg></div>
         <h3>Websites &amp; Web Apps</h3>
         <p>High-performance, beautifully designed web products that convert visitors into clients and scale with your growth.</p>
@@ -238,9 +283,11 @@
           <span class="service-feature">Admin dashboards</span>
         </div>
         <a href="#web" class="service-learn">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
 
-      <div class="clay service-card reveal delay-1">
+      <div class="bezel service-card reveal delay-1">
+        <div class="bezel-core">
         <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
         <h3>Mobile Applications</h3>
         <p>Native and cross-platform mobile apps for iOS and Android that users love — fast, polished, and purpose-built.</p>
@@ -251,9 +298,11 @@
           <span class="service-feature">App Store deployment</span>
         </div>
         <a href="#mobile" class="service-learn">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
 
-      <div class="clay service-card reveal delay-2">
+      <div class="bezel service-card reveal delay-2">
+        <div class="bezel-core">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
         <h3>AI Integration &amp; ML</h3>
         <p>Embed state-of-the-art AI into your existing tools and workflows for smarter decisions and automated intelligence.</p>
@@ -264,9 +313,11 @@
           <span class="service-feature">Computer vision pipelines</span>
         </div>
         <a href="#ai" class="service-learn">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
 
-      <div class="clay service-card reveal delay-1">
+      <div class="bezel service-card reveal delay-1">
+        <div class="bezel-core">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <h3>Custom AI Chatbots</h3>
         <p>Intelligent, conversational bots trained on your business data — for support, sales, onboarding, or internal knowledge management.</p>
@@ -277,9 +328,11 @@
           <span class="service-feature">Analytics &amp; continuous learning</span>
         </div>
         <a href="#chatbots" class="service-learn">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
 
-      <div class="clay service-card reveal delay-2">
+      <div class="bezel service-card reveal delay-2">
+        <div class="bezel-core">
         <div class="service-icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
         <h3>Process Automation</h3>
         <p>Map, streamline, and fully automate your repetitive business processes — from data entry to complex multi-system orchestration.</p>
@@ -290,9 +343,11 @@
           <span class="service-feature">Scheduled &amp; event-driven tasks</span>
         </div>
         <a href="#automation" class="service-learn">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
 
-      <div class="clay service-card reveal delay-3">
+      <div class="bezel service-card reveal delay-3">
+        <div class="bezel-core">
         <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
         <h3>Tailor-made Applications</h3>
         <p>100% bespoke software engineered around your unique workflows, data models, and scale requirements — no off-the-shelf compromises.</p>
@@ -303,6 +358,7 @@
           <span class="service-feature">Microservices &amp; APIs</span>
         </div>
         <a href="#custom" class="service-learn">Learn more <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
       </div>
 
     </div>
@@ -310,136 +366,282 @@
 </section>
 
 
-<!-- SERVICE DETAIL: WEB -->
-<section class="section" style="background:var(--bg-alt)" id="web">
+<!-- RESULTS-BACKED OFFERS -->
+<section class="section" style="background:var(--bg-alt)" id="offers">
   <div class="container">
-    <div class="clay service-detail-card reveal">
-      <div class="service-visual">
-        <div class="service-visual-bg" style="background:linear-gradient(135deg,#0D2218,#1B5C38,#3ED46A)">
-          <div class="service-visual-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg></div>
-          <div class="service-visual-label">Web Development</div>
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Results-Backed Offers</div>
+      <h2 class="display-md">Every Offer Comes With a<br/><span class="gradient-text">Performance Guarantee</span></h2>
+      <p class="body-lg text-muted mt-4" style="margin-inline:auto">
+        We don't just build software — we guarantee measurable business outcomes. Pick the offer that matches your challenge.
+      </p>
+    </div>
+
+    <div class="no-results" id="noResults">
+      <h3>No offers found</h3>
+      <p>Try a different search term or browse all categories.</p>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CATEGORY: Website Development               -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="offer-category-section" data-category-section="website-development">
+      <div class="offer-category-header reveal">
+        <div class="category-icon" style="background:rgba(62,212,106,0.12);color:#3ED46A">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+        </div>
+        <div>
+          <div class="category-title">Website Development</div>
+          <div class="category-subtitle">Marketing sites, landing pages, and conversion-optimised web experiences</div>
         </div>
       </div>
-      <div class="service-detail-content">
-        <div class="service-pricing">Starting from $2,500</div>
-        <div class="section-badge">Websites &amp; Web Apps</div>
-        <h2 class="display-md mt-4">Your Digital Presence, Built to Convert</h2>
-        <p class="lead">
-          Whether you need a pixel-perfect marketing site or a complex multi-tenant SaaS application, we engineer web products that perform under pressure and delight every user.
-        </p>
-        <ul class="feature-list">
-          <li>Custom UI/UX design with mobile-first approach</li>
-          <li>Full-stack development (React, Next.js, Node.js, Django)</li>
-          <li>RESTful &amp; GraphQL API architecture</li>
-          <li>Authentication, payments, and third-party integrations</li>
-          <li>Performance optimisation (Core Web Vitals &lt; 2.5s LCP)</li>
-          <li>SEO-optimised structure and semantic HTML</li>
-          <li>Accessibility (WCAG 2.1 AA compliance)</li>
-          <li>Deployment, CI/CD, and cloud hosting setup</li>
-        </ul>
-        <a href="/contact" class="btn btn-primary mt-8">Start Your Web Project →</a>
+      <div class="offer-grid">
+
+        <!-- Offer 1: Revenue Pipeline Rebuild -->
+        <a href="/offer/pipeline-rebuild" class="offer-card reveal" data-offer-title="Revenue Pipeline Rebuild" data-offer-keywords="pipeline sales leads revenue crm full-stack custom">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+            Website Development
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">Revenue Pipeline Rebuild</h3>
+          <p class="offer-hook">Your sales pipeline is leaking $100K+ per year in lost deals. We rebuild it into a custom full-stack application that qualifies leads automatically and closes faster.</p>
+          <p class="offer-promise">Meridian Freight Co. went from manual quoting to $18K/month in new closed deals within 4 months of launch.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            $100K in 90 Days or Full Refund
+          </div>
+        </a>
+
+        <!-- Offer 2: Conversion Rate Optimisation -->
+        <a href="/offer/conversion-optimisation" class="offer-card reveal delay-1" data-offer-title="Conversion Rate Optimisation" data-offer-keywords="conversion checkout onboarding optimisation ctr ab-testing">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Website Development
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">Conversion Rate Optimisation</h3>
+          <p class="offer-hook">Your app is hemorrhaging money at checkout. We rebuild the flow to convert 3x more visitors into paying customers.</p>
+          <p class="offer-promise">Brightline Analytics saw conversion jump from 1.2% to 4.8% — adding $40K/month in revenue within 60 days.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            +3% Conversion Lift or Free
+          </div>
+        </a>
+
       </div>
     </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CATEGORY: Web App                          -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="offer-category-section" data-category-section="web-app">
+      <div class="offer-category-header reveal">
+        <div class="category-icon" style="background:rgba(99,102,241,0.12);color:#6366F1">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div>
+          <div class="category-title">Web App</div>
+          <div class="category-subtitle">SaaS platforms, performance engineering, and legacy system modernisation</div>
+        </div>
+      </div>
+      <div class="offer-grid">
+
+        <!-- Offer 3: Speed & Performance Guarantee -->
+        <a href="/offer/speed-performance" class="offer-card reveal" data-offer-title="Speed & Performance Guarantee" data-offer-keywords="speed performance load time backend database optimisation caching cdn">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Web App
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">Speed &amp; Performance Guarantee</h3>
+          <p class="offer-hook">Every second your app takes to load costs 7% in conversions. We re-architect your backend to load in under 2 seconds under any load.</p>
+          <p class="offer-promise">Pinnacle Consulting's app went from 8s to 1.4s load time — they haven't lost a customer since.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Sub-2 Seconds or Project is Free
+          </div>
+        </a>
+
+        <!-- Offer 4: Legacy System Rescue -->
+        <a href="/offer/legacy-rescue" class="offer-card reveal delay-1" data-offer-title="Legacy System Rescue" data-offer-keywords="legacy migration modernisation cloud downtime infrastructure">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            Web App
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">Legacy System Rescue</h3>
+          <p class="offer-hook">Stuck on legacy tech costing $50K+/year in maintenance? We migrate you to modern infrastructure with zero downtime.</p>
+          <p class="offer-promise">We migrated a 15-year-old ERP to cloud-native in 45 days — 0 seconds of unplanned downtime.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            &lt;60 Min Downtime or Free
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CATEGORY: AI Integrations                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="offer-category-section" data-category-section="ai-integrations">
+      <div class="offer-category-header reveal">
+        <div class="category-icon" style="background:rgba(139,92,246,0.12);color:#8B5CF6">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+        </div>
+        <div>
+          <div class="category-title">AI Integrations</div>
+          <div class="category-subtitle">Custom ML models, predictive analytics, and embedded AI development teams</div>
+        </div>
+      </div>
+      <div class="offer-grid">
+
+        <!-- Offer 5: AI-Powered Analytics Engine -->
+        <a href="/offer/ai-analytics" class="offer-card reveal" data-offer-title="AI-Powered Analytics Engine" data-offer-keywords="ai analytics machine learning data insights predictive reporting">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            AI Integrations
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">AI-Powered Analytics Engine</h3>
+          <p class="offer-hook">Your data sits idle while competitors predict market shifts. We build a custom analytics engine that turns raw data into $100K+ in actionable intelligence.</p>
+          <p class="offer-promise">GreenLeaf Media's AI analytics identified $2M in untapped revenue opportunities within 90 days.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            $100K+ in Actionable Insights in 90 Days
+          </div>
+        </a>
+
+        <!-- Offer 6: Predictive Lead Scoring -->
+        <a href="/offer/lead-scoring" class="offer-card reveal delay-1" data-offer-title="Predictive Lead Scoring" data-offer-keywords="lead scoring ai sales prediction qualification crm">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            AI Integrations
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">Predictive Lead Scoring</h3>
+          <p class="offer-hook">Your sales team wastes 60% of time on leads that never convert. Our AI scores and prioritises every lead automatically.</p>
+          <p class="offer-promise">Perfume Marketer's AI recommendation engine increased sales by 40% — the system knows what customers want before they do.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            +40% Sales Efficiency in 60 Days
+          </div>
+        </a>
+
+        <!-- Offer 7: Embedded AI Development Team -->
+        <a href="/offer/embedded-ai-team" class="offer-card reveal" data-offer-title="Embedded AI Development Team" data-offer-keywords="embedded team ai developers staff augmentation senior engineers">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            AI Integrations
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">Embedded AI Development Team</h3>
+          <p class="offer-hook">Hiring AI engineers costs $200K+/year and takes 6 months. Our senior AI engineers become your team tomorrow and ship production-ready systems in 90 days.</p>
+          <p class="offer-promise">We stay embedded until you hit $2M/year in AI-driven revenue. Miss it, and we refund the full engagement plus 1 month free.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            $2M/year Target or Refund + 1 Month Free
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CATEGORY: Custom Chatbots                  -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="offer-category-section" data-category-section="custom-chatbots">
+      <div class="offer-category-header reveal">
+        <div class="category-icon" style="background:rgba(245,158,11,0.12);color:#F59E0B">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <div class="category-title">Custom Chatbots</div>
+          <div class="category-subtitle">AI-powered sales bots, customer support agents, and knowledge management</div>
+        </div>
+      </div>
+      <div class="offer-grid">
+
+        <!-- Offer 8: 24/7 Sales Bot -->
+        <a href="/offer/sales-bot" class="offer-card reveal" data-offer-title="24/7 Sales Bot" data-offer-keywords="chatbot sales bot lead qualification whatsapp ai conversational">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Custom Chatbots
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">24/7 Sales Bot</h3>
+          <p class="offer-hook">Your best salesperson goes home at 6pm. Our AI qualifies leads, handles objections, and books meetings 24/7.</p>
+          <p class="offer-promise">Trained on your exact sales playbook, it converts 30% more website visitors into booked calls within 30 days.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            +30% Lead Conversion in 30 Days
+          </div>
+        </a>
+
+        <!-- Offer 9: Customer Support AI -->
+        <a href="/offer/support-ai" class="offer-card reveal delay-1" data-offer-title="Customer Support AI" data-offer-keywords="support chatbot customer service helpdesk knowledge base tickets">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Custom Chatbots
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">Customer Support AI</h3>
+          <p class="offer-hook">Your support team drowns in repetitive tickets. Our AI handles 80% of queries instantly with human-level accuracy.</p>
+          <p class="offer-promise">Cut support costs by 60% while improving satisfaction scores. Average response time under 2 minutes.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            &lt;2 Min Response Time or Free
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════ -->
+    <!-- CATEGORY: Mobile Development               -->
+    <!-- ═══════════════════════════════════════════ -->
+    <div class="offer-category-section" data-category-section="mobile-development">
+      <div class="offer-category-header reveal">
+        <div class="category-icon" style="background:rgba(59,130,246,0.12);color:#3B82F6">
+          <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <div>
+          <div class="category-title">Mobile Development</div>
+          <div class="category-subtitle">iOS, Android, and cross-platform mobile applications</div>
+        </div>
+      </div>
+      <div class="offer-grid">
+
+        <!-- Offer 10: 14-Day MVP Sprint -->
+        <a href="/offer/mvp-sprint" class="offer-card reveal" data-offer-title="14-Day MVP Sprint" data-offer-keywords="mvp sprint mobile app ios android launch startup idea prototype">
+          <div class="frosted-tag" style="margin-bottom:var(--s4)">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Mobile Development
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:var(--s3)">14-Day MVP Sprint</h3>
+          <p class="offer-hook">You have an idea but no product. Competitors are moving fast. We take you from whiteboard to a fully functional, investor-ready MVP in 14 days flat.</p>
+          <p class="offer-promise">Built to onboard your first 100 paying users at launch — designed, developed, and deployed.</p>
+          <div class="offer-guarantee">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Not Live on Day 14? Pay $0
+          </div>
+        </a>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
 
-<!-- SERVICE DETAIL: MOBILE -->
-<section class="section" id="mobile">
+<!-- CUSTOM SERVICE CTA -->
+<section class="section">
   <div class="container">
-    <div class="clay service-detail-card reverse reveal">
-      <div class="service-detail-content">
-        <div class="service-pricing">Starting from $3,500</div>
-        <div class="section-badge">Mobile Applications</div>
-        <h2 class="display-md mt-4">Apps Your Users Will Actually Use</h2>
-        <p class="lead">
-          We build fast, intuitive mobile experiences for iOS and Android — native or cross-platform — with the performance and polish that earns five-star reviews.
-        </p>
-        <ul class="feature-list">
-          <li>React Native (cross-platform) or Swift/Kotlin (native)</li>
-          <li>Offline capability with local data sync</li>
-          <li>Push notifications, deep linking, biometric auth</li>
-          <li>In-app purchases and subscription management</li>
-          <li>Backend API design and Firebase/Supabase integration</li>
-          <li>App Store &amp; Google Play submission support</li>
-          <li>Analytics integration (Mixpanel, Amplitude)</li>
-          <li>Crash reporting and remote monitoring</li>
-        </ul>
-        <a href="/contact" class="btn btn-primary mt-8">Start Your Mobile Project →</a>
-      </div>
-      <div class="service-visual">
-        <div class="service-visual-bg" style="background:linear-gradient(135deg,#2C0A3E,#6B21A8,#A855F7)">
-          <div class="service-visual-icon"><svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-          <div class="service-visual-label">iOS &amp; Android</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- SERVICE DETAIL: AI -->
-<section class="section" style="background:var(--bg-alt)" id="ai">
-  <div class="container">
-    <div class="clay service-detail-card reveal">
-      <div class="service-visual">
-        <div class="service-visual-bg" style="background:linear-gradient(135deg,#0A1D3E,#154080,#3B82F6)">
-          <div class="service-visual-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg></div>
-          <div class="service-visual-label">AI &amp; Machine Learning</div>
-        </div>
-      </div>
-      <div class="service-detail-content">
-        <div class="service-pricing">Custom pricing</div>
-        <div class="section-badge">AI Integration &amp; ML</div>
-        <h2 class="display-md mt-4">Put Intelligence at the Core of Your Product</h2>
-        <p class="lead">
-          We don't just plug in an API key — we architect deep AI integrations that learn from your data, adapt to your domain, and deliver genuine business value from day one.
-        </p>
-        <ul class="feature-list">
-          <li>LLM integration (GPT-4o, Claude 3.5, Gemini, Llama)</li>
-          <li>RAG (Retrieval-Augmented Generation) pipelines</li>
-          <li>Fine-tuned models for domain-specific tasks</li>
-          <li>ML pipelines for classification &amp; prediction</li>
-          <li>Computer vision (OCR, object detection, image classification)</li>
-          <li>Natural language processing &amp; sentiment analysis</li>
-          <li>Model deployment, monitoring &amp; continuous retraining</li>
-          <li>Explainability &amp; responsible AI practices</li>
-        </ul>
-        <a href="/contact" class="btn btn-primary mt-8">Explore AI Solutions →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- SERVICE DETAIL: CHATBOTS -->
-<section class="section" id="chatbots">
-  <div class="container">
-    <div class="clay service-detail-card reverse reveal">
-      <div class="service-detail-content">
-        <div class="service-pricing">Starting from $1,800</div>
-        <div class="section-badge">Custom AI Chatbots</div>
-        <h2 class="display-md mt-4">Conversations That Convert and Support</h2>
-        <p class="lead">
-          Our AI chatbots don't just answer FAQs — they understand context, retain conversation history, and take meaningful actions that move your business forward.
-        </p>
-        <ul class="feature-list">
-          <li>Website, WhatsApp, Telegram, Slack deployment</li>
-          <li>Knowledge base ingestion (PDFs, docs, websites)</li>
-          <li>CRM integration (HubSpot, Salesforce, Zoho)</li>
-          <li>Lead qualification and appointment booking</li>
-          <li>Multilingual support (50+ languages)</li>
-          <li>Escalation to human agents with full context handoff</li>
-          <li>Conversation analytics dashboard</li>
-          <li>GDPR-compliant data handling</li>
-        </ul>
-        <a href="/contact" class="btn btn-primary mt-8">Build Your Chatbot →</a>
-      </div>
-      <div class="service-visual">
-        <div class="service-visual-bg" style="background:linear-gradient(135deg,#0D2218,#0A4025,#3ED46A)">
-          <div class="service-visual-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-          <div class="service-visual-label">AI Chatbot Platform</div>
-        </div>
+    <div class="cta-banner-inner reveal" style="text-align:center;padding:var(--s10);border-radius:var(--r-xl);background:linear-gradient(145deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid var(--border);position:relative;overflow:hidden">
+      <div style="position:absolute;top:-50%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(62,212,106,0.08) 0%,transparent 70%);pointer-events:none"></div>
+      <div class="section-eyebrow" style="background:rgba(62,212,106,0.12);color:var(--primary);border-color:rgba(62,212,106,0.2);display:inline-flex;margin-bottom:var(--s4)">Custom Service</div>
+      <h2 class="display-md" style="margin-bottom:var(--s4)">Don't See What You Need?</h2>
+      <p class="body-lg text-muted" style="max-width:520px;margin-inline:auto;margin-bottom:var(--s6)">We build custom solutions for unique challenges. Tell us about your project and we'll craft a tailored proposal within 24 hours.</p>
+      <div style="display:flex;gap:var(--s4);justify-content:center;flex-wrap:wrap;position:relative">
+        <a href="/contact" class="btn btn-primary btn-lg">
+          Get a Custom Quote
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+        </a>
+        <a href="https://wa.me/923073134427?text=Hello%20Abdullah,%20I%20would%20like%20to%20discuss%20a%20custom%20project." class="btn btn-outline btn-lg" target="_blank">
+          Chat on WhatsApp
+        </a>
       </div>
     </div>
   </div>
@@ -450,31 +652,39 @@
 <section class="section" style="background:var(--bg-alt)">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">How We Work</div>
+      <div class="section-eyebrow">How We Work</div>
       <h2 class="display-md">Our <span class="gradient-text">Delivery Process</span></h2>
       <p class="body-lg text-muted mt-4">A proven, transparent process that keeps you in control and delivers results on schedule.</p>
     </div>
 
     <div class="process-steps">
-      <div class="process-step clay-sm reveal">
+      <div class="process-step bezel-sm reveal">
+        <div class="bezel-sm-core">
         <div class="process-step-num">01</div>
         <h4>Discovery Call</h4>
         <p>30-minute free consultation to understand your goals, challenges, and success metrics.</p>
+        </div>
       </div>
-      <div class="process-step clay-sm reveal delay-1">
+      <div class="process-step bezel-sm reveal delay-1">
+        <div class="bezel-sm-core">
         <div class="process-step-num">02</div>
         <h4>Scope &amp; Proposal</h4>
         <p>Detailed technical proposal, architecture plan, fixed timeline, and transparent pricing.</p>
+        </div>
       </div>
-      <div class="process-step clay-sm reveal delay-2">
+      <div class="process-step bezel-sm reveal delay-2">
+        <div class="bezel-sm-core">
         <div class="process-step-num">03</div>
         <h4>Agile Development</h4>
         <p>Two-week sprints, weekly demos, and continuous feedback loops to keep everything aligned.</p>
+        </div>
       </div>
-      <div class="process-step clay-sm reveal delay-3">
+      <div class="process-step bezel-sm reveal delay-3">
+        <div class="bezel-sm-core">
         <div class="process-step-num">04</div>
         <h4>Launch &amp; Support</h4>
         <p>QA, deployment, user training, and ongoing maintenance to maximise your long-term ROI.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -485,7 +695,7 @@
 <section class="section">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-badge">Technology</div>
+      <div class="section-eyebrow">Technology</div>
       <h2 class="display-md">Our <span class="gradient-text">Tech Stack</span></h2>
       <p class="body-lg text-muted mt-4">
         We work with the industry's most battle-tested technologies — always choosing the right tool for the job.
@@ -493,18 +703,18 @@
     </div>
 
     <div class="tech-grid reveal">
-      <div class="clay-sm tech-item"><div class="tech-logo">React</div><div class="tech-name">React</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">Next</div><div class="tech-name">Next.js</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">Node</div><div class="tech-name">Node.js</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">Py</div><div class="tech-name">Python</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">TS</div><div class="tech-name">TypeScript</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">RN</div><div class="tech-name">React Native</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">AWS</div><div class="tech-name">AWS</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">PG</div><div class="tech-name">PostgreSQL</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">Mon</div><div class="tech-name">MongoDB</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">LC</div><div class="tech-name">LangChain</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">K8s</div><div class="tech-name">Kubernetes</div></div>
-      <div class="clay-sm tech-item"><div class="tech-logo">TF</div><div class="tech-name">TensorFlow</div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">React</div><div class="tech-name">React</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">Next</div><div class="tech-name">Next.js</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">Node</div><div class="tech-name">Node.js</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">Py</div><div class="tech-name">Python</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">TS</div><div class="tech-name">TypeScript</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">RN</div><div class="tech-name">React Native</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">AWS</div><div class="tech-name">AWS</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">PG</div><div class="tech-name">PostgreSQL</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">Mon</div><div class="tech-name">MongoDB</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">LC</div><div class="tech-name">LangChain</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">K8s</div><div class="tech-name">Kubernetes</div></div></div>
+      <div class="bezel-sm tech-item"><div class="bezel-sm-core"><div class="tech-logo">TF</div><div class="tech-name">TensorFlow</div></div></div>
     </div>
   </div>
 </section>
@@ -514,13 +724,13 @@
 <section class="cta-banner">
   <div class="container">
     <div class="cta-banner-inner reveal">
-      <div class="section-badge" style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">Not Sure Where to Start?</div>
+      <div class="section-eyebrow" style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">Not Sure Where to Start?</div>
       <h2>Let's Find the Right<br/>Solution for You</h2>
       <p>Book a free 30-minute strategy session. We'll analyse your processes and recommend exactly which services will give you the highest ROI.</p>
       <div class="flex flex-center gap-4" style="flex-wrap:wrap">
         <a href="/contact" class="btn btn-primary btn-lg">
           Book a Free Strategy Call
-          <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
         </a>
         <a href="/projects" class="btn btn-outline btn-lg">See Case Studies</a>
       </div>
@@ -540,13 +750,19 @@
         </a>
         <p>Empowering businesses through intelligent automation and custom digital solutions.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg></a>
-          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="footer-social" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="https://www.instagram.com/fussionshade.agency/" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div></div>
-      <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="#web">Web Development</a><a href="#mobile">Mobile Apps</a><a href="#ai">AI Integration</a><a href="#chatbots">Custom Chatbots</a><a href="#automation">Automation</a></div></div>
+      <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="/services">Web Development</a><a href="/services">Mobile Apps</a><a href="/services">AI Integration</a><a href="/services">Custom Chatbots</a><a href="/services">Automation</a></div></div>
       <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:fussionshade@gmail.com">fussionshade@gmail.com</a><a href="tel:+923073134427">+92 307 313 4427</a></div></div>
     </div>
     <div class="footer-bottom">
@@ -557,13 +773,13 @@
 </footer>
 
 <div class="floating-cta">
-  <a href="https://wa.me/923073134427?text=Hello%20Abdullah,%20I%20would%20like%20to%20discuss%20a%20project."
+  <a href="https://wa.me/923073134427?text=Hello%20Fussionshade%20Team,%20I%20would%20like%20to%20discuss%20a%20project."
       class="floating-cta-btn" target="_blank" aria-label="Chat on WhatsApp">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
         <path
           d="M20.52 3.48A11.82 11.82 0 0 0 12.02 0C5.39 0 0 5.39 0 12.02c0 2.12.55 4.19 1.6 6.03L0 24l6.12-1.58a11.97 11.97 0 0 0 5.9 1.5h.01c6.63 0 12.02-5.39 12.02-12.02 0-3.21-1.25-6.23-3.53-8.42zM12.03 21.9a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.63.94.97-3.54-.24-.37a9.88 9.88 0 0 1-1.53-5.32c0-5.48 4.46-9.94 9.94-9.94 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.48-4.46 9.94-9.92 9.94zm5.45-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.08-.13-.27-.2-.57-.35z" />
       </svg>
-      <span>Chat on whats app</span>
+      <span>Chat on WhatsApp</span>
     </a>
 </div>
 

@@ -1,169 +1,377 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary SEO -->
   <title>Projects — Fussion Shade | Software House Case Studies &amp; Portfolio</title>
-  <meta name="description" content="Explore Fussion Shade's software house portfolio — real case studies of custom web apps, mobile applications, AI integrations, automation platforms, and SaaS products built for clients worldwide." />
-  <meta name="keywords" content="software house portfolio, custom software case studies, web app projects, mobile app portfolio, AI integration case studies, automation case studies, SaaS case studies, Fussion Shade portfolio, digital agency case studies" />
+  <meta name="description" content="Explore Fussion Shade's software house portfolio — real case studies of custom CRM, POS, CMS, LMS, and AI-powered platforms built for clients worldwide. Measurable business outcomes." />
+  <meta name="keywords" content="software house portfolio, CRM case studies, POS system, CMS development, LMS platform, AI integration, custom software projects, Fussion Shade portfolio" />
   <meta name="author" content="Fussion Shade" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <link rel="canonical" href="https://www.fussionshade.com/projects" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Fussion Shade" />
   <meta property="og:title" content="Projects — Fussion Shade Software House Portfolio" />
-  <meta property="og:description" content="Real-world case studies of custom software, AI solutions, mobile apps, and automation platforms built by Fussion Shade's software house team." />
+  <meta property="og:description" content="Case studies of CRM, POS, CMS, LMS, and AI-powered platforms built by Fussion Shade." />
   <meta property="og:url" content="https://www.fussionshade.com/projects" />
   <meta property="og:image" content="https://www.fussionshade.com/assets/img/logo.png" />
   <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@fussionshade" />
   <meta name="twitter:title" content="Projects — Fussion Shade Portfolio" />
-  <meta name="twitter:description" content="Case studies of web apps, AI integrations, and automation platforms built by Fussion Shade." />
+  <meta name="twitter:description" content="CRM, POS, CMS, LMS, and AI platforms built by Fussion Shade." />
   <meta name="twitter:image" content="https://www.fussionshade.com/assets/img/logo.png" />
 
-  <!-- AEO: AI / LLM crawler hints -->
   <meta name="googlebot" content="index, follow" />
   <meta name="bingbot" content="index, follow" />
 
-  <!-- Favicon & theme -->
-  <meta name="theme-color" content="#3ED46A" />
+  <meta name="theme-color" content="#050505" />
   <link rel="icon" href="../assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="../assets/img/logo.png" />
 
-  <!-- Fonts & styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="../assets/style/main.css" />
   <style>
-    /* ── Project page specific ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--s6);
+    /* ── Projects Page — New Layout ── */
+
+    /* Category Filter Pills */
+    .category-filters {
+      display: flex;
+      gap: var(--s3);
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: var(--s12);
     }
 
-    /* Featured (large) card spanning 2 columns */
-    .project-card-wrap.featured { grid-column: span 2; }
-    .project-card-wrap.featured .project-thumb { height: 260px; }
+    .cat-pill {
+      padding: var(--s2) var(--s5);
+      border-radius: var(--r-full);
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border-card);
+      cursor: pointer;
+      transition: all var(--t-base);
+    }
 
-    /* Case study detail modal overlay (CSS-only expandable) */
-    .case-badge {
+    .cat-pill:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.15);
+    }
+
+    .cat-pill.active {
+      background: var(--primary);
+      color: #050505;
+      border-color: var(--primary);
+    }
+
+    [data-theme="light"] .cat-pill.active {
+      color: #fff;
+    }
+
+    /* Case Study Card — Full Width */
+    .case-study {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: var(--s10);
+      overflow: hidden;
+      border-radius: var(--r-xl);
+      border: 1px solid var(--border-card);
+      background: var(--surface-solid);
+      box-shadow: var(--shadow-bezel);
+      transition: all 0.5s var(--ease-out-expo);
+    }
+
+    .case-study:hover {
+      box-shadow: var(--shadow-bezel-hover);
+      transform: translateY(-4px);
+    }
+
+    [data-theme="light"] .case-study {
+      background: var(--surface);
+    }
+
+    /* Case Study Visual */
+    .case-visual {
+      position: relative;
+      min-height: 400px;
       display: flex;
       align-items: center;
-      gap: var(--s4);
-      margin-bottom: var(--s4);
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .case-visual-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--s5);
+    }
+
+    .case-visual-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--r-lg);
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .case-visual-icon svg {
+      width: 40px;
+      height: 40px;
+      stroke: white;
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .case-visual-label {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 8px 24px;
+      border-radius: var(--r-full);
+      color: rgba(255,255,255,0.9);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .case-result-badge {
+      position: absolute;
+      bottom: var(--s5);
+      left: var(--s5);
+      right: var(--s5);
+      display: flex;
+      gap: var(--s3);
       flex-wrap: wrap;
     }
 
-    .result-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .case-result-tag {
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
       padding: 6px 14px;
       border-radius: var(--r-full);
-      font-size: 0.8rem;
-      font-weight: 700;
-      border: 1.5px solid;
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
-    .result-pill.green {
-      background: rgba(62, 212, 106, 0.12);
-      border-color: rgba(62, 212, 106, 0.35);
-      color: var(--primary-dark);
+    .case-result-tag span {
+      color: var(--primary-light);
     }
-    [data-theme="dark"] .result-pill.green { color: var(--primary-light); }
 
-    .result-pill.blue {
-      background: rgba(59, 130, 246, 0.1);
-      border-color: rgba(59, 130, 246, 0.3);
-      color: #1D4ED8;
-    }
-    [data-theme="dark"] .result-pill.blue { color: #93c5fd; }
-
-    .result-pill.purple {
-      background: rgba(139, 92, 246, 0.1);
-      border-color: rgba(139, 92, 246, 0.3);
-      color: #6D28D9;
-    }
-    [data-theme="dark"] .result-pill.purple { color: #c4b5fd; }
-
-    .result-pill.orange {
-      background: rgba(249, 115, 22, 0.1);
-      border-color: rgba(249, 115, 22, 0.3);
-      color: #C2410C;
-    }
-    [data-theme="dark"] .result-pill.orange { color: #fdba74; }
-
-    /* Stats row inside project cards */
-    .project-stats {
+    /* Case Study Content */
+    .case-content {
+      padding: var(--s10);
       display: flex;
-      gap: var(--s4);
-      padding: var(--s4) var(--s6);
-      border-top: 1px solid var(--border-card);
-      background: var(--surface-alt);
-      flex-wrap: wrap;
+      flex-direction: column;
     }
 
-    .project-stat {
-      text-align: center;
+    .case-category {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--s2);
+      padding: var(--s1) var(--s4);
+      background: var(--primary-subtle);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: var(--r-full);
+      border: 1px solid rgba(62,212,106,0.15);
+      margin-bottom: var(--s5);
+      width: fit-content;
+    }
+
+    .case-content h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      letter-spacing: -0.03em;
+      margin-bottom: var(--s3);
+      line-height: 1.2;
+    }
+
+    .case-client {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: var(--s5);
+      font-weight: 500;
+    }
+
+    .case-content .case-desc {
+      font-size: 0.92rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: var(--s6);
       flex: 1;
-      min-width: 70px;
     }
 
-    .project-stat-val {
+    /* Stats Row */
+    .case-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--s3);
+      margin-bottom: var(--s6);
+    }
+
+    .metrics-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s4);
+      text-align: center;
+    }
+
+    .case-stat {
+      text-align: center;
+      padding: var(--s4) var(--s3);
+      background: var(--surface);
+      border-radius: var(--r-md);
+      border: 1px solid var(--border-card);
+    }
+
+    .case-stat-val {
       font-family: var(--font-display);
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: var(--primary);
       line-height: 1;
     }
 
-    .project-stat-label {
+    .case-stat-label {
       font-size: 0.7rem;
       color: var(--text-muted);
-      margin-top: 3px;
+      margin-top: 4px;
       font-weight: 500;
     }
 
-    /* Testimonial inline */
-    .project-quote {
-      padding: var(--s4) var(--s5);
-      border-left: 3px solid var(--primary);
-      background: var(--surface-alt);
-      border-radius: 0 var(--r-md) var(--r-md) 0;
-      margin-top: var(--s4);
-      font-size: 0.85rem;
-      font-style: italic;
-      color: var(--text-2);
-      line-height: 1.65;
+    /* Tech Stack */
+    .case-tech {
+      display: flex;
+      gap: var(--s2);
+      flex-wrap: wrap;
+      margin-bottom: var(--s6);
     }
 
-    .project-quote cite {
-      display: block;
+    .case-tech-pill {
+      padding: 4px 12px;
+      border-radius: var(--r-full);
+      background: var(--surface);
+      border: 1px solid var(--border-card);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Client Quote */
+    .case-quote {
+      padding: var(--s4) var(--s5);
+      border-left: 3px solid var(--primary);
+      background: var(--surface);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      margin-bottom: var(--s6);
+    }
+
+    .case-quote p {
+      font-size: 0.88rem;
+      font-style: italic;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-bottom: var(--s2);
+    }
+
+    .case-quote cite {
       font-style: normal;
       font-weight: 600;
       font-size: 0.78rem;
       color: var(--text-muted);
-      margin-top: var(--s2);
     }
 
+    /* AI Badge */
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(59,130,246,0.15));
+      border: 1px solid rgba(139,92,246,0.25);
+      border-radius: var(--r-full);
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #c4b5fd;
+      letter-spacing: 0.05em;
+    }
+
+    [data-theme="light"] .ai-badge {
+      color: #6D28D9;
+      background: linear-gradient(135deg, rgba(139,92,246,0.1), rgba(59,130,246,0.1));
+    }
+
+    .ai-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Reversed layout */
+    .case-study.reverse .case-visual {
+      order: 2;
+    }
+
+    .case-study.reverse .case-content {
+      order: 1;
+    }
+
+    /* Featured badge */
+    .featured-tag {
+      position: absolute;
+      top: var(--s5);
+      right: var(--s5);
+      background: var(--primary);
+      color: #050505;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: var(--r-full);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      z-index: 3;
+    }
+
+    /* Responsive */
     @media (max-width: 1024px) {
-      .projects-grid { grid-template-columns: repeat(2, 1fr); }
-      .project-card-wrap.featured { grid-column: span 2; }
+      .case-study {
+        grid-template-columns: 1fr;
+      }
+      .case-study.reverse .case-visual { order: 0; }
+      .case-study.reverse .case-content { order: 0; }
+      .case-visual { min-height: 280px; }
     }
 
     @media (max-width: 768px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card-wrap.featured { grid-column: span 1; }
-      .project-card-wrap.featured .project-thumb { height: 200px; }
+      .case-content { padding: var(--s6); }
+      .case-stats { grid-template-columns: repeat(2, 1fr); }
+      .case-visual { min-height: 220px; }
+      .case-quote { padding: var(--s3) var(--s4); }
+      .category-filters { gap: var(--s2); }
+      .cat-pill { font-size: 0.78rem; padding: var(--s2) var(--s4); }
+      .metrics-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .case-stats { grid-template-columns: 1fr; }
+      .metrics-strip { grid-template-columns: 1fr; }
     }
   </style>
 <script type="application/ld+json">
@@ -173,7 +381,7 @@
   "@id": "https://www.fussionshade.com/projects#webpage",
   "url": "https://www.fussionshade.com/projects",
   "name": "Projects — Fussion Shade Software House Portfolio",
-  "description": "Case studies of custom web apps, mobile applications, AI solutions, SaaS platforms, and automation systems built by Fussion Shade.",
+  "description": "Case studies of CRM, POS, CMS, LMS, and AI-powered platforms built by Fussion Shade.",
   "isPartOf": { "@id": "https://www.fussionshade.com/#website" },
   "breadcrumb": {
     "@type": "BreadcrumbList",
@@ -189,24 +397,24 @@
 
 <!-- NAV -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
+  <div class="nav-pill">
     <a href="/" class="nav-logo">
       <img src="../assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
       <span>Fussion<span class="text-primary">Shade</span></span>
     </a>
     <div class="nav-links">
-      <a href="/"    class="nav-link">Home</a>
-      <a href="/about"    class="nav-link">About</a>
+      <a href="/" class="nav-link">Home</a>
+      <a href="/about" class="nav-link">About</a>
       <a href="/services" class="nav-link">Services</a>
       <a href="/projects" class="nav-link active">Projects</a>
-      <a href="/contact"  class="nav-link">Contact</a>
+      <a href="/contact" class="nav-link">Contact</a>
     </div>
     <div class="nav-actions">
       <button class="theme-toggle" aria-label="Toggle dark/light mode">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-        <svg class="icon-sun"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="/contact" class="btn btn-primary btn-sm" style="border-radius:var(--r-full)">Get in Touch</a>
+      <a href="/contact" class="btn btn-primary btn-sm">Get in Touch</a>
       <button class="nav-toggle" aria-label="Toggle mobile menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -215,20 +423,20 @@
   <div class="nav-sidebar-header">
     <span class="nav-sidebar-brand">Fussion Shade</span>
     <button class="nav-sidebar-close" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
   <nav class="nav-sidebar-links">
-    <a href="/"         class="nav-link">Home</a>
-    <a href="/about"    class="nav-link">About</a>
+    <a href="/" class="nav-link">Home</a>
+    <a href="/about" class="nav-link">About</a>
     <a href="/services" class="nav-link">Services</a>
     <a href="/projects" class="nav-link active">Projects</a>
-    <a href="/contact"  class="nav-link">Contact</a>
+    <a href="/contact" class="nav-link">Contact</a>
   </nav>
   <div class="nav-sidebar-footer">
     <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <span>Toggle Theme</span>
     </button>
     <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
@@ -243,16 +451,16 @@
     <nav aria-label="Breadcrumb" style="margin-bottom:var(--s4)">
       <ol style="list-style:none;display:flex;gap:var(--s2);font-size:0.82rem;color:var(--text-muted);flex-wrap:wrap">
         <li><a href="/" style="color:var(--text-muted);text-decoration:none">Home</a></li>
-        <li aria-hidden="true" style="color:var(--border)">/</li>
+        <li aria-hidden="true" style="color:var(--glass-border)">/</li>
         <li aria-current="page" style="color:var(--text-2)">Projects</li>
       </ol>
     </nav>
-    <div class="page-hero-badge">Software House Portfolio</div>
+    <div class="page-hero-badge">Case Studies</div>
     <h1 class="display-lg" style="max-width:760px;margin-inline:auto;margin-bottom:var(--s5)">
-      Custom Software Projects<br/><span class="gradient-text">That Delivered Results</span>
+      Software That Moved<br/><span class="gradient-text">Real Business Metrics</span>
     </h1>
-    <p class="body-lg text-muted" style="max-width:580px;margin-inline:auto">
-      Real case studies from our software house — web apps, AI systems, mobile applications, and automation platforms built for clients across industries worldwide. Measurable outcomes, every time.
+    <p class="body-lg text-muted" style="max-width:600px;margin-inline:auto">
+      Every project we deliver is tied to a measurable outcome — revenue growth, cost reduction, or operational efficiency. Here's proof.
     </p>
   </div>
 </section>
@@ -261,275 +469,366 @@
 <!-- METRICS STRIP -->
 <section style="padding-block:var(--s10);background:var(--bg-alt)">
   <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);text-align:center">
-      <div class="clay-sm" style="padding:var(--s5)">
-        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>20</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Projects Delivered</div>
+    <div class="metrics-strip">
+      <div class="bezel-sm" style="padding:var(--s5)">
+        <div class="bezel-sm-core">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>20</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Projects Delivered</div>
+        </div>
       </div>
-      <div class="clay-sm" style="padding:var(--s5)">
-        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>5</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Happy Clients</div>
+      <div class="bezel-sm" style="padding:var(--s5)">
+        <div class="bezel-sm-core">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)">$2.4M</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Revenue Generated for Clients</div>
+        </div>
       </div>
-      <div class="clay-sm" style="padding:var(--s5)">
-        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>35</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Avg % Productivity Boost</div>
+      <div class="bezel-sm" style="padding:var(--s5)">
+        <div class="bezel-sm-core">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>95</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">% Client Retention</div>
+        </div>
       </div>
-      <div class="clay-sm" style="padding:var(--s5)">
-        <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)" data-counter>95</div>
-        <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">% Client Retention</div>
+      <div class="bezel-sm" style="padding:var(--s5)">
+        <div class="bezel-sm-core">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--primary)">6</div>
+          <div style="font-size:0.85rem;color:var(--text-muted);font-weight:600;margin-top:4px">Industries Served</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- PROJECT FILTERS -->
+<!-- CASE STUDIES -->
 <section class="section">
   <div class="container">
 
-    <div class="project-filters" role="group" aria-label="Filter projects by category">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="web">Web Apps</button>
-      <button class="filter-btn" data-filter="mobile">Mobile</button>
-      <button class="filter-btn" data-filter="ai">AI &amp; ML</button>
-      <button class="filter-btn" data-filter="automation">Automation</button>
+    <div class="category-filters" role="group" aria-label="Filter projects">
+      <button class="cat-pill active" data-filter="all">All Projects</button>
+      <button class="cat-pill" data-filter="crm">CRM</button>
+      <button class="cat-pill" data-filter="pos">POS</button>
+      <button class="cat-pill" data-filter="lms">LMS</button>
+      <button class="cat-pill" data-filter="cms">CMS</button>
+      <button class="cat-pill" data-filter="custom">Custom</button>
     </div>
 
-    <div class="projects-grid">
 
-      <!-- Project 1: Student Centric Education (FEATURED) -->
-      <div class="project-card-wrap featured reveal" data-category="web">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0D2218 0%,#1B5C38 50%,#3ED46A 100%)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              </div>
-              <div class="project-result"><span>100%</span> reporting automated</div>
-            </div>
+    <!-- ═══════════════════════════════════════════════
+         PROJECT 1 — CRM | Meridian Freight Co.
+         AI-Powered Sales Pipeline + CRM
+         ═══════════════════════════════════════════════ -->
+    <div class="case-study reveal" data-category="crm">
+      <div class="case-visual">
+        <div class="case-visual-bg" style="background:linear-gradient(135deg,#0D2218 0%,#1B5C38 50%,#3ED46A 100%)">
+          <div class="case-visual-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">Web App</span>
-              <span class="project-tag">EdTech</span>
-              <span class="project-tag">LMS</span>
-              <span class="result-pill green">Eliminated SaaS Licensing Fees</span>
-            </div>
-            <h3>Student Centric Education — Quaid-e-Awam University</h3>
-            <p>Quaid-e-Awam University of Engineering was paying a substantial recurring fee to a third-party SaaS platform for basic LMS functionality. We built them a fully custom, OBE-principle based Learning Management System that the university now owns outright. The platform runs on daily basis across the entire student population, handling course delivery, OBE-aligned assessments, automated grading, attendance tracking, progress analytics, and complete administrative reporting. What previously required manual effort from faculty and staff is now fully automated. Built under the academic supervision of <a href="https://www.linkedin.com/in/drpkumar/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">Dr. Pardeep Kumar</a>, the system has eliminated their dependency on paid SaaS tools entirely — saving the institution recurring costs every single month while giving them complete control over their educational data and workflows.</p>
+          <div class="case-visual-label">AI-Powered CRM</div>
+          <div class="case-result-badge">
+            <div class="case-result-tag">↑ <span>45%</span> qualified leads</div>
+            <div class="case-result-tag"><span>$18K/mo</span> new deals</div>
           </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">4k+</div><div class="project-stat-label">Daily active students</div></div>
-            <div class="project-stat"><div class="project-stat-val">100%</div><div class="project-stat-label">Reports automated</div></div>
-            <div class="project-stat"><div class="project-stat-val">Zero</div><div class="project-stat-label">Monthly SaaS cost</div></div>
-            <div class="project-stat"><div class="project-stat-val">MERN</div><div class="project-stat-label">Tech stack</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>MongoDB</span><span>·</span><span>Express.js</span><span>·</span><span>React</span><span>·</span><span>Node.js</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Build something similar
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
+        </div>
       </div>
-
-      <!-- Project 2: Currency Rate Marketplace -->
-      <div class="project-card-wrap reveal delay-1" data-category="web">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0A1D3E,#154080,#3B82F6)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              </div>
-              <div class="project-result"><span>Real-time</span> live rate engine</div>
-            </div>
+      <div class="case-content">
+        <div style="display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4)">
+          <div class="case-category">CRM</div>
+          <div class="ai-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 8v4l3 3"/></svg>
+            AI Lead Scoring
           </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">Web App</span>
-              <span class="project-tag">FinTech</span>
-              <span class="result-pill blue">Real-time Processing</span>
-            </div>
-            <h3>FX Marketplace — Currency Rate Platform</h3>
-            <p>A FinTech platform enabling real-time currency exchange between two currencies using live market rates. Users create and respond to exchange offers in real time, seeing exactly what they get before committing. The platform handles concurrent live data streams, offer matching, and transaction processing at speed. A full CI/CD pipeline automates every stage of testing and deployment, giving the team the confidence to ship updates rapidly without downtime.</p>
-          </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">Live</div><div class="project-stat-label">Real-time rate feed</div></div>
-            <div class="project-stat"><div class="project-stat-val">99.9%</div><div class="project-stat-label">Uptime</div></div>
-            <div class="project-stat"><div class="project-stat-val">CI/CD</div><div class="project-stat-label">Fully automated</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>Next.js</span><span>·</span><span>Redux</span><span>·</span><span>PostgreSQL</span><span>·</span><span>Java</span><span>·</span><span>CI/CD</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Discuss your FinTech idea
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
+        </div>
+        <h2>Meridian Freight Co.</h2>
+        <div class="case-client">Logistics &amp; Freight — 340+ employees</div>
+        <p class="case-desc">
+          Meridian Freight was drowning in manual quoting. Their sales team spent 4 hours a day entering data into spreadsheets, and qualified leads were slipping through cracks. We rebuilt their entire customer pipeline with a custom AI-powered CRM that automatically scores leads, predicts deal probability, and triggers follow-up sequences. Within 4 months, they went from losing deals to closing $18,000/month in new revenue they couldn't capture before.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-val">+45%</div><div class="case-stat-label">Qualified leads</div></div>
+          <div class="case-stat"><div class="case-stat-val">$18K/mo</div><div class="case-stat-label">New closed deals</div></div>
+          <div class="case-stat"><div class="case-stat-val">4hrs/day</div><div class="case-stat-label">Admin time saved</div></div>
+        </div>
+        <div class="case-quote">
+          <p>"We went from losing deals because nobody followed up to closing $18K a month in new contracts. The AI scores our leads before our team even sees them."</p>
+          <cite>— Daniel Cho, VP Sales, Meridian Freight Co.</cite>
+        </div>
+        <div class="case-tech">
+          <span class="case-tech-pill">React</span>
+          <span class="case-tech-pill">Node.js</span>
+          <span class="case-tech-pill">PostgreSQL</span>
+          <span class="case-tech-pill">OpenAI API</span>
+          <span class="case-tech-pill">LangChain</span>
+        </div>
+        <a href="/contact" class="btn btn-primary">
+          Build a Similar CRM
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+        </a>
       </div>
+    </div>
 
-      <!-- Project 3: Perfume Marketer AI -->
-      <div class="project-card-wrap reveal" data-category="ai">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#2C0A3E,#6B21A8,#A855F7)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-              </div>
-              <div class="project-result">Sales <span>boosted</span> worldwide</div>
-            </div>
+
+    <!-- ═══════════════════════════════════════════════
+         PROJECT 2 — POS | NovaBite Restaurant Group
+         AI-Driven POS + Inventory Management
+         ═══════════════════════════════════════════════ -->
+    <div class="case-study reverse reveal" data-category="pos">
+      <div class="case-visual">
+        <div class="case-visual-bg" style="background:linear-gradient(135deg,#1a0a02,#78450A,#F59E0B)">
+          <div class="case-visual-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
           </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">AI Chatbot</span>
-              <span class="project-tag">E-Commerce</span>
-              <span class="result-pill purple">Boosted Revenue</span>
-            </div>
-            <h3>Perfume Marketer — AI Sales Assistant</h3>
-            <p>The client, a perfume store owner, needed more than a basic customer care chatbot. We built an intelligent recommendation engine that suggests personalised perfume blends by analysing the customer's occasion, culture, ethnicity, mood, and preferences. The system identifies demand patterns across demographics, which directly guided the client to develop new fragrance product lines serving previously untapped global markets. The result: higher order values, stronger customer loyalty, and sales growth across new international segments.</p>
-            <blockquote class="project-quote">
-              The AI doesn't just answer questions, it sells. Customers come back because the recommendations feel personal.
-              <cite>Store Owner, Perfume Marketer</cite>
-            </blockquote>
+          <div class="case-visual-label">Smart POS System</div>
+          <div class="case-result-badge">
+            <div class="case-result-tag"><span>32%</span> less food waste</div>
+            <div class="case-result-tag">↑ <span>$8K/mo</span> saved</div>
           </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">+40%</div><div class="project-stat-label">Sales increase</div></div>
-            <div class="project-stat"><div class="project-stat-val">New</div><div class="project-stat-label">Product lines created</div></div>
-            <div class="project-stat"><div class="project-stat-val">24/7</div><div class="project-stat-label">AI availability</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>Python</span><span>·</span><span>OpenAI</span><span>·</span><span>React</span><span>·</span><span>FastAPI</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Build your AI assistant
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
+        </div>
       </div>
-
-      <!-- Project 4: ShiftSync (dummy) -->
-      <div class="project-card-wrap reveal delay-1" data-category="automation">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#292001,#78450A,#F59E0B)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              </div>
-              <div class="project-result"><span>85%</span> scheduling automated</div>
-            </div>
+      <div class="case-content">
+        <div style="display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4)">
+          <div class="case-category">POS System</div>
+          <div class="ai-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 8v4l3 3"/></svg>
+            AI Demand Forecasting
           </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">Automation</span>
-              <span class="project-tag">HR Tech</span>
-              <span class="result-pill orange">85% Automated</span>
-            </div>
-            <h3>ShiftSync — Staff Scheduling Platform</h3>
-            <p>A smart workforce management platform for a hospitality group with multiple locations. The system automatically generates shift schedules based on availability, skill sets, and labour cost targets. Shift swaps, leave requests, and overtime alerts are all handled in the app, cutting management admin time by over 3 hours per week per location.</p>
-          </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">85%</div><div class="project-stat-label">Scheduling automated</div></div>
-            <div class="project-stat"><div class="project-stat-val">3h+</div><div class="project-stat-label">Admin saved/week</div></div>
-            <div class="project-stat"><div class="project-stat-val">6</div><div class="project-stat-label">Locations managed</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>React</span><span>·</span><span>Node.js</span><span>·</span><span>PostgreSQL</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Automate your operations
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
+        </div>
+        <h2>NovaBite Restaurant Group</h2>
+        <div class="case-client">Restaurant Chain — 12 locations</div>
+        <p class="case-desc">
+          NovaBite was running 12 restaurant locations on a generic off-the-shelf POS that couldn't track ingredient waste or predict demand. They were throwing away $8,000/month in spoiled inventory. We built them a custom POS with AI-powered demand forecasting that analyses weather, local events, and historical sales to predict exactly how much of each ingredient to order. Food waste dropped 32%, food costs dropped, and their margins recovered.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-val">-32%</div><div class="case-stat-label">Food waste</div></div>
+          <div class="case-stat"><div class="case-stat-val">$8K/mo</div><div class="case-stat-label">Inventory savings</div></div>
+          <div class="case-stat"><div class="case-stat-val">12</div><div class="case-stat-label">Locations synced</div></div>
+        </div>
+        <div class="case-quote">
+          <p>"We used to throw away thousands every week. Now the system tells us exactly what to order and when. It paid for itself in two months."</p>
+          <cite>— Rachel Kim, Owner, NovaBite Restaurant Group</cite>
+        </div>
+        <div class="case-tech">
+          <span class="case-tech-pill">Next.js</span>
+          <span class="case-tech-pill">Python</span>
+          <span class="case-tech-pill">PostgreSQL</span>
+          <span class="case-tech-pill">TensorFlow</span>
+          <span class="case-tech-pill">iPad POS</span>
+        </div>
+        <a href="/contact" class="btn btn-primary">
+          Build Your Custom POS
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+        </a>
       </div>
+    </div>
 
-      <!-- Project 5: SwiftDeliver (dummy, featured) -->
-      <div class="project-card-wrap featured reveal delay-2" data-category="mobile">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#052E2E,#0E7490,#22D3EE)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-              </div>
-              <div class="project-result">↑ <span>60%</span> faster delivery confirmation</div>
-            </div>
+
+    <!-- ═══════════════════════════════════════════════
+         PROJECT 3 — LMS | Student Centric Education
+         OBE-Based University LMS
+         ═══════════════════════════════════════════════ -->
+    <div class="case-study reveal" data-category="lms">
+      <div class="case-visual">
+        <div class="case-visual-bg" style="background:linear-gradient(135deg,#0A1D3E,#154080,#3B82F6)">
+          <div class="case-visual-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">Mobile App</span>
-              <span class="project-tag">Logistics</span>
-              <span class="result-pill blue">60% Faster Ops</span>
-            </div>
-            <h3>SwiftDeliver — Logistics Tracking App</h3>
-            <p>A cross-platform mobile application built for a regional logistics company to give both drivers and dispatchers real-time visibility into deliveries. Drivers receive optimised route guidance and can complete proof-of-delivery digitally. Dispatchers see a live map of all active drivers and exception alerts the instant a delivery is delayed or failed. Customer notifications are triggered automatically at each milestone, reducing inbound calls to dispatch by 44%.</p>
-            <blockquote class="project-quote">
-              Our customers used to call us all day asking where their package was. Now the app tells them automatically. Our dispatch team can actually focus on real problems.
-              <cite>Operations Manager, SwiftDeliver</cite>
-            </blockquote>
+          <div class="case-visual-label">Learning Management System</div>
+          <div class="case-result-badge">
+            <div class="case-result-tag"><span>4,000+</span> daily students</div>
+            <div class="case-result-tag"><span>100%</span> reports automated</div>
           </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">60%</div><div class="project-stat-label">Faster confirmation</div></div>
-            <div class="project-stat"><div class="project-stat-val">44%</div><div class="project-stat-label">Fewer inbound calls</div></div>
-            <div class="project-stat"><div class="project-stat-val">Real-time</div><div class="project-stat-label">GPS tracking</div></div>
-            <div class="project-stat"><div class="project-stat-val">iOS+Android</div><div class="project-stat-label">Both platforms</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>React Native</span><span>·</span><span>Node.js</span><span>·</span><span>MongoDB</span><span>·</span><span>Firebase</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Build your mobile app
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
+        </div>
       </div>
-
-      <!-- Project 6: DataLens (dummy) -->
-      <div class="project-card-wrap reveal delay-3" data-category="ai">
-        <article class="clay project-card">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0C0A1E,#3730A3,#818CF8)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-              </div>
-              <div class="project-result">Decisions <span>3x faster</span></div>
-            </div>
-          </div>
-          <div class="project-body">
-            <div class="case-badge">
-              <span class="project-tag">AI / ML</span>
-              <span class="project-tag">Analytics</span>
-              <span class="result-pill purple">3x Faster Decisions</span>
-            </div>
-            <h3>DataLens — Business Intelligence Dashboard</h3>
-            <p>An AI-powered analytics dashboard for a retail group that consolidates sales, inventory, and customer data from multiple sources into a single view. Predictive models surface demand forecasts and stock risk alerts before problems occur. Executives stopped waiting days for reports and started making same-day decisions backed by live data.</p>
-          </div>
-          <div class="project-stats">
-            <div class="project-stat"><div class="project-stat-val">3x</div><div class="project-stat-label">Faster decisions</div></div>
-            <div class="project-stat"><div class="project-stat-val">8+</div><div class="project-stat-label">Data sources unified</div></div>
-            <div class="project-stat"><div class="project-stat-val">Live</div><div class="project-stat-label">AI forecasting</div></div>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>Python</span><span>·</span><span>TensorFlow</span><span>·</span><span>React</span><span>·</span><span>PostgreSQL</span>
-            </div>
-            <a href="/contact" class="project-link">
-              Build your dashboard
-              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-          </div>
-        </article>
+      <div class="case-content">
+        <div style="display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4)">
+          <div class="case-category">LMS Platform</div>
+        </div>
+        <h2>Student Centric Education</h2>
+        <div class="case-client">Quaid-e-Awam University of Engineering &amp; Technology</div>
+        <p class="case-desc">
+          Quaid-e-Awam University was paying substantial recurring fees to a third-party SaaS platform for basic LMS functionality. We built them a fully custom, OBE-principle based Learning Management System that the university now owns outright. The platform runs daily across 4,000+ students, handling course delivery, OBE-aligned assessments, automated grading, attendance tracking, progress analytics, and complete administrative reporting. Built under the academic supervision of <a href="https://www.linkedin.com/in/drpkumar/" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600">Dr. Pardeep Kumar</a>, it eliminated their dependency on paid SaaS tools entirely.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-val">4K+</div><div class="case-stat-label">Daily active students</div></div>
+          <div class="case-stat"><div class="case-stat-val">100%</div><div class="case-stat-label">Reports automated</div></div>
+          <div class="case-stat"><div class="case-stat-val">$0</div><div class="case-stat-label">Monthly SaaS cost</div></div>
+        </div>
+        <div class="case-quote">
+          <p>"We eliminated our recurring SaaS costs entirely. The university owns the platform now and can customise anything we need."</p>
+          <cite>— Dr. Pardeep Kumar, Academic Supervisor</cite>
+        </div>
+        <div class="case-tech">
+          <span class="case-tech-pill">MongoDB</span>
+          <span class="case-tech-pill">Express.js</span>
+          <span class="case-tech-pill">React</span>
+          <span class="case-tech-pill">Node.js</span>
+        </div>
+        <a href="/contact" class="btn btn-primary">
+          Build Your Custom LMS
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+        </a>
       </div>
+    </div>
 
+
+    <!-- ═══════════════════════════════════════════════
+         PROJECT 4 — CMS | GreenLeaf Media
+         AI Content Management + SEO Engine
+         ═══════════════════════════════════════════════ -->
+    <div class="case-study reverse reveal" data-category="cms">
+      <div class="case-visual">
+        <div class="case-visual-bg" style="background:linear-gradient(135deg,#052E2E,#065F46,#10B981)">
+          <div class="case-visual-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="case-visual-label">AI-Powered CMS</div>
+          <div class="case-result-badge">
+            <div class="case-result-tag"><span>3x</span> content output</div>
+            <div class="case-result-tag">↑ <span>180%</span> organic traffic</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-content">
+        <div style="display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4)">
+          <div class="case-category">CMS Platform</div>
+          <div class="ai-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 8v4l3 3"/></svg>
+            AI Content Generation
+          </div>
+        </div>
+        <h2>GreenLeaf Media</h2>
+        <div class="case-client">Digital Media &amp; Publishing — 45-person editorial team</div>
+        <p class="case-desc">
+          GreenLeaf Media's editorial team of 45 was drowning in content production. They needed a CMS that could do more than store articles — they needed AI-assisted writing, automated SEO optimisation, and intelligent content scheduling. We built a custom CMS with integrated AI that generates draft outlines, suggests meta descriptions, optimises headings for SEO, and predicts which topics will trend. Their content output tripled and organic traffic grew 180% in 6 months.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-val">3x</div><div class="case-stat-label">Content output</div></div>
+          <div class="case-stat"><div class="case-stat-val">+180%</div><div class="case-stat-label">Organic traffic</div></div>
+          <div class="case-stat"><div class="case-stat-val">45</div><div class="case-stat-label">Team members onboarded</div></div>
+        </div>
+        <div class="case-quote">
+          <p>"The AI doesn't replace our writers — it amplifies them. Draft outlines, SEO suggestions, scheduling — all automated. We publish 3x more without hiring."</p>
+          <cite>— Ayesha Malik, Editor-in-Chief, GreenLeaf Media</cite>
+        </div>
+        <div class="case-tech">
+          <span class="case-tech-pill">Next.js</span>
+          <span class="case-tech-pill">Sanity CMS</span>
+          <span class="case-tech-pill">OpenAI API</span>
+          <span class="case-tech-pill">Vercel</span>
+          <span class="case-tech-pill">Algolia</span>
+        </div>
+        <a href="/contact" class="btn btn-primary">
+          Build Your AI CMS
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════
+         PROJECT 5 — CUSTOM | Brightline Analytics
+         SaaS Platform Recovery + Scale
+         ═══════════════════════════════════════════════ -->
+    <div class="case-study reveal" data-category="custom">
+      <div class="case-visual">
+        <div class="case-visual-bg" style="background:linear-gradient(135deg,#2C0A3E,#6B21A8,#A855F7)">
+          <div class="case-visual-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="case-visual-label">Custom SaaS Platform</div>
+          <div class="case-result-badge">
+            <div class="case-result-tag"><span>$2M</span> annual revenue</div>
+            <div class="case-result-tag">4.8% <span>conversion rate</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-content">
+        <div style="display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4)">
+          <div class="case-category">Custom Platform</div>
+          <div class="ai-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 8v4l3 3"/></svg>
+            AI Analytics Engine
+          </div>
+        </div>
+        <h2>Brightline Analytics</h2>
+        <div class="case-client">SaaS Analytics Platform — B2B FinTech</div>
+        <p class="case-desc">
+          After losing $80,000 and 8 months to two failed agencies, Brightline Analytics came to us with a broken platform and a sinking ship. We rebuilt their entire core platform in 60 days — new architecture, new UI, AI-powered analytics engine. Conversion rate went from 1.2% to 4.8%. Within 12 months they hit $2,000,000 in annual revenue. The system now handles real-time data processing, predictive trend analysis, and automated client reporting — features the previous agencies said were "impossible."
+        </p>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-val">$2M</div><div class="case-stat-label">Annual revenue</div></div>
+          <div class="case-stat"><div class="case-stat-val">4.8%</div><div class="case-stat-label">Conversion rate</div></div>
+          <div class="case-stat"><div class="case-stat-val">60 days</div><div class="case-stat-label">Full rebuild time</div></div>
+        </div>
+        <div class="case-quote">
+          <p>"Two agencies before Fussion Shade took $80K and 8 months and delivered nothing. Fussionshade%20Team's team rebuilt the entire platform in 60 days. We hit $2M in year one."</p>
+          <cite>— Marcus Webb, CEO, Brightline Analytics</cite>
+        </div>
+        <div class="case-tech">
+          <span class="case-tech-pill">Next.js</span>
+          <span class="case-tech-pill">Python</span>
+          <span class="case-tech-pill">LangChain</span>
+          <span class="case-tech-pill">PostgreSQL</span>
+          <span class="case-tech-pill">AWS</span>
+        </div>
+        <a href="/contact" class="btn btn-primary">
+          Recover &amp; Scale Your Platform
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+        </a>
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════════
+         PROJECT 6 — CRM | Perfume Marketer
+         AI Recommendation Engine
+         ═══════════════════════════════════════════════ -->
+    <div class="case-study reverse reveal" data-category="crm">
+      <div class="case-visual">
+        <div class="case-visual-bg" style="background:linear-gradient(135deg,#1a0525,#4C1D95,#7C3AED)">
+          <div class="case-visual-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="case-visual-label">AI Sales Chatbot</div>
+          <div class="case-result-badge">
+            <div class="case-result-tag">↑ <span>40%</span> sales increase</div>
+            <div class="case-result-tag"><span>24/7</span> AI availability</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-content">
+        <div style="display:flex;align-items:center;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s4)">
+          <div class="case-category">CRM / E-Commerce</div>
+          <div class="ai-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z"/><path d="M12 8v4l3 3"/></svg>
+            AI Recommendation Engine
+          </div>
+        </div>
+        <h2>Perfume Marketer</h2>
+        <div class="case-client">E-Commerce — Luxury Fragrance Retailer</div>
+        <p class="case-desc">
+          The client needed more than a basic customer care chatbot. We built an intelligent AI recommendation engine that suggests personalised perfume blends by analysing the customer's occasion, culture, ethnicity, mood, and preferences. The system identifies demand patterns across demographics, which directly guided the client to develop new fragrance product lines serving previously untapped global markets. The result: higher order values, stronger customer loyalty, and sales growth across new international segments.
+        </p>
+        <div class="case-stats">
+          <div class="case-stat"><div class="case-stat-val">+40%</div><div class="case-stat-label">Sales increase</div></div>
+          <div class="case-stat"><div class="case-stat-val">New</div><div class="case-stat-label">Product lines created</div></div>
+          <div class="case-stat"><div class="case-stat-val">24/7</div><div class="case-stat-label">AI availability</div></div>
+        </div>
+        <div class="case-quote">
+          <p>"The AI doesn't just answer questions, it sells. Customers come back because the recommendations feel personal. We launched 3 new product lines based on the data it gave us."</p>
+          <cite>— Store Owner, Perfume Marketer</cite>
+        </div>
+        <div class="case-tech">
+          <span class="case-tech-pill">Python</span>
+          <span class="case-tech-pill">OpenAI</span>
+          <span class="case-tech-pill">React</span>
+          <span class="case-tech-pill">FastAPI</span>
+          <span class="case-tech-pill">Pinecone</span>
+        </div>
+        <a href="/contact" class="btn btn-primary">
+          Build Your AI Sales Bot
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
+        </a>
+      </div>
     </div>
 
   </div>
@@ -540,13 +839,13 @@
 <section class="cta-banner">
   <div class="container">
     <div class="cta-banner-inner reveal">
-      <div class="section-badge" style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">Start Your Project</div>
+      <div class="section-eyebrow" style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">Start Your Project</div>
       <h2>Your Success Story<br/>Starts Today</h2>
-      <p>Join our growing client base and let us build technology that moves your revenue forward. Let's create the next case study together.</p>
+      <p>Join our growing client base and let us build technology that moves your revenue forward. Free consultation, no commitment.</p>
       <div class="flex flex-center gap-4" style="flex-wrap:wrap">
         <a href="/contact" class="btn btn-primary btn-lg">
-          Start My Project
-          <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          Get a Free Consultation
+          <span class="btn-icon-trail"><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg></span>
         </a>
         <a href="/services" class="btn btn-outline btn-lg">View Our Services</a>
       </div>
@@ -566,9 +865,15 @@
         </a>
         <p>Empowering businesses through intelligent automation and custom digital solutions.</p>
         <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Twitter"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg></a>
-          <a href="#" class="footer-social" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" class="footer-social" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
+          <a href="https://www.instagram.com/fussionshade.agency/" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </a>
+          <a href="https://www.facebook.com/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="/about">About Us</a><a href="/services">Services</a><a href="/projects">Projects</a><a href="/faq">FAQ</a><a href="/contact">Contact</a></div></div>
@@ -576,23 +881,45 @@
       <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:fussionshade@gmail.com">fussionshade@gmail.com</a><a href="tel:+923073134427">+92 307 313 4427</a></div></div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 <span>Fussion Shade</span>. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 <span>Fussion Shade</span>. All rights reserved.</p>
       <div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </div>
 </footer>
 
 <div class="floating-cta">
-  <a href="https://wa.me/923073134427?text=Hello%20Abdullah,%20I%20would%20like%20to%20discuss%20a%20project."
+  <a href="https://wa.me/923073134427?text=Hello%20Fussionshade%20Team,%20I%20would%20like%20to%20discuss%20a%20project."
       class="floating-cta-btn" target="_blank" aria-label="Chat on WhatsApp">
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-        <path
-          d="M20.52 3.48A11.82 11.82 0 0 0 12.02 0C5.39 0 0 5.39 0 12.02c0 2.12.55 4.19 1.6 6.03L0 24l6.12-1.58a11.97 11.97 0 0 0 5.9 1.5h.01c6.63 0 12.02-5.39 12.02-12.02 0-3.21-1.25-6.23-3.53-8.42zM12.03 21.9a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.63.94.97-3.54-.24-.37a9.88 9.88 0 0 1-1.53-5.32c0-5.48 4.46-9.94 9.94-9.94 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.48-4.46 9.94-9.92 9.94zm5.45-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.08-.13-.27-.2-.57-.35z" />
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.02 0C5.39 0 0 5.39 0 12.02c0 2.12.55 4.19 1.6 6.03L0 24l6.12-1.58a11.97 11.97 0 0 0 5.9 1.5h.01c6.63 0 12.02-5.39 12.02-12.02 0-3.21-1.25-6.23-3.53-8.42zM12.03 21.9a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.63.94.97-3.54-.24-.37a9.88 9.88 0 0 1-1.53-5.32c0-5.48 4.46-9.94 9.94-9.94 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.48-4.46 9.94-9.92 9.94zm5.45-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.08-.13-.27-.2-.57-.35z"/>
       </svg>
-      <span>Chat on whats app</span>
+      <span>Chat on WhatsApp</span>
     </a>
 </div>
 
 <script src="../assets/js/main.js"></script>
+<script>
+  // Category filter
+  document.querySelectorAll('.cat-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cat-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.case-study').forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? '' : 'none';
+        if (match) {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(20px)';
+          requestAnimationFrame(() => {
+            card.style.transition = 'opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          });
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # ================================================================
 #  Fussion Shade — robots.txt
-#  Allow all crawlers including AI/LLM bots to read content.
+#  Optimised for search engines + AI/LLM crawlers (AEO)
 # ================================================================
 
 # Default: allow all search engines
@@ -8,23 +8,37 @@ User-agent: *
 Allow: /
 Disallow: /.htaccess
 Disallow: /.env
+Disallow: /.git
+Disallow: /.vscode
 Disallow: /400
 Disallow: /404
 Disallow: /500
 
-# Google
+# ── Search Engines ──
+
 User-agent: Googlebot
 Allow: /
 
-# Bing / Microsoft
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 
-# Apple
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
 User-agent: Applebot
 Allow: /
 
-# AI / LLM crawlers — explicitly allowed for AEO
+# ── AI / LLM Crawlers (AEO) ──
+
 User-agent: GPTBot
 Allow: /
 
@@ -61,6 +75,9 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
+User-agent: Meta-ExternalFetcher
+Allow: /
+
 User-agent: Diffbot
 Allow: /
 
@@ -79,5 +96,23 @@ Allow: /
 User-agent: FacebookBot
 Allow: /
 
-Sitemap: https://www.fussionshade.com/sitemap.xml
+User-agent: Amazonbot
+Allow: /
 
+User-agent: AI2Bot
+Allow: /
+
+User-agent: AI2Bot-Dolma
+Allow: /
+
+User-agent: friendly-crawler
+Allow: /
+
+User-agent: SeekrBot
+Allow: /
+
+User-agent: PetalBot
+Allow: /
+
+# ── Sitemap ──
+Sitemap: https://www.fussionshade.com/sitemap.xml

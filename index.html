@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -41,143 +41,15 @@
   <meta name="slurp" content="index, follow" />
 
   <!-- Favicon & theme -->
-  <meta name="theme-color" content="#3ED46A" />
+  <meta name="theme-color" content="#050505" />
   <link rel="icon" href="assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/logo.png" />
 
-  <!-- Fonts & styles -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+  <!-- Styles -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="stylesheet" href="assets/style/main.css" />
-  <style>
-    /* ── Industries grid ── */
-    .industries-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--s4);
-    }
 
-    .industry-item {
-      padding: var(--s5) var(--s4);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--s2);
-      transition: transform var(--t-base), box-shadow var(--t-base);
-    }
-
-    .industry-item:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--clay-shadow-hover);
-    }
-
-    .industry-emoji {
-      font-size: 1.8rem;
-      line-height: 1;
-      margin-bottom: var(--s1);
-      display: block;
-    }
-
-    .industry-item h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 0 0 4px;
-    }
-
-    .industry-item p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin: 0;
-    }
-
-    @media (max-width: 1024px) {
-      .industries-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
-      .industries-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    /* ── Why Choose Us ── */
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--s5);
-    }
-
-    .why-item {
-      padding: var(--s6) var(--s5);
-      border-left: 3px solid var(--primary);
-    }
-
-    .why-num {
-      font-family: var(--font-display);
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--primary);
-      opacity: 0.35;
-      line-height: 1;
-      margin-bottom: var(--s2);
-    }
-
-    .why-item h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: var(--s2);
-    }
-
-    .why-item p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    @media (max-width: 900px) {
-      .why-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ── Tech stack strip ── */
-    .tech-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--s3);
-      justify-content: center;
-      margin-top: var(--s6);
-    }
-
-    .tech-pill {
-      padding: 7px 16px;
-      border-radius: var(--r-full);
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text-2);
-      transition: border-color var(--t-base), color var(--t-base);
-    }
-
-    .tech-pill:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-  </style>
+  <!-- Schema.org -->
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -233,36 +105,11 @@
         { "@type": "Question", "name": "What is Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade is a custom software house and digital agency specialising in web application development, mobile apps, AI integration, business automation, and custom chatbot solutions. Founded in 2022, we serve startups and enterprises worldwide." } },
         { "@type": "Question", "name": "What is a software house?", "acceptedAnswer": { "@type": "Answer", "text": "A software house is a company that specialises in designing, developing, and maintaining software products. Unlike freelancers, a software house like Fussion Shade provides end-to-end development, project management, quality assurance, and ongoing support under one roof." } },
         { "@type": "Question", "name": "What services does Fussion Shade offer?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade offers custom web app development, mobile app development (iOS & Android), AI integration, custom AI chatbot development, business process automation, RPA solutions, SaaS development, and tailor-made enterprise software." } },
-        { "@type": "Question", "name": "What is the difference between a software house and a digital agency?", "acceptedAnswer": { "@type": "Answer", "text": "A software house focuses on software engineering and product development, while a digital agency typically covers marketing and design. Fussion Shade combines both — delivering technically robust software with outstanding UX and results-driven product thinking." } },
         { "@type": "Question", "name": "How much does custom software development cost?", "acceptedAnswer": { "@type": "Answer", "text": "Custom software costs vary by scope and complexity. At Fussion Shade, small projects start from $2,000, mid-range web apps range from $5,000–$25,000, and enterprise platforms can exceed $50,000. We provide a transparent, detailed quote after a free consultation." } },
         { "@type": "Question", "name": "How long does it take to build a custom web app?", "acceptedAnswer": { "@type": "Answer", "text": "A standard web app typically takes 4–12 weeks depending on complexity. An MVP can be ready in as little as 4 weeks. Fussion Shade provides a detailed timeline estimate after the free discovery call." } },
-        { "@type": "Question", "name": "Does Fussion Shade work with startups?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Fussion Shade works with businesses of all sizes — from early-stage startups building their first MVP to established enterprises scaling complex platforms. We offer flexible engagement models tailored to startup budgets and timelines." } },
-        { "@type": "Question", "name": "What industries does Fussion Shade serve?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade serves FinTech, HealthTech, E-commerce, Retail, Logistics, Real Estate, EdTech, and SaaS industries. Our cross-industry expertise brings proven insights to every engagement." } },
         { "@type": "Question", "name": "What technologies does Fussion Shade use?", "acceptedAnswer": { "@type": "Answer", "text": "Our tech stack includes React, Next.js, Vue.js, Node.js, Python, Django, Laravel, React Native, Flutter, PostgreSQL, MongoDB, AWS, and AI frameworks including LangChain, OpenAI API, and Anthropic Claude. We select the right tools for each project." } },
         { "@type": "Question", "name": "Can Fussion Shade build a mobile app for both iOS and Android?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build native iOS (Swift) and Android (Kotlin) apps as well as cross-platform applications using React Native and Flutter, ensuring full feature parity and high performance across all devices." } },
-        { "@type": "Question", "name": "What is business process automation?", "acceptedAnswer": { "@type": "Answer", "text": "Business process automation (BPA) uses software and AI to perform repetitive, rule-based tasks — such as data entry, invoice processing, customer onboarding, and report generation — automatically, reducing errors and freeing your team for high-value work." } },
-        { "@type": "Question", "name": "How can AI integration benefit my business?", "acceptedAnswer": { "@type": "Answer", "text": "AI integration enables smarter decision-making, personalised customer experiences, predictive analytics, and automated workflows. Businesses working with Fussion Shade typically report 30–50% productivity gains and significant cost reductions within 90 days of launch." } },
-        { "@type": "Question", "name": "What is a custom AI chatbot?", "acceptedAnswer": { "@type": "Answer", "text": "A custom AI chatbot is an intelligent conversational agent trained on your specific business data and knowledge base. Unlike generic chatbots, Fussion Shade's custom AI chatbots understand your products, policies, and customer queries — handling support, sales, and onboarding 24/7." } },
-        { "@type": "Question", "name": "How do I get started with Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Visit our Contact page at https://www.fussionshade.com/contact, fill in your project brief, and our team will respond within 24 hours to schedule a free 30-minute strategy call. No commitment required." } },
-        { "@type": "Question", "name": "What is the development process at Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Our process has four stages: (1) Discovery — we understand your goals; (2) Design & Plan — wireframes, architecture, and roadmap; (3) Build & Iterate — agile sprints with weekly demos; (4) Launch & Grow — deployment, QA, training, and ongoing support." } },
-        { "@type": "Question", "name": "Does Fussion Shade provide post-launch support?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer ongoing maintenance, performance monitoring, feature updates, and priority technical support. Flexible support packages range from ad-hoc assistance to dedicated monthly retainers." } },
-        { "@type": "Question", "name": "Can Fussion Shade work with existing systems or legacy software?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have extensive experience integrating new features into existing platforms and modernising legacy applications through incremental refactoring, API-based connectivity, and careful data migration." } },
-        { "@type": "Question", "name": "What makes Fussion Shade different from other software agencies?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade combines deep technical engineering with product thinking and business strategy. We architect solutions, not just write code. Our 95% client retention rate, transparent communication, and focus on measurable outcomes set us apart from typical software agencies." } },
-        { "@type": "Question", "name": "How does Fussion Shade ensure software quality?", "acceptedAnswer": { "@type": "Answer", "text": "We implement rigorous QA processes including automated testing, peer code reviews, staged deployments, performance benchmarking, and security audits following OWASP standards. Every project undergoes thorough testing before delivery." } },
-        { "@type": "Question", "name": "Does Fussion Shade sign NDAs?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We are happy to sign a mutual Non-Disclosure Agreement (NDA) before any detailed project discussions to fully protect your intellectual property and business concepts." } },
-        { "@type": "Question", "name": "Can Fussion Shade build SaaS products?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have extensive SaaS development experience including multi-tenant architecture, subscription billing, role-based access control, analytics dashboards, and scalable cloud infrastructure on AWS or GCP." } },
-        { "@type": "Question", "name": "Does Fussion Shade offer dedicated development teams?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. For larger ongoing projects, we provide dedicated development teams — a group of engineers, designers, and QA specialists working exclusively on your product on a monthly retainer basis." } },
-        { "@type": "Question", "name": "How does Fussion Shade handle data security?", "acceptedAnswer": { "@type": "Answer", "text": "Security is built into every layer of our development. We follow OWASP Top 10 guidelines, implement role-based access control, encrypt sensitive data at rest and in transit, and build GDPR-compliant systems by default." } },
-        { "@type": "Question", "name": "What is MVP development and does Fussion Shade offer it?", "acceptedAnswer": { "@type": "Answer", "text": "An MVP (Minimum Viable Product) is a lean version of your software with core features, built to validate your concept with real users quickly. Fussion Shade specialises in rapid MVP development — typically delivered in 4–8 weeks." } },
-        { "@type": "Question", "name": "Can Fussion Shade modernise a legacy application?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer legacy application modernisation — migrating outdated codebases to modern frameworks, improving performance, adding new features, and integrating modern APIs without disrupting existing operations." } },
-        { "@type": "Question", "name": "How does Fussion Shade charge for its services?", "acceptedAnswer": { "@type": "Answer", "text": "We offer three engagement models: (1) Fixed Price for clearly scoped projects; (2) Time & Materials for evolving requirements; (3) Dedicated Team retainer for ongoing development. All pricing is transparent with no hidden fees." } },
-        { "@type": "Question", "name": "What is RPA (Robotic Process Automation)?", "acceptedAnswer": { "@type": "Answer", "text": "Robotic Process Automation (RPA) uses software robots to mimic repetitive human actions in digital systems — such as copying data, filling forms, or processing documents. Fussion Shade builds custom RPA solutions that eliminate hundreds of hours of manual work each month." } },
-        { "@type": "Question", "name": "Does Fussion Shade develop e-commerce platforms?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We build custom e-commerce platforms with product catalogues, payment gateway integration, inventory management, and customer analytics — either fully from scratch or as a custom layer on modern headless commerce engines." } },
-        { "@type": "Question", "name": "What is the typical timeline for a mobile app project?", "acceptedAnswer": { "@type": "Answer", "text": "A mobile app with standard features (authentication, profiles, API integration, push notifications) typically takes 6–14 weeks. Complex apps with AI features or offline-first architecture may take longer. We provide a detailed estimate in your free consultation." } },
-        { "@type": "Question", "name": "Does Fussion Shade work with clients globally?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Fussion Shade is a global software house serving clients across the UK, USA, UAE, Australia, Canada, and beyond. Our remote-first approach ensures seamless collaboration regardless of time zone." } },
-        { "@type": "Question", "name": "What is custom software development?", "acceptedAnswer": { "@type": "Answer", "text": "Custom software development is the process of designing, building, and maintaining software specifically tailored to an organisation's unique requirements — rather than using off-the-shelf solutions. Custom software delivers better long-term ROI by fitting your exact workflows and scaling with your business." } },
-        { "@type": "Question", "name": "How can I get a free consultation from Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Visit https://www.fussionshade.com/contact and complete the project enquiry form. Our team will respond within 24 hours to arrange your complimentary strategy consultation." } },
-        { "@type": "Question", "name": "Is Fussion Shade a remote or in-person agency?", "acceptedAnswer": { "@type": "Answer", "text": "Fussion Shade operates as a remote-first digital agency, working with clients globally via Slack, Notion, and Jira to maintain full transparency and communication at every stage." } }
+        { "@type": "Question", "name": "How can I get started with Fussion Shade?", "acceptedAnswer": { "@type": "Answer", "text": "Visit our Contact page at https://www.fussionshade.com/contact, fill in your project brief, and our team will respond within 24 hours to schedule a free 30-minute strategy call. No commitment required." } }
       ]
     }
   ]
@@ -273,12 +120,12 @@
 <body>
 
   <!-- ============================================================
-     NAVIGATION
+     NAVIGATION — Floating Glass Pill
      ============================================================ -->
   <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav-inner">
+    <div class="nav-pill">
       <a href="/" class="nav-logo" aria-label="Fussion Shade home">
-        <img src="assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
+        <img src="assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="34" height="34">
         <span>Fussion<span class="text-primary">Shade</span></span>
       </a>
 
@@ -292,8 +139,7 @@
 
       <div class="nav-actions">
         <button class="theme-toggle" aria-label="Toggle dark/light mode">
-          <!-- Sun icon (shown in dark mode) -->
-          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5" />
             <line x1="12" y1="1" x2="12" y2="3" />
@@ -305,13 +151,17 @@
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
           </svg>
-          <!-- Moon icon (shown in light mode) -->
-          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
         </button>
-        <a href="/contact" class="btn btn-primary btn-sm" style="border-radius:var(--r-full)">Get in Touch</a>
+        <a href="/contact" class="btn btn-primary btn-sm">
+          Start a Project
+          <span class="btn-icon-trail">
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+          </span>
+        </a>
         <button class="nav-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
@@ -322,9 +172,9 @@
   <!-- Mobile nav -->
   <div class="nav-mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
     <div class="nav-sidebar-header">
-      <span class="nav-sidebar-brand">Fussion Shade</span>
+      <span class="nav-sidebar-brand">Fussion<span class="text-primary">Shade</span></span>
       <button class="nav-sidebar-close" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
           stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18" />
           <line x1="6" y1="6" x2="18" y2="18" />
@@ -340,7 +190,7 @@
     </nav>
     <div class="nav-sidebar-footer">
       <button class="nav-sidebar-theme theme-toggle" aria-label="Toggle dark/light mode">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
           stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="5" />
           <line x1="12" y1="1" x2="12" y2="3" />
@@ -352,13 +202,13 @@
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
         </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
           stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
         <span>Toggle Theme</span>
       </button>
-      <a href="/contact" class="btn btn-primary" style="width:100%;justify-content:center;">Get in Touch</a>
+      <a href="/contact" class="btn btn-primary">Start a Project</a>
     </div>
   </div>
   <div class="nav-overlay" aria-hidden="true"></div>
@@ -372,7 +222,6 @@
     <div class="container">
       <div class="hero-inner">
 
-        <!-- Hero Content -->
         <div class="hero-content">
           <div class="hero-badge" aria-label="Software house and digital agency">
             <span class="dot" aria-hidden="true"></span>
@@ -380,24 +229,21 @@
           </div>
 
           <h1 class="hero-title" id="hero-heading">
-            Top-Rated Custom<br />
-            <span class="gradient-text">Software House</span><br />
-            &amp; Digital Agency
+            Custom Software<br />
+            That <span class="gradient-text">Drives Growth</span>
           </h1>
 
           <p class="hero-sub">
-            Fussion Shade is a custom software house and digital agency helping startups and enterprises build web apps,
-            mobile applications, AI-powered automation, and intelligent chatbots that drive real, measurable results.
+            We build web apps, mobile applications, AI-powered automation, and intelligent chatbots
+            that save time, reduce costs, and generate measurable ROI.
           </p>
 
           <div class="hero-actions">
             <a href="/contact" class="btn btn-primary btn-lg">
               Start Your Project
-              <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-                stroke-width="2.5" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
+              <span class="btn-icon-trail">
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </span>
             </a>
             <a href="/projects" class="btn btn-outline btn-lg">See Our Work</a>
           </div>
@@ -415,15 +261,12 @@
           </div>
         </div>
 
-        <!-- Hero Visual (dashboard mockup) -->
+        <!-- Hero Visual -->
         <div class="hero-visual" aria-hidden="true">
           <div class="hero-dashboard">
-            <!-- Floating card 1 -->
             <div class="hero-float-1">
               <div class="float-icon">
-                <svg viewBox="0 0 24 24">
-                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                </svg>
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
               </div>
               <div class="float-text">
                 <h4>Productivity</h4>
@@ -433,12 +276,9 @@
 
             <div class="hero-dashboard-card">
               <div class="dash-header">
-                <div class="dash-dots">
-                  <span></span><span></span><span></span>
-                </div>
+                <div class="dash-dots"><span></span><span></span><span></span></div>
                 <div class="dash-title">Business Automation Dashboard</div>
               </div>
-
               <div class="dash-stats">
                 <div class="dash-stat">
                   <div class="dash-stat-val">98%</div>
@@ -453,7 +293,6 @@
                   <div class="dash-stat-label">Auto tasks</div>
                 </div>
               </div>
-
               <div class="dash-chart">
                 <div class="dash-chart-label">Weekly Automation Output</div>
                 <div class="dash-bars">
@@ -466,39 +305,25 @@
                   <div class="dash-bar"></div>
                 </div>
               </div>
-
               <div class="dash-tasks">
                 <div class="dash-task">
-                  <div class="dash-task-check">
-                    <svg viewBox="0 0 24 24">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
+                  <div class="dash-task-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></div>
                   <span class="dash-task-name">Invoice processing</span>
                   <span class="dash-task-tag">Auto</span>
                 </div>
                 <div class="dash-task">
-                  <div class="dash-task-check">
-                    <svg viewBox="0 0 24 24">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
+                  <div class="dash-task-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></div>
                   <span class="dash-task-name">Customer onboarding</span>
                   <span class="dash-task-tag">AI</span>
                 </div>
                 <div class="dash-task">
-                  <div class="dash-task-check">
-                    <svg viewBox="0 0 24 24">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </div>
+                  <div class="dash-task-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></div>
                   <span class="dash-task-name">Report generation</span>
                   <span class="dash-task-tag">Auto</span>
                 </div>
               </div>
             </div>
 
-            <!-- Floating card 2 -->
             <div class="hero-float-2">
               <div class="float-2-val">78%</div>
               <div class="float-2-label">Less manual work</div>
@@ -512,60 +337,67 @@
 
 
   <!-- ============================================================
-     METRICS / STATS SECTION
+     METRICS / STATS
      ============================================================ -->
   <section class="metrics" aria-labelledby="metrics-heading">
     <div class="container">
       <div class="metrics-grid">
 
-        <div class="clay metric-card reveal">
-          <div class="metric-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
+        <div class="bezel-sm metric-card reveal">
+          <div class="bezel-sm-core">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="metric-value" data-counter>5</div>
+            <div class="metric-label">Happy Clients</div>
+            <div class="metric-sublabel">Worldwide</div>
           </div>
-          <div class="metric-value" data-counter>5</div>
-          <div class="metric-label">Happy Clients</div>
-          <div class="metric-sublabel">Worldwide</div>
         </div>
 
-        <div class="clay metric-card reveal delay-1">
-          <div class="metric-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-            </svg>
+        <div class="bezel-sm metric-card reveal delay-1">
+          <div class="bezel-sm-core">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <div class="metric-value" data-counter>35</div>
+            <div class="metric-label">Avg. Productivity Boost</div>
+            <div class="metric-sublabel">Percentage increase</div>
           </div>
-          <div class="metric-value" data-counter>35</div>
-          <div class="metric-label">Avg. Productivity Boost</div>
-          <div class="metric-sublabel">Percentage increase</div>
         </div>
 
-        <div class="clay metric-card reveal delay-2">
-          <div class="metric-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
+        <div class="bezel-sm metric-card reveal delay-2">
+          <div class="bezel-sm-core">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <div class="metric-value" data-counter>20</div>
+            <div class="metric-label">Projects Delivered</div>
+            <div class="metric-sublabel">On time &amp; on budget</div>
           </div>
-          <div class="metric-value" data-counter>20</div>
-          <div class="metric-label">Projects Delivered</div>
-          <div class="metric-sublabel">On time &amp; on budget</div>
         </div>
 
-        <div class="clay metric-card reveal delay-3">
-          <div class="metric-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <polygon
-                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
+        <div class="bezel-sm metric-card reveal delay-3">
+          <div class="bezel-sm-core">
+            <div class="metric-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+            </div>
+            <div class="metric-value" data-counter>95</div>
+            <div class="metric-label">Client Retention Rate</div>
+            <div class="metric-sublabel">Long-term partnerships</div>
           </div>
-          <div class="metric-value" data-counter>95</div>
-          <div class="metric-label">Client Retention Rate</div>
-          <div class="metric-sublabel">Long-term partnerships</div>
         </div>
 
       </div>
@@ -574,170 +406,189 @@
 
 
   <!-- ============================================================
-     SERVICES PREVIEW
+     SERVICES PREVIEW — Asymmetric Bento
      ============================================================ -->
   <section class="section" aria-labelledby="services-heading">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge">What We Do</div>
+        <div class="section-eyebrow">What We Do</div>
         <h2 class="display-md" id="services-heading">
           Custom Software Solutions for<br /><span class="gradient-text">Every Business Challenge</span>
         </h2>
-        <p class="body-lg text-muted mt-4">
-          As a full-service software house and digital agency, we design, build, and scale intelligent digital products
-          that save time, reduce operational costs, and drive compounding growth.
+        <p class="body-lg text-muted mt-4" style="margin-inline:auto">
+          Full-service software house delivering web apps, mobile applications, AI integration,
+          and end-to-end automation that scales with your business.
+        </p>
+      </div>
+
+      <!-- Bento Grid: 2 large + 4 standard -->
+      <div class="grid-3">
+
+        <div class="bezel service-card glass-enhanced card-3d reveal">
+          <div class="bezel-core">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" /><polyline points="8 21 12 17 16 21" /></svg>
+            </div>
+            <h3>Websites &amp; Web Apps</h3>
+            <p>High-performance web solutions built for conversion, scale, and flawless UX. From marketing sites to complex SaaS platforms.</p>
+            <div class="service-features">
+              <span class="service-feature">Custom UI/UX design</span>
+              <span class="service-feature">Full-stack development</span>
+              <span class="service-feature">SEO &amp; performance optimised</span>
+            </div>
+            <a href="/services" class="service-learn">
+              Learn more
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="bezel service-card glass-enhanced card-3d reveal delay-1">
+          <div class="bezel-core">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+            </div>
+            <h3>Mobile Applications</h3>
+            <p>Native iOS &amp; Android apps, and cross-platform solutions that deliver exceptional experiences on every device.</p>
+            <div class="service-features">
+              <span class="service-feature">iOS &amp; Android native</span>
+              <span class="service-feature">React Native / Flutter</span>
+              <span class="service-feature">App Store optimisation</span>
+            </div>
+            <a href="/services" class="service-learn">
+              Learn more
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="bezel service-card glass-enhanced card-3d reveal delay-2">
+          <div class="bezel-core">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z" /><path d="M12 8v4l3 3" /></svg>
+            </div>
+            <h3>AI Integration &amp; ML</h3>
+            <p>Embed intelligence into your workflows with custom AI models, predictive analytics, and intelligent process automation.</p>
+            <div class="service-features">
+              <span class="service-feature">LLM integration (GPT, Claude)</span>
+              <span class="service-feature">Predictive analytics</span>
+              <span class="service-feature">Computer vision</span>
+            </div>
+            <a href="/services" class="service-learn">
+              Learn more
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="bezel service-card glass-enhanced card-3d reveal delay-1">
+          <div class="bezel-core">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+            </div>
+            <h3>Custom AI Chatbots</h3>
+            <p>Intelligent, context-aware chatbots that handle support, sales, and onboarding. Trained on your business data.</p>
+            <div class="service-features">
+              <span class="service-feature">Natural language processing</span>
+              <span class="service-feature">Multi-channel deployment</span>
+              <span class="service-feature">CRM &amp; API integration</span>
+            </div>
+            <a href="/services" class="service-learn">
+              Learn more
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="bezel service-card glass-enhanced card-3d reveal delay-2">
+          <div class="bezel-core">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /></svg>
+            </div>
+            <h3>Process Automation</h3>
+            <p>Eliminate repetitive tasks with smart automation pipelines. From data entry to complex multi-system workflows.</p>
+            <div class="service-features">
+              <span class="service-feature">Workflow automation</span>
+              <span class="service-feature">RPA solutions</span>
+              <span class="service-feature">System integration</span>
+            </div>
+            <a href="/services" class="service-learn">
+              Learn more
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="bezel service-card glass-enhanced card-3d reveal delay-3">
+          <div class="bezel-core">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" /></svg>
+            </div>
+            <h3>Tailor-made Applications</h3>
+            <p>Bespoke software precisely engineered around your unique business logic, workflows, and scale requirements.</p>
+            <div class="service-features">
+              <span class="service-feature">Custom architecture</span>
+              <span class="service-feature">Legacy modernisation</span>
+              <span class="service-feature">API &amp; microservices</span>
+            </div>
+            <a href="/services" class="service-learn">
+              Learn more
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-10 reveal">
+        <a href="/services" class="btn btn-outline btn-lg">Explore All Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS-BACKED GUARANTEES -->
+  <section class="section ambient-glow" aria-labelledby="guarantees-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Our Guarantees</div>
+        <h2 class="display-md" id="guarantees-heading">
+          Every Project Backed By<br /><span class="gradient-text">Measurable Outcomes</span>
+        </h2>
+        <p class="body-lg text-muted mt-4" style="margin-inline:auto">
+          We don't just build software — we guarantee business results. Here's our promise.
         </p>
       </div>
 
       <div class="grid-3">
-
-        <div class="clay service-card reveal">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="3" width="20" height="14" rx="2" />
-              <polyline points="8 21 12 17 16 21" />
-            </svg>
+        <div class="glass-card card-3d reveal" style="padding:var(--s8)">
+          <div class="depth-layer" style="position:relative;z-index:2">
+            <div class="glass-icon" style="margin-bottom:var(--s5)">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
+            </div>
+            <h4 style="margin-bottom:var(--s3)">$100K Pipeline Guarantee</h4>
+            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">We'll add $100,000+ to your pipeline in 90 days or refund every cent. The same system that took Meridian Freight from manual quoting to $18K/month in closed deals.</p>
           </div>
-          <h3>Websites &amp; Web Apps</h3>
-          <p>High-performance web solutions built for conversion, scale, and flawless UX. From marketing sites to
-            complex SaaS platforms.</p>
-          <div class="service-features">
-            <span class="service-feature">Custom UI/UX design</span>
-            <span class="service-feature">Full-stack development</span>
-            <span class="service-feature">SEO &amp; performance optimised</span>
-          </div>
-          <a href="/services" class="service-learn">
-            Learn more
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
         </div>
 
-        <div class="clay service-card reveal delay-1">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-              <line x1="12" y1="18" x2="12.01" y2="18" />
-            </svg>
+        <div class="glass-card card-3d reveal delay-1" style="padding:var(--s8)">
+          <div class="depth-layer" style="position:relative;z-index:2">
+            <div class="glass-icon" style="margin-bottom:var(--s5)">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
+            </div>
+            <h4 style="margin-bottom:var(--s3)">45-Day Launch Promise</h4>
+            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">Your fully working platform launches in 45 days or we refund every cent and keep working for free. We turned around Brightline Analytics after $80K lost to failed agencies.</p>
           </div>
-          <h3>Mobile Applications</h3>
-          <p>Native iOS &amp; Android apps, and cross-platform solutions that deliver exceptional experiences on every
-            device.</p>
-          <div class="service-features">
-            <span class="service-feature">iOS &amp; Android native</span>
-            <span class="service-feature">React Native / Flutter</span>
-            <span class="service-feature">App Store optimisation</span>
-          </div>
-          <a href="/services" class="service-learn">
-            Learn more
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
         </div>
 
-        <div class="clay service-card reveal delay-2">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2a10 10 0 0 1 10 10c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2z" />
-              <path d="M12 8v4l3 3" />
-            </svg>
+        <div class="glass-card card-3d reveal delay-2" style="padding:var(--s8)">
+          <div class="depth-layer" style="position:relative;z-index:2">
+            <div class="glass-icon" style="margin-bottom:var(--s5)">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
+            </div>
+            <h4 style="margin-bottom:var(--s3)">Zero-Risk Build</h4>
+            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">You pay nothing upfront. We invoice only on delivery, and only when you sign off as satisfied. Not happy? You owe $0 and we keep refining for free.</p>
           </div>
-          <h3>AI Integration &amp; ML</h3>
-          <p>Embed intelligence into your workflows with custom AI models, predictive analytics, and intelligent process
-            automation.</p>
-          <div class="service-features">
-            <span class="service-feature">LLM integration (GPT, Claude)</span>
-            <span class="service-feature">Predictive analytics</span>
-            <span class="service-feature">Computer vision</span>
-          </div>
-          <a href="/services" class="service-learn">
-            Learn more
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
         </div>
-
-        <div class="clay service-card reveal delay-1">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-            </svg>
-          </div>
-          <h3>Custom AI Chatbots</h3>
-          <p>Intelligent, context-aware chatbots that handle support, sales, and onboarding. Trained on your business
-            data.</p>
-          <div class="service-features">
-            <span class="service-feature">Natural language processing</span>
-            <span class="service-feature">Multi-channel deployment</span>
-            <span class="service-feature">CRM &amp; API integration</span>
-          </div>
-          <a href="/services" class="service-learn">
-            Learn more
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="clay service-card reveal delay-2">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
-          </div>
-          <h3>Process Automation</h3>
-          <p>Eliminate repetitive tasks with smart automation pipelines. From data entry to complex multi-system
-            workflows.</p>
-          <div class="service-features">
-            <span class="service-feature">Workflow automation</span>
-            <span class="service-feature">RPA solutions</span>
-            <span class="service-feature">System integration</span>
-          </div>
-          <a href="/services" class="service-learn">
-            Learn more
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="clay service-card reveal delay-3">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-            </svg>
-          </div>
-          <h3>Tailor-made Applications</h3>
-          <p>Bespoke software precisely engineered around your unique business logic, workflows, and scale requirements.
-          </p>
-          <div class="service-features">
-            <span class="service-feature">Custom architecture</span>
-            <span class="service-feature">Legacy modernisation</span>
-            <span class="service-feature">API &amp; microservices</span>
-          </div>
-          <a href="/services" class="service-learn">
-            Learn more
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-      </div>
-
-      <div class="text-center mt-8 reveal">
-        <a href="/services" class="btn btn-outline btn-lg">Explore All Services</a>
       </div>
     </div>
   </section>
@@ -746,33 +597,37 @@
   <!-- ============================================================
      ABOUT PREVIEW
      ============================================================ -->
-  <section class="section" style="background:var(--bg-alt)" aria-labelledby="about-preview-heading">
+  <section class="section" aria-labelledby="about-preview-heading">
     <div class="container">
       <div class="about-split">
 
         <div class="about-visual reveal-left">
-          <div class="about-img-card">
-            <div class="about-img-bg">
-              <div class="about-code-lines" aria-hidden="true">
-                <div class="code-line code-line-1"></div>
-                <div class="code-line code-line-2"></div>
-                <div class="code-line code-line-3"></div>
-                <div class="code-line code-line-4"></div>
-                <div class="code-line code-line-5"></div>
-                <div class="code-line code-line-6"></div>
-                <div class="code-line code-line-7"></div>
-                <div class="code-line code-line-8"></div>
+          <div class="bezel">
+            <div class="bezel-core" style="padding:0">
+              <div class="about-img-card" style="border-radius:calc(var(--r-xl) - 4px)">
+                <div class="about-img-bg">
+                  <div class="about-code-lines" aria-hidden="true">
+                    <div class="code-line code-line-1"></div>
+                    <div class="code-line code-line-2"></div>
+                    <div class="code-line code-line-3"></div>
+                    <div class="code-line code-line-4"></div>
+                    <div class="code-line code-line-5"></div>
+                    <div class="code-line code-line-6"></div>
+                    <div class="code-line code-line-7"></div>
+                    <div class="code-line code-line-8"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="about-badge clay-sm">
+          <div class="about-badge">
             <div class="about-badge-val">10+</div>
             <div class="about-badge-label">Expert Developers</div>
           </div>
         </div>
 
         <div class="about-content reveal-right">
-          <div class="section-badge">Who We Are</div>
+          <div class="section-eyebrow">Who We Are</div>
           <h2 class="display-md" id="about-preview-heading">
             Built by Engineers.<br />
             Driven by <span class="gradient-text">Results.</span>
@@ -780,64 +635,38 @@
           <p class="body-md text-muted mt-4" style="margin-bottom:var(--s5)">
             Fussion Shade is a custom software house and digital agency founded on one principle: technology should work
             for your business, not against it. We specialise in turning complex business challenges into elegant,
-            scalable digital solutions — from web &amp; mobile apps to AI integration and end-to-end automation.
+            scalable digital solutions.
           </p>
-          <p class="body-md text-muted" style="margin-bottom:var(--s6)">
+          <p class="body-md text-muted" style="margin-bottom:var(--s8)">
             Our team of 10+ senior engineers brings deep cross-stack expertise, from product architecture and UI/UX to
             cloud deployment and AI — delivering custom software that scales with your business and generates measurable
             ROI from day one.
           </p>
 
           <div class="values-grid">
-            <div class="clay-sm value-item">
-              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" />
-                </svg></div>
-              <div>
-                <h4>Reliable</h4>
-                <p>We deliver on time, every time.</p>
-              </div>
+            <div class="value-item">
+              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" /></svg></div>
+              <div><h4>Reliable</h4><p>We deliver on time, every time.</p></div>
             </div>
-            <div class="clay-sm value-item">
-              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" />
-                  <path d="M12 8v4l3 3" stroke="currentColor" />
-                </svg></div>
-              <div>
-                <h4>Efficient</h4>
-                <p>We optimise for speed and impact.</p>
-              </div>
+            <div class="value-item">
+              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="12" r="10" stroke="currentColor" /><path d="M12 8v4l3 3" stroke="currentColor" /></svg></div>
+              <div><h4>Efficient</h4><p>We optimise for speed and impact.</p></div>
             </div>
-            <div class="clay-sm value-item">
-              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" />
-                  <circle cx="9" cy="7" r="4" stroke="currentColor" />
-                </svg></div>
-              <div>
-                <h4>Collaborative</h4>
-                <p>Your vision, our execution.</p>
-              </div>
+            <div class="value-item">
+              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" /><circle cx="9" cy="7" r="4" stroke="currentColor" /></svg></div>
+              <div><h4>Collaborative</h4><p>Your vision, our execution.</p></div>
             </div>
-            <div class="clay-sm value-item">
-              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                    stroke="currentColor" />
-                </svg></div>
-              <div>
-                <h4>Excellence</h4>
-                <p>Premium quality, no compromises.</p>
-              </div>
+            <div class="value-item">
+              <div class="value-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="currentColor" /></svg></div>
+              <div><h4>Excellence</h4><p>Premium quality, no compromises.</p></div>
             </div>
           </div>
 
-          <a href="/about" class="btn btn-primary mt-8">
+          <a href="/about" class="btn btn-primary mt-10">
             Our Full Story
-            <svg class="arrow" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-              stroke-width="2.5" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <span class="btn-icon-trail">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </span>
           </a>
         </div>
 
@@ -852,125 +681,111 @@
   <section class="section" aria-labelledby="projects-preview-heading">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge">Our Work</div>
+        <div class="section-eyebrow">Our Work</div>
         <h2 class="display-md" id="projects-preview-heading">
           Software Projects That <span class="gradient-text">Made an Impact</span>
         </h2>
-        <p class="body-lg text-muted mt-4">
-          Real case studies. Real results. Here's a snapshot of custom software, AI, and automation solutions we've
+        <p class="body-lg text-muted mt-4" style="margin-inline:auto">
+          Real case studies. Real results. Custom software, AI, and automation solutions
           built and delivered for our clients.
         </p>
       </div>
 
       <div class="grid-3">
 
-        <div class="clay project-card reveal">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0D2218,#1B5C38,#3ED46A)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24">
-                  <rect x="2" y="3" width="20" height="14" rx="2" />
-                  <polyline points="8 21 12 17 16 21" />
-                </svg>
+        <div class="bezel project-card reveal">
+          <div class="bezel-core" style="padding:0">
+            <div class="project-thumb">
+              <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0D2218,#1B5C38,#3ED46A)">
+                <div class="project-thumb-icon">
+                  <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" /><polyline points="8 21 12 17 16 21" /></svg>
+                </div>
+                <div class="project-result">↑ <span>$18K/mo</span> new revenue</div>
               </div>
-              <div class="project-result">↑ <span>78%</span> efficiency</div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">Web App</span>
-              <span class="project-tag">Automation</span>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="project-tag">Full Stack</span>
+                <span class="project-tag">Logistics</span>
+              </div>
+              <h3>Meridian Freight Co.</h3>
+              <p>Rebuilt their entire customer pipeline with a custom full-stack application. Went from manual quoting to an automated system that closed $18,000/month in new deals within 4 months. Increased qualified leads by 45%.</p>
             </div>
-            <h3>AutoFlow CRM</h3>
-            <p>End-to-end CRM with intelligent automation for a retail chain, eliminating manual data entry and
-              supercharging the sales pipeline.</p>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>React</span><span>·</span><span>Node.js</span><span>·</span><span>OpenAI</span>
+            <div class="project-footer">
+              <div class="project-tech">
+                <span>React</span><span>·</span><span>Node.js</span><span>·</span><span>PostgreSQL</span>
+              </div>
+              <a href="/projects" class="project-link">
+                View case
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </a>
             </div>
-            <a href="/projects" class="project-link">
-              View case
-              <svg viewBox="0 0 24 24">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
           </div>
         </div>
 
-        <div class="clay project-card reveal delay-1">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0A1D3E,#154080,#3B82F6)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                </svg>
+        <div class="bezel project-card reveal delay-1">
+          <div class="bezel-core" style="padding:0">
+            <div class="project-thumb">
+              <div class="project-thumb-inner" style="background:linear-gradient(135deg,#0A1D3E,#154080,#3B82F6)">
+                <div class="project-thumb-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>
+                </div>
+                <div class="project-result">↑ <span>$2M</span> annual revenue</div>
               </div>
-              <div class="project-result">↓ <span>65%</span> response time</div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">AI Chatbot</span>
-              <span class="project-tag">FinTech</span>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="project-tag">SaaS</span>
+                <span class="project-tag">FinTech</span>
+              </div>
+              <h3>Brightline Analytics</h3>
+              <p>After losing $80,000 and 8 months to two failed agencies, we rebuilt their core platform in 60 days. Scaled them to $2,000,000 in annual revenue within 12 months. Conversion rate lifted from 1.2% to 4.8%.</p>
             </div>
-            <h3>ProBot AI Assistant</h3>
-            <p>Enterprise-grade AI chatbot for a financial services firm, trained on internal knowledge to resolve
-              queries autonomously around the clock.</p>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>Python</span><span>·</span><span>LangChain</span><span>·</span><span>Vue.js</span>
+            <div class="project-footer">
+              <div class="project-tech">
+                <span>Next.js</span><span>·</span><span>Python</span><span>·</span><span>LangChain</span>
+              </div>
+              <a href="/projects" class="project-link">
+                View case
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </a>
             </div>
-            <a href="/projects" class="project-link">
-              View case
-              <svg viewBox="0 0 24 24">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
           </div>
         </div>
 
-        <div class="clay project-card reveal delay-2">
-          <div class="project-thumb">
-            <div class="project-thumb-inner" style="background:linear-gradient(135deg,#2C0A3E,#6B21A8,#A855F7)">
-              <div class="project-thumb-icon">
-                <svg viewBox="0 0 24 24">
-                  <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                  <line x1="12" y1="18" x2="12.01" y2="18" />
-                </svg>
+        <div class="bezel project-card reveal delay-2">
+          <div class="bezel-core" style="padding:0">
+            <div class="project-thumb">
+              <div class="project-thumb-inner" style="background:linear-gradient(135deg,#2C0A3E,#6B21A8,#A855F7)">
+                <div class="project-thumb-icon">
+                  <svg viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>
+                </div>
+                <div class="project-result">↑ <span>$35K</span> in 60 days</div>
               </div>
-              <div class="project-result">↑ <span>52%</span> scheduling speed</div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-tags">
-              <span class="project-tag">Mobile App</span>
-              <span class="project-tag">HealthTech</span>
+            <div class="project-body">
+              <div class="project-tags">
+                <span class="project-tag">Web App</span>
+                <span class="project-tag">Enterprise</span>
+              </div>
+              <h3>Pinnacle Consulting Group</h3>
+              <p>Delivered a custom platform two weeks ahead of schedule. Within 60 days, they closed $35,000 in new contracts they couldn't have closed without it. Built with AI-powered pipeline intelligence.</p>
             </div>
-            <h3>MediTrack Mobile</h3>
-            <p>Cross-platform healthcare app enabling patients to manage appointments, access records, and receive
-              AI-driven health reminders.</p>
-          </div>
-          <div class="project-footer">
-            <div class="project-tech">
-              <span>React Native</span><span>·</span><span>Firebase</span><span>·</span><span>Node.js</span>
+            <div class="project-footer">
+              <div class="project-tech">
+                <span>React</span><span>·</span><span>Django</span><span>·</span><span>OpenAI</span>
+              </div>
+              <a href="/projects" class="project-link">
+                View case
+                <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+              </a>
             </div>
-            <a href="/projects" class="project-link">
-              View case
-              <svg viewBox="0 0 24 24">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </a>
           </div>
         </div>
 
       </div>
 
-      <div class="text-center mt-8 reveal">
+      <div class="text-center mt-10 reveal">
         <a href="/projects" class="btn btn-outline btn-lg">View All Projects</a>
       </div>
     </div>
@@ -983,56 +798,71 @@
   <section class="section" aria-labelledby="industries-heading">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge">Industries</div>
+        <div class="section-eyebrow">Industries</div>
         <h2 class="display-md" id="industries-heading">
           Custom Software for<br /><span class="gradient-text">Every Industry</span>
         </h2>
-        <p class="body-lg text-muted mt-4">
-          Our software house has delivered solutions across high-growth sectors globally. We bring domain knowledge and
-          technical depth to every engagement.
+        <p class="body-lg text-muted mt-4" style="margin-inline:auto">
+          Delivered solutions across high-growth sectors globally. Domain knowledge and technical depth in every engagement.
         </p>
       </div>
 
       <div class="industries-grid">
-        <div class="clay industry-item reveal">
-          <span class="industry-emoji">💳</span>
-          <h4>FinTech</h4>
-          <p>Payment platforms, trading dashboards, lending systems, and banking automation.</p>
+        <div class="bezel-sm industry-item reveal">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">💳</span>
+            <h4>FinTech</h4>
+            <p>Payment platforms, trading dashboards, lending systems, and banking automation.</p>
+          </div>
         </div>
-        <div class="clay industry-item reveal delay-1">
-          <span class="industry-emoji">🏥</span>
-          <h4>HealthTech</h4>
-          <p>Patient portals, EHR integrations, appointment platforms, and clinical automation.</p>
+        <div class="bezel-sm industry-item reveal delay-1">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">🏥</span>
+            <h4>HealthTech</h4>
+            <p>Patient portals, EHR integrations, appointment platforms, and clinical automation.</p>
+          </div>
         </div>
-        <div class="clay industry-item reveal delay-2">
-          <span class="industry-emoji">🛒</span>
-          <h4>E-commerce</h4>
-          <p>Custom storefronts, headless commerce, inventory systems, and personalisation engines.</p>
+        <div class="bezel-sm industry-item reveal delay-2">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">🛒</span>
+            <h4>E-commerce</h4>
+            <p>Custom storefronts, headless commerce, inventory systems, and personalisation engines.</p>
+          </div>
         </div>
-        <div class="clay industry-item reveal delay-3">
-          <span class="industry-emoji">🚚</span>
-          <h4>Logistics</h4>
-          <p>Fleet management, route optimisation, supply chain tracking, and warehouse automation.</p>
+        <div class="bezel-sm industry-item reveal delay-3">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">🚚</span>
+            <h4>Logistics</h4>
+            <p>Fleet management, route optimisation, supply chain tracking, and warehouse automation.</p>
+          </div>
         </div>
-        <div class="clay industry-item reveal">
-          <span class="industry-emoji">📚</span>
-          <h4>EdTech</h4>
-          <p>LMS platforms, AI tutoring assistants, student management, and adaptive learning tools.</p>
+        <div class="bezel-sm industry-item reveal">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">📚</span>
+            <h4>EdTech</h4>
+            <p>LMS platforms, AI tutoring assistants, student management, and adaptive learning tools.</p>
+          </div>
         </div>
-        <div class="clay industry-item reveal delay-1">
-          <span class="industry-emoji">🏢</span>
-          <h4>Real Estate</h4>
-          <p>Property portals, CRM automation, virtual tour apps, and document workflows.</p>
+        <div class="bezel-sm industry-item reveal delay-1">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">🏢</span>
+            <h4>Real Estate</h4>
+            <p>Property portals, CRM automation, virtual tour apps, and document workflows.</p>
+          </div>
         </div>
-        <div class="clay industry-item reveal delay-2">
-          <span class="industry-emoji">⚙️</span>
-          <h4>SaaS &amp; Startups</h4>
-          <p>MVP development, multi-tenant SaaS platforms, and investor-ready digital products.</p>
+        <div class="bezel-sm industry-item reveal delay-2">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">⚙️</span>
+            <h4>SaaS &amp; Startups</h4>
+            <p>MVP development, multi-tenant SaaS platforms, and investor-ready digital products.</p>
+          </div>
         </div>
-        <div class="clay industry-item reveal delay-3">
-          <span class="industry-emoji">🏭</span>
-          <h4>Enterprise</h4>
-          <p>ERP systems, legacy application modernisation, and enterprise-wide digital transformation.</p>
+        <div class="bezel-sm industry-item reveal delay-3">
+          <div class="bezel-sm-core">
+            <span class="industry-emoji">🏭</span>
+            <h4>Enterprise</h4>
+            <p>ERP systems, legacy application modernisation, and enterprise-wide digital transformation.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1042,62 +872,67 @@
   <!-- ============================================================
      WHY CHOOSE US
      ============================================================ -->
-  <section class="section" style="background:var(--bg-alt)" aria-labelledby="why-heading">
+  <section class="section" aria-labelledby="why-heading">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge">Why Fussion Shade</div>
+        <div class="section-eyebrow">Why Fussion Shade</div>
         <h2 class="display-md" id="why-heading">
           Why Choose Our<br /><span class="gradient-text">Software House</span>
         </h2>
-        <p class="body-lg text-muted mt-4">
-          As a results-driven custom software house, we combine engineering excellence with business strategy to deliver
-          solutions that create lasting competitive advantage.
+        <p class="body-lg text-muted mt-4" style="margin-inline:auto">
+          Engineering excellence with business strategy. Solutions that create lasting competitive advantage.
         </p>
       </div>
 
       <div class="why-grid">
-        <div class="clay why-item reveal">
-          <div class="why-num">01</div>
-          <h4>End-to-End Ownership</h4>
-          <p>We own every phase — discovery, design, development, QA, deployment, and post-launch support. One partner
-            for the entire product lifecycle, no handoff gaps.</p>
+        <div class="bezel-sm why-item reveal">
+          <div class="bezel-sm-core">
+            <div class="why-num">01</div>
+            <h4>End-to-End Ownership</h4>
+            <p>We own every phase — discovery, design, development, QA, deployment, and post-launch support. One partner for the entire lifecycle.</p>
+          </div>
         </div>
-        <div class="clay why-item reveal delay-1">
-          <div class="why-num">02</div>
-          <h4>AI-First Development</h4>
-          <p>Every solution we build considers AI opportunities from the start — whether integrating LLMs, building
-            predictive models, or automating workflows intelligently.</p>
+        <div class="bezel-sm why-item reveal delay-1">
+          <div class="bezel-sm-core">
+            <div class="why-num">02</div>
+            <h4>AI-First Development</h4>
+            <p>Every solution considers AI opportunities from the start — whether integrating LLMs, building predictive models, or automating workflows.</p>
+          </div>
         </div>
-        <div class="clay why-item reveal delay-2">
-          <div class="why-num">03</div>
-          <h4>Transparent &amp; Agile</h4>
-          <p>Weekly demos, live project dashboards, and open communication via Slack. You always know exactly what's
-            being built and when it will be delivered.</p>
+        <div class="bezel-sm why-item reveal delay-2">
+          <div class="bezel-sm-core">
+            <div class="why-num">03</div>
+            <h4>Transparent &amp; Agile</h4>
+            <p>Weekly demos, live project dashboards, and open communication. You always know exactly what's being built and when.</p>
+          </div>
         </div>
-        <div class="clay why-item reveal">
-          <div class="why-num">04</div>
-          <h4>Measurable ROI Focus</h4>
-          <p>We define success metrics before we write a line of code. Every feature we build is tied to a business
-            outcome — efficiency gains, revenue growth, or cost reduction.</p>
+        <div class="bezel-sm why-item reveal">
+          <div class="bezel-sm-core">
+            <div class="why-num">04</div>
+            <h4>Measurable ROI Focus</h4>
+            <p>We define success metrics before writing code. Every feature is tied to a business outcome — efficiency, revenue, or cost reduction.</p>
+          </div>
         </div>
-        <div class="clay why-item reveal delay-1">
-          <div class="why-num">05</div>
-          <h4>Security Built In</h4>
-          <p>OWASP-compliant development, encrypted data pipelines, role-based access, and GDPR-ready architecture by
-            default — security is never an afterthought.</p>
+        <div class="bezel-sm why-item reveal delay-1">
+          <div class="bezel-sm-core">
+            <div class="why-num">05</div>
+            <h4>Security Built In</h4>
+            <p>OWASP-compliant development, encrypted data pipelines, role-based access, and GDPR-ready architecture by default.</p>
+          </div>
         </div>
-        <div class="clay why-item reveal delay-2">
-          <div class="why-num">06</div>
-          <h4>95% Client Retention</h4>
-          <p>Our clients stay because we deliver. Long-term partnerships built on trust, quality, and consistent value —
-            not one-and-done project engagements.</p>
+        <div class="bezel-sm why-item reveal delay-2">
+          <div class="bezel-sm-core">
+            <div class="why-num">06</div>
+            <h4>95% Client Retention</h4>
+            <p>Long-term partnerships built on trust, quality, and consistent value — not one-and-done project engagements.</p>
+          </div>
         </div>
       </div>
 
       <!-- Tech Stack -->
-      <div class="text-center mt-10 reveal">
+      <div class="text-center mt-12 reveal">
         <p class="body-sm text-muted"
-          style="margin-bottom:var(--s4);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;font-size:0.78rem;">
+          style="margin-bottom:var(--s5);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;font-size:0.75rem;">
           Our Technology Stack</p>
         <div class="tech-strip">
           <span class="tech-pill">React</span>
@@ -1128,41 +963,36 @@
   <section class="section" aria-labelledby="process-heading">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge">Our Process</div>
+        <div class="section-eyebrow">Our Process</div>
         <h2 class="display-md" id="process-heading">
           How We Deliver Your<br /><span class="gradient-text">Custom Software</span>
         </h2>
-        <p class="body-lg text-muted mt-4">
-          A transparent, agile process that keeps you in control at every stage — from discovery to post-launch growth.
+        <p class="body-lg text-muted mt-4" style="margin-inline:auto">
+          A transparent, agile process that keeps you in control at every stage.
         </p>
       </div>
 
       <div class="process-steps">
-
-        <div class="process-step clay-sm reveal">
+        <div class="process-step reveal">
           <div class="process-step-num">01</div>
           <h4>Discovery</h4>
           <p>We deep-dive into your business goals, pain points, and requirements to define the perfect solution.</p>
         </div>
-
-        <div class="process-step clay-sm reveal delay-1">
+        <div class="process-step reveal delay-1">
           <div class="process-step-num">02</div>
           <h4>Design &amp; Plan</h4>
           <p>Architecture blueprints, UX wireframes, and a detailed project roadmap aligned with your timeline.</p>
         </div>
-
-        <div class="process-step clay-sm reveal delay-2">
+        <div class="process-step reveal delay-2">
           <div class="process-step-num">03</div>
           <h4>Build &amp; Iterate</h4>
           <p>Agile sprints with regular demos. You see progress weekly and can provide feedback in real time.</p>
         </div>
-
-        <div class="process-step clay-sm reveal delay-3">
+        <div class="process-step reveal delay-3">
           <div class="process-step-num">04</div>
           <h4>Launch &amp; Grow</h4>
           <p>Smooth deployment, thorough testing, staff training, and ongoing support to maximise your ROI.</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -1174,7 +1004,7 @@
   <section class="section" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-badge">Client Love</div>
+        <div class="section-eyebrow">Client Love</div>
         <h2 class="display-md" id="testimonials-heading">
           Hear It From<br /><span class="gradient-text">Our Clients</span>
         </h2>
@@ -1183,145 +1013,86 @@
       <div class="testimonials-track reveal">
         <div class="testimonials-slider">
 
-          <div class="clay testimonial-card">
-            <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-            <p class="testimonial-text">"Fussion Shade transformed our entire order processing system. What used to
-              consume 4 hours of our team's day now runs automatically in under 10 minutes. The ROI was evident within
-              the first month."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">SM</div>
-              <div>
-                <div class="testimonial-name">Sarah Mitchell</div>
-                <div class="testimonial-role">CEO, RetailFlow&nbsp;Inc.</div>
+          <div class="bezel testimonial-card">
+            <div class="bezel-core">
+              <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+              </div>
+              <p class="testimonial-text">"Fussion Shade transformed our entire order processing system. What used to consume 4 hours now runs automatically in under 10 minutes. The ROI was evident within the first month."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">SM</div>
+                <div>
+                  <div class="testimonial-name">Sarah Mitchell</div>
+                  <div class="testimonial-role">CEO, RetailFlow&nbsp;Inc.</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="clay testimonial-card">
-            <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-            <p class="testimonial-text">"The AI chatbot they built now handles 85% of our customer queries without any
-              human intervention. Our support team was freed to focus on complex cases. Absolutely outstanding technical
-              execution."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">JO</div>
-              <div>
-                <div class="testimonial-name">James Okafor</div>
-                <div class="testimonial-role">CTO, FinServe&nbsp;Pro</div>
+          <div class="bezel testimonial-card">
+            <div class="bezel-core">
+              <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+              </div>
+              <p class="testimonial-text">"The AI chatbot they built now handles 85% of our customer queries without any human intervention. Our support team was freed to focus on complex cases. Outstanding execution."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">JO</div>
+                <div>
+                  <div class="testimonial-name">James Okafor</div>
+                  <div class="testimonial-role">CTO, FinServe&nbsp;Pro</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="clay testimonial-card">
-            <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-            <p class="testimonial-text">"Professional, attentive, and deeply skilled. The MediTrack app exceeded our
-              expectations in every way — design, performance, and reliability. Our patients absolutely love it."</p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">PS</div>
-              <div>
-                <div class="testimonial-name">Priya Sharma</div>
-                <div class="testimonial-role">Operations Director, MediCare&nbsp;Plus</div>
+          <div class="bezel testimonial-card">
+            <div class="bezel-core">
+              <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+              </div>
+              <p class="testimonial-text">"Professional, attentive, and deeply skilled. The MediTrack app exceeded our expectations in every way — design, performance, and reliability. Our patients love it."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">PS</div>
+                <div>
+                  <div class="testimonial-name">Priya Sharma</div>
+                  <div class="testimonial-role">Operations Director, MediCare&nbsp;Plus</div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="clay testimonial-card">
-            <div class="testimonial-quote-mark" aria-hidden="true">"</div>
-            <div class="testimonial-stars" aria-label="5 out of 5 stars">
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <svg viewBox="0 0 24 24">
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-            </div>
-            <p class="testimonial-text">"Working with Fussion Shade was a complete game-changer. Our team's productivity
-              jumped over 40% since their automation platform went live. Best technology investment we've ever made."
-            </p>
-            <div class="testimonial-author">
-              <div class="testimonial-avatar" aria-hidden="true">DC</div>
-              <div>
-                <div class="testimonial-name">David Chen</div>
-                <div class="testimonial-role">Founder, TechVentures&nbsp;Ltd.</div>
+          <div class="bezel testimonial-card">
+            <div class="bezel-core">
+              <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+              <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
+              </div>
+              <p class="testimonial-text">"Working with Fussion Shade was a game-changer. Our team's productivity jumped over 40% since their automation platform went live. Best technology investment we've made."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" aria-hidden="true">DC</div>
+                <div>
+                  <div class="testimonial-name">David Chen</div>
+                  <div class="testimonial-role">Founder, TechVentures&nbsp;Ltd.</div>
+                </div>
               </div>
             </div>
           </div>
@@ -1331,15 +1102,11 @@
 
       <div class="testimonial-controls">
         <button class="testimonial-btn testimonial-prev" aria-label="Previous testimonial">
-          <svg viewBox="0 0 24 24">
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
+          <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6" /></svg>
         </button>
         <div class="testimonials-dots" role="tablist" aria-label="Testimonial slides"></div>
         <button class="testimonial-btn testimonial-next" aria-label="Next testimonial">
-          <svg viewBox="0 0 24 24">
-            <polyline points="9 18 15 12 9 6" />
-          </svg>
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" /></svg>
         </button>
       </div>
     </div>
@@ -1355,58 +1122,23 @@
     </div>
     <div class="clients-track">
       <div class="clients-scroll" aria-label="Client logos">
-
-        <div class="client-logo">
-          <div class="client-logo-icon">RF</div><span class="client-logo-name">RetailFlow</span>
-        </div>
-        <div class="client-logo">
-          <div class="client-logo-icon">FP</div><span class="client-logo-name">FinServe Pro</span>
-        </div>
-        <div class="client-logo">
-          <div class="client-logo-icon">MC</div><span class="client-logo-name">MediCare Plus</span>
-        </div>
-        <div class="client-logo">
-          <div class="client-logo-icon">TV</div><span class="client-logo-name">TechVentures</span>
-        </div>
-        <div class="client-logo">
-          <div class="client-logo-icon">GM</div><span class="client-logo-name">GlobalMart</span>
-        </div>
-        <div class="client-logo">
-          <div class="client-logo-icon">NC</div><span class="client-logo-name">NexaCorp</span>
-        </div>
-        <div class="client-logo">
-          <div class="client-logo-icon">DS</div><span class="client-logo-name">DataSync</span>
-        </div>
-        <div class="client-logo">
-          <div class="client-logo-icon">CP</div><span class="client-logo-name">CloudPeak</span>
-        </div>
-
+        <div class="client-logo"><div class="client-logo-icon">RF</div><span class="client-logo-name">RetailFlow</span></div>
+        <div class="client-logo"><div class="client-logo-icon">FP</div><span class="client-logo-name">FinServe Pro</span></div>
+        <div class="client-logo"><div class="client-logo-icon">MC</div><span class="client-logo-name">MediCare Plus</span></div>
+        <div class="client-logo"><div class="client-logo-icon">TV</div><span class="client-logo-name">TechVentures</span></div>
+        <div class="client-logo"><div class="client-logo-icon">GM</div><span class="client-logo-name">GlobalMart</span></div>
+        <div class="client-logo"><div class="client-logo-icon">NC</div><span class="client-logo-name">NexaCorp</span></div>
+        <div class="client-logo"><div class="client-logo-icon">DS</div><span class="client-logo-name">DataSync</span></div>
+        <div class="client-logo"><div class="client-logo-icon">CP</div><span class="client-logo-name">CloudPeak</span></div>
         <!-- Duplicate for seamless loop -->
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">RF</div><span class="client-logo-name">RetailFlow</span>
-        </div>
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">FP</div><span class="client-logo-name">FinServe Pro</span>
-        </div>
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">MC</div><span class="client-logo-name">MediCare Plus</span>
-        </div>
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">TV</div><span class="client-logo-name">TechVentures</span>
-        </div>
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">GM</div><span class="client-logo-name">GlobalMart</span>
-        </div>
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">NC</div><span class="client-logo-name">NexaCorp</span>
-        </div>
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">DS</div><span class="client-logo-name">DataSync</span>
-        </div>
-        <div class="client-logo" aria-hidden="true">
-          <div class="client-logo-icon">CP</div><span class="client-logo-name">CloudPeak</span>
-        </div>
-
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">RF</div><span class="client-logo-name">RetailFlow</span></div>
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">FP</div><span class="client-logo-name">FinServe Pro</span></div>
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">MC</div><span class="client-logo-name">MediCare Plus</span></div>
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">TV</div><span class="client-logo-name">TechVentures</span></div>
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">GM</div><span class="client-logo-name">GlobalMart</span></div>
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">NC</div><span class="client-logo-name">NexaCorp</span></div>
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">DS</div><span class="client-logo-name">DataSync</span></div>
+        <div class="client-logo" aria-hidden="true"><div class="client-logo-icon">CP</div><span class="client-logo-name">CloudPeak</span></div>
       </div>
     </div>
   </section>
@@ -1418,21 +1150,19 @@
   <section class="cta-banner">
     <div class="container">
       <div class="cta-banner-inner reveal">
-        <div class="section-badge"
-          style="background:rgba(62,212,106,0.18);color:#7DE9A7;border-color:rgba(62,212,106,0.3)">
+        <div class="section-eyebrow"
+          style="background:rgba(62,212,106,0.12);color:var(--primary-light);border-color:rgba(62,212,106,0.25)">
           Ready to Transform?
         </div>
         <h2>Let's Build Your Next<br />Custom Software Product</h2>
-        <p>Book a free 30-minute strategy call with our software house. No sales pressure — just honest, expert advice
+        <p>Book a free 30-minute strategy call. No sales pressure — just honest, expert advice
           on how custom software and AI automation can accelerate your business.</p>
         <div class="flex flex-center gap-4" style="flex-wrap:wrap">
           <a href="/contact" class="btn btn-primary btn-lg">
             Get a Free Consultation
-            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-              stroke-width="2.5" aria-hidden="true">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
+            <span class="btn-icon-trail">
+              <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </span>
           </a>
           <a href="/projects" class="btn btn-outline btn-lg">See Our Projects</a>
         </div>
@@ -1450,35 +1180,19 @@
 
         <div class="footer-brand">
           <a href="/" class="nav-logo">
-            <img src="assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="36" height="36">
+            <img src="assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="34" height="34">
             <span>Fussion<span class="text-primary">Shade</span></span>
           </a>
           <p>Empowering businesses to thrive through intelligent automation and custom digital solutions.</p>
           <div class="footer-socials">
-            <a href="#" class="footer-social" aria-label="Twitter/X">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 4l16 16M4 20L20 4" stroke-linecap="round" />
-              </svg>
+            <a href="https://www.instagram.com/fussionshade.agency/" class="footer-social" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="#" class="footer-social" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
+            <a href="https://www.linkedin.com/company/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" fill="none" stroke="currentColor" stroke-width="1.5"/><rect x="2" y="9" width="4" height="12" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="4" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
             </a>
-            <a href="#" class="footer-social" aria-label="GitHub">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
-            </a>
-            <a href="#" class="footer-social" aria-label="Dribbble">
-              <svg viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path
-                  d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
-              </svg>
+            <a href="https://www.facebook.com/fussionshade" class="footer-social" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </a>
           </div>
         </div>
@@ -1517,7 +1231,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 <span>Fussion Shade</span>. All rights reserved.</p>
+        <p class="footer-copy">&copy; 2026 <span>Fussion Shade</span>. All rights reserved.</p>
         <div class="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
@@ -1530,20 +1244,13 @@
 
   <!-- Floating CTA -->
   <div class="floating-cta">
-    <!-- <a href="/contact" class="floating-cta-btn" aria-label="Get a free consultation">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-    <span>Free Consultation</span>
-  </a> -->
-
-    <a href="https://wa.me/923073134427?text=Hello%20Abdullah,%20I%20would%20like%20to%20discuss%20a%20project."
+    <a href="https://wa.me/923073134427?text=Hello%20Fussionshade%20Team,%20I%20would%20like%20to%20discuss%20a%20project."
       class="floating-cta-btn" target="_blank" aria-label="Chat on WhatsApp">
-      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 24 24">
-        <path
-          d="M20.52 3.48A11.82 11.82 0 0 0 12.02 0C5.39 0 0 5.39 0 12.02c0 2.12.55 4.19 1.6 6.03L0 24l6.12-1.58a11.97 11.97 0 0 0 5.9 1.5h.01c6.63 0 12.02-5.39 12.02-12.02 0-3.21-1.25-6.23-3.53-8.42zM12.03 21.9a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.63.94.97-3.54-.24-.37a9.88 9.88 0 0 1-1.53-5.32c0-5.48 4.46-9.94 9.94-9.94 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.48-4.46 9.94-9.92 9.94zm5.45-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.08-.13-.27-.2-.57-.35z" />
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20.52 3.48A11.82 11.82 0 0 0 12.02 0C5.39 0 0 5.39 0 12.02c0 2.12.55 4.19 1.6 6.03L0 24l6.12-1.58a11.97 11.97 0 0 0 5.9 1.5h.01c6.63 0 12.02-5.39 12.02-12.02 0-3.21-1.25-6.23-3.53-8.42zM12.03 21.9a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.63.94.97-3.54-.24-.37a9.88 9.88 0 0 1-1.53-5.32c0-5.48 4.46-9.94 9.94-9.94 2.65 0 5.14 1.03 7.01 2.91a9.85 9.85 0 0 1 2.91 7.02c0 5.48-4.46 9.94-9.92 9.94zm5.45-7.43c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.67-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.03-1.05 2.5 1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.13 4.54.72.31 1.28.49 1.72.63.72.23 1.37.2 1.88.12.57-.09 1.76-.72 2.01-1.42.25-.69.25-1.29.17-1.42-.08-.13-.27-.2-.57-.35z" />
       </svg>
-      <span>Chat on whats app</span>
+      <span>Chat on WhatsApp</span>
     </a>
-
   </div>
 
   <script src="assets/js/main.js"></script>

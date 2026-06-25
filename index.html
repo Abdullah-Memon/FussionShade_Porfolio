@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary SEO -->
-  <title>Fussion Shade | Software House &amp; Custom Digital Agency</title>
+  <title>Fussion Shade — Custom Software Development Company in Pakistan | Web Apps, AI &amp; Mobile</title>
   <meta name="description"
-    content="Fussion Shade is a top-rated custom software house and digital agency building web apps, mobile applications, AI-powered automation, and intelligent chatbots. Free consultation available." />
+    content="Custom software development company in Pakistan. We build web apps, mobile applications, AI chatbots, and business automation that drive measurable ROI. Free consultation." />
   <meta name="keywords"
     content="software house, custom software development, digital agency, software agency, web app development, mobile app development, AI integration, business automation, chatbot development, process automation, SaaS development, custom software agency, Fussion Shade, fussionshade" />
   <meta name="author" content="Fussion Shade" />
@@ -18,9 +18,9 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Fussion Shade" />
-  <meta property="og:title" content="Fussion Shade | Software House &amp; Custom Digital Agency" />
+  <meta property="og:title" content="Fussion Shade — Custom Software Development Company in Pakistan" />
   <meta property="og:description"
-    content="Top-rated software house &amp; digital agency. Custom web apps, mobile development, AI integration, and business automation. Serving startups to enterprises worldwide." />
+    content="Custom software development company in Pakistan. Web apps, mobile applications, AI chatbots, and business automation for startups and enterprises worldwide." />
   <meta property="og:url" content="https://www.fussionshade.com/" />
   <meta property="og:image" content="https://www.fussionshade.com/assets/img/logo.png" />
   <meta property="og:image:width" content="1200" />
@@ -45,9 +45,61 @@
   <link rel="icon" href="assets/img/logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/logo.png" />
 
-  <!-- Styles -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="assets/style/main.css" />
+  <!-- Preload self-hosted fonts -->
+  <link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin />
+
+  <!-- Critical CSS inline (above-the-fold only) -->
+  <style>
+    :root{--primary:#3ED46A;--primary-hover:#33C45D;--primary-light:#78E8A4;--primary-dark:#1A8C44;--primary-glow:rgba(62,212,106,0.35);--primary-subtle:rgba(62,212,106,0.08);--bg:#050505;--bg-alt:#0A0A0A;--surface:rgba(255,255,255,0.04);--surface-solid:#0D0D0D;--surface-raised:rgba(255,255,255,0.06);--surface-glass:rgba(255,255,255,0.03);--text:#F0F2F5;--text-2:rgba(240,242,245,0.7);--text-muted:rgba(240,242,245,0.4);--border:rgba(255,255,255,0.08);--border-card:rgba(255,255,255,0.06);--nav-h:72px;--max-w:1280px;--s1:0.25rem;--s2:0.5rem;--s3:0.75rem;--s4:1rem;--s5:1.25rem;--s6:1.5rem;--s8:2rem;--s10:2.5rem;--s12:3rem;--s16:4rem;--s20:5rem;--s24:6rem;--s32:8rem;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-2xl:40px;--r-full:9999px;--font-display:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--font-body:'Geist',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--ease-out-expo:cubic-bezier(0.16,1,0.3,1);--ease-out-quart:cubic-bezier(0.25,1,0.5,1);--ease-spring:cubic-bezier(0.34,1.56,0.64,1);--t-fast:0.2s var(--ease-out-expo);--t-base:0.4s var(--ease-out-expo);--t-slow:0.6s var(--ease-out-expo);--t-reveal:0.8s var(--ease-out-expo);--z-base:1;--z-card:10;--z-nav:100;--z-overlay:200;--z-modal:300;--z-toast:400;--z-splash:500}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;overflow-x:hidden}
+    body{font-family:var(--font-body);background-color:var(--bg);color:var(--text);line-height:1.6;transition:background-color 0.5s var(--ease-out-expo),color 0.5s var(--ease-out-expo);overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    img,svg{display:block;max-width:100%}a{text-decoration:none;color:inherit}ul,ol{list-style:none}button{cursor:pointer;font-family:inherit;border:none;background:none}input,textarea,select{font-family:inherit}
+    ::selection{background:var(--primary);color:#fff}:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:var(--r-sm)}
+    .container{width:100%;max-width:var(--max-w);margin-inline:auto;padding-inline:var(--s6)}
+    .section{padding-block:var(--s32)}
+    .nav{position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);padding:0.75rem}
+    .nav-pill{display:flex;align-items:center;justify-content:space-between;max-width:var(--max-w);margin:0 auto;padding:0.6rem 1rem;background:rgba(10,10,10,0.7);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border:1px solid var(--border-card);border-radius:var(--r-full);box-shadow:var(--shadow-bezel)}
+    .nav-logo{display:flex;align-items:center;gap:var(--s2);font-weight:600;font-size:1rem;white-space:nowrap}
+    .nav-logo-img{width:34px;height:34px;border-radius:var(--r-sm)}
+    .nav-links{display:flex;align-items:center;gap:var(--s1)}
+    .nav-link{padding:0.45rem 0.9rem;border-radius:var(--r-full);font-size:0.85rem;font-weight:500;color:var(--text-2);transition:all var(--t-fast)}
+    .nav-link:hover,.nav-link.active{color:var(--text);background:var(--surface)}
+    .nav-actions{display:flex;align-items:center;gap:var(--s3)}
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);position:relative;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;z-index:0}
+    .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:var(--s16);align-items:center;position:relative;z-index:1}
+    .hero-content{max-width:600px}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--s2);padding:var(--s1) var(--s4);background:var(--primary-subtle);border:1px solid rgba(62,212,106,0.15);border-radius:var(--r-full);font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--primary);margin-bottom:var(--s6)}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--primary);animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+    .hero-title{font-size:clamp(2.8rem,6vw,5rem);line-height:1.05;letter-spacing:-0.04em;font-weight:600;color:var(--text);margin-bottom:var(--s6)}
+    .hero-sub{font-size:1.125rem;line-height:1.75;color:var(--text-2);max-width:540px;margin-bottom:var(--s8)}
+    .hero-actions{display:flex;gap:var(--s4);margin-bottom:var(--s10)}
+    .hero-trust{display:flex;align-items:center;gap:var(--s4)}
+    .hero-trust-avatars{display:flex}
+    .hero-trust-avatar{width:36px;height:36px;border-radius:50%;background:var(--surface-raised);border:2px solid var(--surface-solid);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:600;color:var(--text-2);margin-right:-8px}
+    .hero-trust-text{font-size:0.88rem;color:var(--text-2)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s3);padding:0.85rem 2rem;border-radius:var(--r-full);font-family:var(--font-display);font-weight:600;font-size:0.92rem;letter-spacing:0.01em;transition:all var(--t-base);white-space:nowrap;cursor:pointer;border:none;position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent}
+    .btn:active{transform:scale(0.97)}
+    .btn-primary{background:var(--primary);color:#050505;box-shadow:var(--shadow-btn)}
+    .btn-primary:hover{box-shadow:var(--shadow-btn-hover);transform:translateY(-2px);background:var(--primary-hover)}
+    .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--border);box-shadow:none}
+    .btn-outline:hover{background:var(--surface);border-color:rgba(255,255,255,0.15);transform:translateY(-2px)}
+    .btn-lg{padding:1rem 2.5rem;font-size:0.95rem}
+    .btn-sm{padding:0.6rem 1.4rem;font-size:0.82rem}
+    .btn-icon-trail{width:28px;height:28px;border-radius:50%;background:rgba(0,0,0,0.12);display:flex;align-items:center;justify-content:center;transition:all var(--t-base);flex-shrink:0}
+    .btn-primary:hover .btn-icon-trail{background:rgba(0,0,0,0.2);transform:translate(2px,-1px)}
+    .btn-primary .btn-icon-trail svg{width:14px;height:14px;stroke:#050505;fill:none;stroke-width:2.5}
+    .gradient-text{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    [data-theme="light"]{--bg:var(--bg-light);--bg-alt:var(--bg-alt-light);--surface:var(--surface-light);--surface-raised:var(--surface-raised-light);--surface-glass:rgba(255,255,255,0.7);--text:var(--text-light);--text-2:var(--text-2-light);--text-muted:var(--text-muted-light);--border:var(--border-light);--border-card:rgba(0,0,0,0.06)}
+    [data-theme="light"] .gradient-text{background:linear-gradient(135deg,var(--primary-dark) 0%,var(--primary) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  </style>
+
+  <!-- Full CSS deferred — loads after first paint -->
+  <link rel="stylesheet" href="assets/style/main.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="assets/style/main.min.css" /></noscript>
 
   <!-- Schema.org -->
   <script type="application/ld+json">
@@ -129,13 +181,13 @@
         <span>Fussion<span class="text-primary">Shade</span></span>
       </a>
 
-      <div class="nav-links" role="list">
-        <a href="/" class="nav-link active" role="listitem">Home</a>
-        <a href="/about" class="nav-link" role="listitem">About</a>
-        <a href="/services" class="nav-link" role="listitem">Services</a>
-        <a href="/projects" class="nav-link" role="listitem">Projects</a>
-        <a href="/contact" class="nav-link" role="listitem">Contact</a>
-      </div>
+      <ul class="nav-links">
+        <li><a href="/" class="nav-link active">Home</a></li>
+        <li><a href="/about" class="nav-link">About</a></li>
+        <li><a href="/services" class="nav-link">Services</a></li>
+        <li><a href="/projects" class="nav-link">Projects</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
 
       <div class="nav-actions">
         <button class="theme-toggle" aria-label="Toggle dark/light mode">
@@ -214,6 +266,7 @@
   <div class="nav-overlay" aria-hidden="true"></div>
 
 
+  <main id="main-content">
   <!-- ============================================================
      HERO SECTION
      ============================================================ -->
@@ -223,19 +276,18 @@
       <div class="hero-inner">
 
         <div class="hero-content">
-          <div class="hero-badge" aria-label="Software house and digital agency">
+          <div class="hero-badge" aria-label="Custom software development company Pakistan">
             <span class="dot" aria-hidden="true"></span>
-            Software House &amp; Digital Agency
+            Custom Software House &amp; Digital Agency — Pakistan
           </div>
 
           <h1 class="hero-title" id="hero-heading">
             Custom Software<br />
-            That <span class="gradient-text">Drives Growth</span>
+            Development <span class="gradient-text">Company in Pakistan</span>
           </h1>
 
           <p class="hero-sub">
-            We build web apps, mobile applications, AI-powered automation, and intelligent chatbots
-            that save time, reduce costs, and generate measurable ROI.
+            AI-powered web apps, mobile applications, and business automation that save 4+ hours/day and generate measurable ROI.
           </p>
 
           <div class="hero-actions">
@@ -245,90 +297,38 @@
                 <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
               </span>
             </a>
-            <a href="/projects" class="btn btn-outline btn-lg">See Our Work</a>
+            <a href="/projects" class="btn btn-outline btn-lg">View our portfolio and case studies</a>
           </div>
 
-          <div class="hero-trust">
-            <div class="hero-trust-avatars" aria-hidden="true">
-              <div class="hero-trust-avatar">SM</div>
-              <div class="hero-trust-avatar">JO</div>
-              <div class="hero-trust-avatar">DC</div>
-              <div class="hero-trust-avatar">PS</div>
-            </div>
-            <p class="hero-trust-text">
-              Trusted by <strong>growing businesses</strong> worldwide
-            </p>
-          </div>
+          <!-- <div class="hero-stats-bar">
+              <div class="hero-stat">
+                <span class="hero-stat-val">20+</span>
+                <span class="hero-stat-label">Projects Delivered</span>
+              </div>
+              <div class="hero-stat-divider"></div>
+              <div class="hero-stat">
+                <span class="hero-stat-val">$2.4M</span>
+                <span class="hero-stat-label">Revenue Generated</span>
+              </div>
+              <div class="hero-stat-divider"></div>
+              <div class="hero-stat">
+                <span class="hero-stat-val">95%</span>
+                <span class="hero-stat-label">Client Retention</span>
+              </div>
+              <div class="hero-stat-divider"></div>
+              <div class="hero-stat">
+                <span class="hero-stat-val">45</span>
+                <span class="hero-stat-label">Day Avg. Launch</span>
+              </div>
+            </div> -->
         </div>
 
         <!-- Hero Visual -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="hero-dashboard">
-            <div class="hero-float-1">
-              <div class="float-icon">
-                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
-              </div>
-              <div class="float-text">
-                <h4>Productivity</h4>
-                <p>+42% avg boost</p>
-              </div>
-            </div>
-
-            <div class="hero-dashboard-card">
-              <div class="dash-header">
-                <div class="dash-dots"><span></span><span></span><span></span></div>
-                <div class="dash-title">Business Automation Dashboard</div>
-              </div>
-              <div class="dash-stats">
-                <div class="dash-stat">
-                  <div class="dash-stat-val">98%</div>
-                  <div class="dash-stat-label">Uptime</div>
-                </div>
-                <div class="dash-stat">
-                  <div class="dash-stat-val">4.2h</div>
-                  <div class="dash-stat-label">Saved/day</div>
-                </div>
-                <div class="dash-stat">
-                  <div class="dash-stat-val">38+</div>
-                  <div class="dash-stat-label">Auto tasks</div>
-                </div>
-              </div>
-              <div class="dash-chart">
-                <div class="dash-chart-label">Weekly Automation Output</div>
-                <div class="dash-bars">
-                  <div class="dash-bar"></div>
-                  <div class="dash-bar"></div>
-                  <div class="dash-bar"></div>
-                  <div class="dash-bar"></div>
-                  <div class="dash-bar"></div>
-                  <div class="dash-bar"></div>
-                  <div class="dash-bar"></div>
-                </div>
-              </div>
-              <div class="dash-tasks">
-                <div class="dash-task">
-                  <div class="dash-task-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></div>
-                  <span class="dash-task-name">Invoice processing</span>
-                  <span class="dash-task-tag">Auto</span>
-                </div>
-                <div class="dash-task">
-                  <div class="dash-task-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></div>
-                  <span class="dash-task-name">Customer onboarding</span>
-                  <span class="dash-task-tag">AI</span>
-                </div>
-                <div class="dash-task">
-                  <div class="dash-task-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" /></svg></div>
-                  <span class="dash-task-name">Report generation</span>
-                  <span class="dash-task-tag">Auto</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero-float-2">
-              <div class="float-2-val">78%</div>
-              <div class="float-2-label">Less manual work</div>
-            </div>
-          </div>
+        <div class="hero-visual">
+          <picture>
+            <source srcset="assets/img/mockup-1.png" type="image/webp">
+            <img src="assets/img/mockup-1.png" alt="Fussion Shade — Custom Software Dashboard Mockup showing AI Analytics, CRM, POS System, and Learning Management System across desktop, laptop, tablet, and mobile devices" width="612" height="408" loading="eager" class="hero-mockup-img">
+          </picture>
         </div>
 
       </div>
@@ -406,6 +406,113 @@
 
 
   <!-- ============================================================
+     COLLABORATION WITH — Trusted Partner Logos
+     ============================================================ -->
+  <section class="collab-section" aria-labelledby="collab-heading">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;margin-bottom:var(--s8)">
+        <div class="section-eyebrow">Collaboration With</div>
+        <p class="body-md text-muted" style="margin-inline:auto;max-width:600px">
+          Trusted by leading software houses and technology companies across Pakistan and beyond
+        </p>
+      </div>
+
+      <div class="collab-track reveal">
+        <!-- Tier 2 Software Houses -->
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#1a1a2e"/>
+              <text x="50" y="42" font-family="Arial" font-size="14" font-weight="700" fill="#00d4aa" text-anchor="middle">CODE</text>
+              <text x="50" y="62" font-family="Arial" font-size="14" font-weight="700" fill="#ffffff" text-anchor="middle">NINETY</text>
+            </svg>
+          </div>
+          <span class="collab-name">Code Ninety</span>
+        </div>
+
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#0d1117"/>
+              <text x="50" y="42" font-family="Arial" font-size="12" font-weight="700" fill="#58a6ff" text-anchor="middle">LOGIC</text>
+              <text x="50" y="60" font-family="Arial" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">RACKS</text>
+            </svg>
+          </div>
+          <span class="collab-name">LogicRacks</span>
+        </div>
+
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#1e293b"/>
+              <text x="50" y="42" font-family="Arial" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle">VIRTUE</text>
+              <text x="50" y="58" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">NETZ</text>
+            </svg>
+          </div>
+          <span class="collab-name">VirtueNetz</span>
+        </div>
+
+        <!-- Tier 3 Software Houses -->
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#0f172a"/>
+              <text x="50" y="42" font-family="Arial" font-size="11" font-weight="700" fill="#a78bfa" text-anchor="middle">INNOVAT</text>
+              <text x="50" y="58" font-family="Arial" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">X</text>
+            </svg>
+          </div>
+          <span class="collab-name">Innovatx</span>
+        </div>
+
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#18181b"/>
+              <text x="50" y="42" font-family="Arial" font-size="11" font-weight="700" fill="#f97316" text-anchor="middle">FISTIX</text>
+              <text x="50" y="58" font-family="Arial" font-size="9" font-weight="600" fill="#a1a1aa" text-anchor="middle">SOFTWARE</text>
+            </svg>
+          </div>
+          <span class="collab-name">Fistix</span>
+        </div>
+
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#0c0c1d"/>
+              <text x="50" y="42" font-family="Arial" font-size="11" font-weight="700" fill="#22d3ee" text-anchor="middle">ONX</text>
+              <text x="50" y="58" font-family="Arial" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">DIGITAL</text>
+            </svg>
+          </div>
+          <span class="collab-name">ONX Digital</span>
+        </div>
+
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#1a1a2e"/>
+              <text x="50" y="42" font-family="Arial" font-size="10" font-weight="700" fill="#4ade80" text-anchor="middle">DIGI</text>
+              <text x="50" y="58" font-family="Arial" font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">TRENDS</text>
+            </svg>
+          </div>
+          <span class="collab-name">DigiTrends</span>
+        </div>
+
+        <div class="collab-item">
+          <div class="collab-logo">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100" height="100" rx="12" fill="#0f172a"/>
+              <text x="50" y="42" font-family="Arial" font-size="10" font-weight="700" fill="#e879f9" text-anchor="middle">CUBIX</text>
+              <text x="50" y="58" font-family="Arial" font-size="9" font-weight="600" fill="#a1a1aa" text-anchor="middle">SOLUTIONS</text>
+            </svg>
+          </div>
+          <span class="collab-name">Cubix</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
      SERVICES PREVIEW — Asymmetric Bento
      ============================================================ -->
   <section class="section" aria-labelledby="services-heading">
@@ -436,8 +543,8 @@
               <span class="service-feature">Full-stack development</span>
               <span class="service-feature">SEO &amp; performance optimised</span>
             </div>
-            <a href="/services" class="service-learn">
-              Learn more
+            <a href="/services" class="service-learn" aria-label="Learn more about web and app development services">
+              Learn more about web development
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </a>
           </div>
@@ -455,8 +562,8 @@
               <span class="service-feature">React Native / Flutter</span>
               <span class="service-feature">App Store optimisation</span>
             </div>
-            <a href="/services" class="service-learn">
-              Learn more
+            <a href="/services" class="service-learn" aria-label="Learn more about mobile application development">
+              Learn more about mobile apps
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </a>
           </div>
@@ -474,8 +581,8 @@
               <span class="service-feature">Predictive analytics</span>
               <span class="service-feature">Computer vision</span>
             </div>
-            <a href="/services" class="service-learn">
-              Learn more
+            <a href="/services" class="service-learn" aria-label="Learn more about AI integration and machine learning services">
+              Learn more about AI services
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </a>
           </div>
@@ -493,8 +600,8 @@
               <span class="service-feature">Multi-channel deployment</span>
               <span class="service-feature">CRM &amp; API integration</span>
             </div>
-            <a href="/services" class="service-learn">
-              Learn more
+            <a href="/services" class="service-learn" aria-label="Learn more about custom AI chatbot development">
+              Learn more about AI chatbots
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </a>
           </div>
@@ -512,8 +619,8 @@
               <span class="service-feature">RPA solutions</span>
               <span class="service-feature">System integration</span>
             </div>
-            <a href="/services" class="service-learn">
-              Learn more
+            <a href="/services" class="service-learn" aria-label="Learn more about business process automation services">
+              Learn more about automation
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </a>
           </div>
@@ -531,8 +638,8 @@
               <span class="service-feature">Legacy modernisation</span>
               <span class="service-feature">API &amp; microservices</span>
             </div>
-            <a href="/services" class="service-learn">
-              Learn more
+            <a href="/services" class="service-learn" aria-label="Learn more about custom tailor-made application development">
+              Learn more about custom apps
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </a>
           </div>
@@ -566,7 +673,8 @@
               <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
             </div>
             <h4 style="margin-bottom:var(--s3)">$100K Pipeline Guarantee</h4>
-            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">We'll add $100,000+ to your pipeline in 90 days or refund every cent. The same system that took Meridian Freight from manual quoting to $18K/month in closed deals.</p>
+            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">We add $100,000+ to your pipeline in 90 days — or refund every cent.</p>
+            <p style="font-size:0.8rem;color:var(--accent);margin-top:var(--s3);font-weight:600">Proof: Meridian Freight → $18K/month in 4 months</p>
           </div>
         </div>
 
@@ -576,7 +684,8 @@
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M12 8v4l3 3" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
             </div>
             <h4 style="margin-bottom:var(--s3)">45-Day Launch Promise</h4>
-            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">Your fully working platform launches in 45 days or we refund every cent and keep working for free. We turned around Brightline Analytics after $80K lost to failed agencies.</p>
+            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">Fully working platform in 45 days — or we refund + work for free.</p>
+            <p style="font-size:0.8rem;color:var(--accent);margin-top:var(--s3);font-weight:600">Proof: Brightline Analytics rebuilt in 60 days → $2M/year</p>
           </div>
         </div>
 
@@ -586,7 +695,8 @@
               <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>
             </div>
             <h4 style="margin-bottom:var(--s3)">Zero-Risk Build</h4>
-            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">You pay nothing upfront. We invoice only on delivery, and only when you sign off as satisfied. Not happy? You owe $0 and we keep refining for free.</p>
+            <p style="font-size:0.88rem;color:var(--text-2);line-height:1.7">Pay nothing upfront. Invoice only on delivery, only when satisfied.</p>
+            <p style="font-size:0.8rem;color:var(--accent);margin-top:var(--s3);font-weight:600">Not happy? You owe $0. We keep refining for free.</p>
           </div>
         </div>
       </div>
@@ -632,16 +742,15 @@
             Built by Engineers.<br />
             Driven by <span class="gradient-text">Results.</span>
           </h2>
-          <p class="body-md text-muted mt-4" style="margin-bottom:var(--s5)">
-            Fussion Shade is a custom software house and digital agency founded on one principle: technology should work
-            for your business, not against it. We specialise in turning complex business challenges into elegant,
-            scalable digital solutions.
+          <p class="body-md" style="margin-bottom:var(--s3)">
+            <strong>Pakistan-based software house</strong> building custom web apps, mobile applications, and AI systems for global clients.
           </p>
-          <p class="body-md text-muted" style="margin-bottom:var(--s8)">
-            Our team of 10+ senior engineers brings deep cross-stack expertise, from product architecture and UI/UX to
-            cloud deployment and AI — delivering custom software that scales with your business and generates measurable
-            ROI from day one.
-          </p>
+          <ul class="about-list" style="list-style:none;padding:0;margin:0 0 var(--s8);display:flex;flex-direction:column;gap:var(--s3)">
+            <li style="font-size:0.9rem;color:var(--text-2);padding-left:1.4em;position:relative;line-height:1.6">10+ senior engineers with 6+ years average experience</li>
+            <li style="font-size:0.9rem;color:var(--text-2);padding-left:1.4em;position:relative;line-height:1.6">Cross-stack expertise: React, Node.js, Python, AWS, AI/ML</li>
+            <li style="font-size:0.9rem;color:var(--text-2);padding-left:1.4em;position:relative;line-height:1.6">Serving clients across UK, USA, UAE, Canada, Australia</li>
+            <li style="font-size:0.9rem;color:var(--text-2);padding-left:1.4em;position:relative;line-height:1.6">Technology that works for your bottom line, not just IT</li>
+          </ul>
 
           <div class="values-grid">
             <div class="value-item">
@@ -709,14 +818,18 @@
                 <span class="project-tag">Logistics</span>
               </div>
               <h3>Meridian Freight Co.</h3>
-              <p>Rebuilt their entire customer pipeline with a custom full-stack application. Went from manual quoting to an automated system that closed $18,000/month in new deals within 4 months. Increased qualified leads by 45%.</p>
+              <ul style="list-style:none;padding:0;margin:var(--s3) 0 0;display:flex;flex-direction:column;gap:var(--s2)">
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>Custom AI-powered CRM with lead scoring</li>
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>Automated quoting → $18K/month closed deals</li>
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>45% increase in qualified leads</li>
+              </ul>
             </div>
             <div class="project-footer">
               <div class="project-tech">
                 <span>React</span><span>·</span><span>Node.js</span><span>·</span><span>PostgreSQL</span>
               </div>
-              <a href="/projects" class="project-link">
-                View case
+              <a href="/projects" class="project-link" aria-label="View Meridian Freight Co. case study">
+                View Meridian Freight case study
                 <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
               </a>
             </div>
@@ -739,14 +852,18 @@
                 <span class="project-tag">FinTech</span>
               </div>
               <h3>Brightline Analytics</h3>
-              <p>After losing $80,000 and 8 months to two failed agencies, we rebuilt their core platform in 60 days. Scaled them to $2,000,000 in annual revenue within 12 months. Conversion rate lifted from 1.2% to 4.8%.</p>
+              <ul style="list-style:none;padding:0;margin:var(--s3) 0 0;display:flex;flex-direction:column;gap:var(--s2)">
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>Full platform rebuild in 60 days</li>
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>$2M annual revenue within 12 months</li>
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>Conversion: 1.2% → 4.8%</li>
+              </ul>
             </div>
             <div class="project-footer">
               <div class="project-tech">
                 <span>Next.js</span><span>·</span><span>Python</span><span>·</span><span>LangChain</span>
               </div>
-              <a href="/projects" class="project-link">
-                View case
+              <a href="/projects" class="project-link" aria-label="View Brightline Analytics case study">
+                View Brightline case study
                 <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
               </a>
             </div>
@@ -769,14 +886,18 @@
                 <span class="project-tag">Enterprise</span>
               </div>
               <h3>Pinnacle Consulting Group</h3>
-              <p>Delivered a custom platform two weeks ahead of schedule. Within 60 days, they closed $35,000 in new contracts they couldn't have closed without it. Built with AI-powered pipeline intelligence.</p>
+              <ul style="list-style:none;padding:0;margin:var(--s3) 0 0;display:flex;flex-direction:column;gap:var(--s2)">
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>AI-powered pipeline intelligence</li>
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>Delivered 2 weeks ahead of schedule</li>
+                <li style="font-size:0.85rem;color:var(--text-2);padding-left:1.2em;position:relative;line-height:1.5"><span style="position:absolute;left:0;color:var(--accent);font-weight:600">→</span>$35K in new contracts within 60 days</li>
+              </ul>
             </div>
             <div class="project-footer">
               <div class="project-tech">
                 <span>React</span><span>·</span><span>Django</span><span>·</span><span>OpenAI</span>
               </div>
-              <a href="/projects" class="project-link">
-                View case
+              <a href="/projects" class="project-link" aria-label="View Pinnacle Consulting Group case study">
+                View Pinnacle case study
                 <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
               </a>
             </div>
@@ -810,56 +931,56 @@
       <div class="industries-grid">
         <div class="bezel-sm industry-item reveal">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">💳</span>
+            <!-- <span class="industry-emoji">💳</span> -->
             <h4>FinTech</h4>
             <p>Payment platforms, trading dashboards, lending systems, and banking automation.</p>
           </div>
         </div>
         <div class="bezel-sm industry-item reveal delay-1">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">🏥</span>
+            <!-- <span class="industry-emoji">🏥</span> -->
             <h4>HealthTech</h4>
             <p>Patient portals, EHR integrations, appointment platforms, and clinical automation.</p>
           </div>
         </div>
         <div class="bezel-sm industry-item reveal delay-2">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">🛒</span>
+            <!-- <span class="industry-emoji">🛒</span> -->
             <h4>E-commerce</h4>
             <p>Custom storefronts, headless commerce, inventory systems, and personalisation engines.</p>
           </div>
         </div>
         <div class="bezel-sm industry-item reveal delay-3">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">🚚</span>
+            <!-- <span class="industry-emoji">🚚</span> -->
             <h4>Logistics</h4>
             <p>Fleet management, route optimisation, supply chain tracking, and warehouse automation.</p>
           </div>
         </div>
         <div class="bezel-sm industry-item reveal">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">📚</span>
+            <!-- <span class="industry-emoji">📚</span> -->
             <h4>EdTech</h4>
             <p>LMS platforms, AI tutoring assistants, student management, and adaptive learning tools.</p>
           </div>
         </div>
         <div class="bezel-sm industry-item reveal delay-1">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">🏢</span>
+            <!-- <span class="industry-emoji">🏢</span> -->
             <h4>Real Estate</h4>
             <p>Property portals, CRM automation, virtual tour apps, and document workflows.</p>
           </div>
         </div>
         <div class="bezel-sm industry-item reveal delay-2">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">⚙️</span>
+            <!-- <span class="industry-emoji">⚙️</span> -->
             <h4>SaaS &amp; Startups</h4>
             <p>MVP development, multi-tenant SaaS platforms, and investor-ready digital products.</p>
           </div>
         </div>
         <div class="bezel-sm industry-item reveal delay-3">
           <div class="bezel-sm-core">
-            <span class="industry-emoji">🏭</span>
+            <!-- <span class="industry-emoji">🏭</span> -->
             <h4>Enterprise</h4>
             <p>ERP systems, legacy application modernisation, and enterprise-wide digital transformation.</p>
           </div>
@@ -930,7 +1051,7 @@
       </div>
 
       <!-- Tech Stack -->
-      <div class="text-center mt-12 reveal">
+      <div class="text-center mt-6 reveal">
         <p class="body-sm text-muted"
           style="margin-bottom:var(--s5);font-weight:600;text-transform:uppercase;letter-spacing:0.08em;font-size:0.75rem;">
           Our Technology Stack</p>
@@ -1171,6 +1292,8 @@
   </section>
 
 
+  </main>
+
   <!-- ============================================================
      FOOTER
      ============================================================ -->
@@ -1180,7 +1303,7 @@
 
         <div class="footer-brand">
           <a href="/" class="nav-logo">
-            <img src="assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade" width="34" height="34">
+        <img src="assets/img/logo.png" class="nav-logo-img" alt="Fussion Shade — Custom Software House Pakistan" width="34" height="34">
             <span>Fussion<span class="text-primary">Shade</span></span>
           </a>
           <p>Empowering businesses to thrive through intelligent automation and custom digital solutions.</p>
@@ -1253,7 +1376,7 @@
     </a>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.min.js"></script>
 </body>
 
 </html>

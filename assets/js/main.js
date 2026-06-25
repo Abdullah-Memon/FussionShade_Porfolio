@@ -344,23 +344,32 @@ const ProjectFilter = (() => {
         btn.classList.add('active');
 
         const filter = btn.dataset.filter;
+        const toShow = [];
+
+        // Phase 1: Batch all DOM writes (no reads between)
         cards.forEach(card => {
           const match = filter === 'all' || card.dataset.category === filter;
-          card.style.display = match ? 'block' : 'none';
           if (match) {
-            card.style.animation = 'none';
-            requestAnimationFrame(() => {
-              card.style.animation = '';
-              card.style.opacity = '0';
-              card.style.transform = 'translateY(16px)';
-              requestAnimationFrame(() => {
-                card.style.transition = 'opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-              });
-            });
+            card.style.display = 'block';
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(16px)';
+            card.style.transition = 'none';
+            toShow.push(card);
+          } else {
+            card.style.display = 'none';
           }
         });
+
+        // Phase 2: Trigger animations in a single rAF (batched)
+        if (toShow.length) {
+          requestAnimationFrame(() => {
+            toShow.forEach(card => {
+              card.style.transition = 'opacity 0.5s cubic-bezier(0.16,1,0.3,1), transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            });
+          });
+        }
       });
     });
   }
@@ -1122,7 +1131,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ThemeManager.init();
   Nav.init();
   ScrollReveal.init();
-  Counters.init();
   Testimonials.init();
   FAQ.init();
   ProjectFilter.init();
